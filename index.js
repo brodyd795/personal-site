@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = 3010
 
 const path = require('path');
 const nodemailer = require('nodemailer');
@@ -48,4 +47,5 @@ app.post('/', urlencodedParser, (req, res, next) => {
     }
   });
 
+const port = process.env.PORT;
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`))
