@@ -21,6 +21,7 @@
     },
     "devDependencies": {
         "@types/react": "^17.0.14",
+        "@types/styled-components": "^5.1.11",
         "eslint": "^7.30.0",
         "eslint-config-get-off-my-lawn": "^6.0.1",
         "eslint-import-resolver-typescript": "^2.4.0",
