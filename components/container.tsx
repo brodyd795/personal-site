@@ -5,7 +5,7 @@ interface IProps {
     children: React.ReactNode;
 }
 
-export const Container = ({ children }: IProps) => (
+export const Container = ({children}: IProps) => (
     <div>
         <Head>
             <title>{'Brody Dingel'}</title>

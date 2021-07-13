@@ -1,9 +1,9 @@
-import { FC } from "react";
+import {FC} from 'react';
 
 interface IProps {
     Component: FC;
 }
 
-const MyApp = ({ Component }: IProps) => <Component />;
+const MyApp = ({Component}: IProps) => <Component />;
 
 export default MyApp;
