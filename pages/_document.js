@@ -5,7 +5,6 @@ export default class MyDocument extends Document {
         return (
             <Html lang={'en'}>
                 <Head>
-                    <title>{'Brody Dingel'}</title>
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <body>

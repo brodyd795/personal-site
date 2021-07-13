@@ -1,7 +1,11 @@
-export default () => (
-  <div>
+import { Container } from "../components/container";
+
+const Home = () => (
+  <Container>
     <main>
       <h1>{'Hey, I\'m Brody'}</h1>
     </main>
-  </div>
+  </Container>
 );
+
+export default Home;
