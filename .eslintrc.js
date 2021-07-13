@@ -1,8 +1,8 @@
 module.exports = {
     extends: 'get-off-my-lawn',
     rules: {
-        'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
-        'no-undef': 'off'
+        'no-undef': 'off',
+        'react/jsx-filename-extension': [2, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }]
     },
     settings: {
     "import/resolver": {
