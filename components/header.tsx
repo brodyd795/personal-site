@@ -1,3 +1,5 @@
+import React, {FC} from 'react';
+
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -33,7 +35,12 @@ const StyledDescription = styled.p`
     text-align: center;
 `;
 
-export const Header = () => (
+interface IHeaderProps {
+    headerText: string;
+    subHeaderText: string;
+};
+
+export const Header: FC<IHeaderProps> = ({headerText, subHeaderText}) => (
     <StyledHeader>
         <StyledTopBar>
             <Link href={'/'}>
@@ -44,8 +51,8 @@ export const Header = () => (
             </Link>
         </StyledTopBar>
         <StyledHero>
-            <StyledH1>{'Hi, I\'m Brody.'}</StyledH1>
-            <StyledDescription>{'I\'m a full-stack software engineer.'}</StyledDescription>
+            <StyledH1>{headerText}</StyledH1>
+            <StyledDescription>{subHeaderText}</StyledDescription>
         </StyledHero>
     </StyledHeader>
 );

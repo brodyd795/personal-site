@@ -4,14 +4,16 @@ import { Header } from './header';
 
 interface IProps {
     children: React.ReactNode;
+    headerText: string;
+    subHeaderText: string;
 }
 
-export const Container = ({children}: IProps) => (
+export const Container = ({children, headerText, subHeaderText}: IProps) => (
     <div>
         <Head>
             <title>{'Brody Dingel'}</title>
         </Head>
-        <Header />
+        <Header headerText={headerText} subHeaderText={subHeaderText} />
         {children}
     </div>
 );
