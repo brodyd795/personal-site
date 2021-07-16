@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import { createGlobalStyle } from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 
 interface IProps {
     Component: FC;
@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     min-height: 100vh;
   }
-`
+`;
 
 const MyApp = ({Component}: IProps) => (
     <>

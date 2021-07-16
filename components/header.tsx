@@ -38,7 +38,7 @@ const StyledDescription = styled.p`
 interface IHeaderProps {
     headerText: string;
     subHeaderText: string;
-};
+}
 
 export const Header: FC<IHeaderProps> = ({headerText, subHeaderText}) => (
     <StyledHeader>
