@@ -5,7 +5,7 @@ import {Container} from '../components/container';
 const Home = () => (
     <Container>
         <main>
-            <h1>{"Hey, I'm Brody"}</h1>
+            <div>{'Content goes here'}</div>
         </main>
     </Container>
 );
