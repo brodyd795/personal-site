@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const StyledHeader = styled.div`
-    background-color: darkgray;
+    background-color: #272e41;
 `;
 
 const StyledTopBar = styled.div`
@@ -14,7 +14,6 @@ const StyledTopBar = styled.div`
 `;
 
 const StyledHero = styled.div`
-    border: 2px solid black;
 `;
 
 const StyledLink = styled.a`
@@ -33,6 +32,7 @@ const StyledH1 = styled.h1`
 
 const StyledDescription = styled.p`
     text-align: center;
+    padding: 16px 32px 32px;
 `;
 
 interface IHeaderProps {

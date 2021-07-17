@@ -4,6 +4,8 @@
         "project": "./tsconfig.json"
     },
     "rules": {
-        "import/prefer-default-export": 0
+        "import/prefer-default-export": 0,
+        "@typescript-eslint/object-curly-spacing": 0,
+        "react/jsx-indent": 4
     }
 }

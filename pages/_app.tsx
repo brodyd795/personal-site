@@ -7,8 +7,9 @@ interface IProps {
 
 const GlobalStyle = createGlobalStyle`
   body {
-    color: grey;
+    color: white;
     margin: 0;
+    font-family: Helvetica, sans-serif;
   }
 
   #__next {
