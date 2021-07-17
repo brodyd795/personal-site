@@ -11,7 +11,7 @@ interface IProps {
 export const Container = ({children, headerText, subHeaderText}: IProps) => (
     <div>
         <Head>
-            <title>{'Brody Dingel'}</title>
+            <title>Brody Dingel</title>
         </Head>
         <Header headerText={headerText} subHeaderText={subHeaderText} />
         {children}

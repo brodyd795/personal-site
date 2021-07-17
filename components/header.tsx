@@ -40,14 +40,14 @@ interface IHeaderProps {
     subHeaderText: string;
 }
 
-export const Header: FC<IHeaderProps> = ({headerText, subHeaderText}) => (
+export const Header: FC<IHeaderProps> = ({headerText, subHeaderText}: IHeaderProps) => (
     <StyledHeader>
         <StyledTopBar>
-            <Link href={'/'}>
-                <StyledLink>{'Home'}</StyledLink>
+            <Link href='/'>
+                <StyledLink>Home</StyledLink>
             </Link>
-            <Link href={'/about'}>
-                <StyledLink>{'About'}</StyledLink>
+            <Link href='/about'>
+                <StyledLink>About</StyledLink>
             </Link>
         </StyledTopBar>
         <StyledHero>
