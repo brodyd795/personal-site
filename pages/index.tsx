@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Container} from '../components/container';
+import {Projects} from '../components/projects';
 
 const headerText = "Hi, I'm Brody.";
 const subHeaderText =
@@ -9,7 +10,7 @@ const subHeaderText =
 const Home = () => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>
 		<main>
-			<div>Content goes here</div>
+			<Projects />
 		</main>
 	</Container>
 );

@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 const StyledHeader = styled.div`
 	background-color: #272e41;
+	color: white;
 `;
 
 const StyledTopBar = styled.div`
