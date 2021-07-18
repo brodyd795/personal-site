@@ -32,11 +32,22 @@ const StyledProjectCardsContainer = styled.div`
 	justify-content: center;
 `;
 
-const ProjectCard: FC<IProject> = ({name, description, link}: IProject) => (
+const StyledTechnologies = styled.span`
+	font-size: 12px;
+`;
+
+interface IProjectCard {
+	project: IProject;
+}
+
+const ProjectCard: FC<IProjectCard> = ({
+	project: {name, description, link, technologies}
+}: IProjectCard) => (
 	<StyledProjectCard href={link} target='_blank'>
 		<img alt='project card' src='https://via.placeholder.com/150' />
 		<StyledCardName>{name}</StyledCardName>
 		<StyledCardDescription>{description}</StyledCardDescription>
+		<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
 	</StyledProjectCard>
 );
 
@@ -44,13 +55,8 @@ export const Projects: FC = () => (
 	<div>
 		<StyledH2>Projects</StyledH2>
 		<StyledProjectCardsContainer>
-			{projects.map(({name, description, link}) => (
-				<ProjectCard
-					key={name}
-					name={name}
-					description={description}
-					link={link}
-				/>
+			{projects.map((project) => (
+				<ProjectCard key={project.name} project={project} />
 			))}
 		</StyledProjectCardsContainer>
 	</div>
