@@ -1,0 +1,14 @@
+{
+	"parserOptions": {
+		"ecmaVersion": 2021,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"project": "./tsconfig.json"
+	},
+	"rules": {
+		"import/prefer-default-export": 0
+	},
+	"extends": ["airbnb-typescript", "eslint-config-prettier"]
+}
