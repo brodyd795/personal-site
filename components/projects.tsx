@@ -9,7 +9,7 @@ const StyledH2 = styled.h2`
 const StyledProjectCard = styled.a`
 	display: flex;
 	flex-direction: column;
-	width: 150px;
+	width: 200px;
 	border: 2px solid black;
 	text-align: center;
 	margin: 8px;
@@ -19,15 +19,17 @@ const StyledProjectCard = styled.a`
 
 const StyledCardName = styled.span`
 	font-size: 20px;
+	margin-top: 4px;
 `;
 
 const StyledCardDescription = styled.span`
 	font-size: 16px;
-	margin-top: 4px;
+	margin: 4px;
 `;
 
 const StyledProjectCardsContainer = styled.div`
 	display: flex;
+	justify-content: center;
 `;
 
 interface IProjectCard {
