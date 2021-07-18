@@ -1,7 +1,12 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import {Container} from '../components/container';
 import {Projects} from '../components/projects';
+
+const StyledMain = styled.main`
+	display: flex;
+	flex: 1;
+`;
 
 const headerText = "Hi, I'm Brody.";
 const subHeaderText =
@@ -9,9 +14,9 @@ const subHeaderText =
 
 const Home = () => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>
-		<main>
+		<StyledMain>
 			<Projects />
-		</main>
+		</StyledMain>
 	</Container>
 );
 

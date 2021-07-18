@@ -30,6 +30,7 @@ const StyledCardDescription = styled.span`
 const StyledProjectCardsContainer = styled.div`
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 `;
 
 const StyledTechnologies = styled.span`
@@ -42,6 +43,10 @@ const StyledCardTextContainer = styled.div`
 	flex: 1;
 	justify-content: space-between;
 	padding: 8px;
+`;
+
+const StyledProjectsContainer = styled.div`
+	margin: 0 24px;
 `;
 
 interface IProjectCard {
@@ -64,12 +69,12 @@ const ProjectCard: FC<IProjectCard> = ({
 );
 
 export const Projects: FC = () => (
-	<div>
+	<StyledProjectsContainer>
 		<StyledH2>Projects</StyledH2>
 		<StyledProjectCardsContainer>
 			{projects.map((project) => (
 				<ProjectCard key={project.name} project={project} />
 			))}
 		</StyledProjectCardsContainer>
-	</div>
+	</StyledProjectsContainer>
 );
