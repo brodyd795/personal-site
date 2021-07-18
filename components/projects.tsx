@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
+import {projects} from '../data/projects';
 
 const StyledH2 = styled.h2`
 	text-align: center;
@@ -51,21 +52,14 @@ export const Projects: FC = () => (
 	<div>
 		<StyledH2>Projects</StyledH2>
 		<StyledProjectCardsContainer>
-			<ProjectCard
-				name='Accounting'
-				description='Personal accounting app'
-				link='https://github.com/brodyd795/accounting'
-			/>
-			<ProjectCard
-				name='Course Website'
-				description='Website for my students'
-				link='https://github.com/brodyd795/course-website'
-			/>
-			<ProjectCard
-				name='#100 Days of Code'
-				description='My first round!'
-				link='https://github.com/brodyd795/100-days-of-code'
-			/>
+			{projects.map(({name, description, link}) => (
+				<ProjectCard
+					key={name}
+					name={name}
+					description={description}
+					link={link}
+				/>
+			))}
 		</StyledProjectCardsContainer>
 	</div>
 );
