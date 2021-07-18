@@ -1,4 +1,10 @@
-export const projects = [
+export interface IProject {
+	name: string;
+	description: string;
+	link: string;
+}
+
+export const projects: IProject[] = [
 	{
 		name: 'Accounting',
 		description: 'Personal accounting app',

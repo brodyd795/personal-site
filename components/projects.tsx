@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
-import {projects} from '../data/projects';
+import {IProject, projects} from '../data/projects';
 
 const StyledH2 = styled.h2`
 	text-align: center;
@@ -32,17 +32,7 @@ const StyledProjectCardsContainer = styled.div`
 	justify-content: center;
 `;
 
-interface IProjectCard {
-	name: string;
-	description: string;
-	link: string;
-}
-
-const ProjectCard: FC<IProjectCard> = ({
-	name,
-	description,
-	link
-}: IProjectCard) => (
+const ProjectCard: FC<IProject> = ({name, description, link}: IProject) => (
 	<StyledProjectCard href={link} target='_blank'>
 		<img alt='project card' src='https://via.placeholder.com/150' />
 		<StyledCardName>{name}</StyledCardName>
