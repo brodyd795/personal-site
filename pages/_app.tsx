@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {createGlobalStyle} from 'styled-components';
 
 interface IProps {
-    Component: FC;
+	Component: FC;
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -20,10 +20,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const MyApp = ({Component}: IProps) => (
-    <>
-        <Component />
-        <GlobalStyle />
-    </>
+	<>
+		<Component />
+		<GlobalStyle />
+	</>
 );
 
 export default MyApp;
