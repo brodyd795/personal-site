@@ -56,7 +56,9 @@ const ProjectCard: FC<IProjectCard> = ({
 		<StyledCardTextContainer>
 			<StyledCardName>{name}</StyledCardName>
 			<StyledCardDescription>{description}</StyledCardDescription>
-			<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
+			{technologies ? (
+				<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
+			) : null}
 		</StyledCardTextContainer>
 	</StyledProjectCard>
 );

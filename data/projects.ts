@@ -2,7 +2,7 @@ export interface IProject {
 	name: string;
 	description: string;
 	link: string;
-	technologies: string[];
+	technologies?: string[];
 }
 
 export const projects: IProject[] = [
@@ -23,5 +23,22 @@ export const projects: IProject[] = [
 		description: 'My first round!',
 		link: 'https://github.com/brodyd795/100-days-of-code',
 		technologies: ['Vanilla HTML, CSS, & JS']
+	},
+	{
+		name: 'Secret Message App',
+		description: 'Send secret messages securely',
+		link: 'https://github.com/brodyd795/secret-message',
+		technologies: ['Next.js', 'Tailwind CSS', 'MySQL']
+	},
+	{
+		name: 'COVID-19 vaccine appt finder',
+		description: 'Notified me of available appointments',
+		link: 'https://github.com/brodyd795/covid-vaccine-appointment-notifier',
+		technologies: ['Node.js', 'Twilio', 'Cheerio']
+	},
+	{
+		name: 'Hy-Vee Aisles Online',
+		description: 'A team effort!',
+		link: 'https://hy-vee.com/aisles-online'
 	}
 ];
