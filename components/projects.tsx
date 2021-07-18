@@ -36,6 +36,14 @@ const StyledTechnologies = styled.span`
 	font-size: 12px;
 `;
 
+const StyledCardTextContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	justify-content: space-between;
+	padding: 8px;
+`;
+
 interface IProjectCard {
 	project: IProject;
 }
@@ -45,9 +53,11 @@ const ProjectCard: FC<IProjectCard> = ({
 }: IProjectCard) => (
 	<StyledProjectCard href={link} target='_blank'>
 		<img alt='project card' src='https://via.placeholder.com/150' />
-		<StyledCardName>{name}</StyledCardName>
-		<StyledCardDescription>{description}</StyledCardDescription>
-		<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
+		<StyledCardTextContainer>
+			<StyledCardName>{name}</StyledCardName>
+			<StyledCardDescription>{description}</StyledCardDescription>
+			<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
+		</StyledCardTextContainer>
 	</StyledProjectCard>
 );
 
