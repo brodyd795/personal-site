@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 import {IProject, projects} from '../data/projects';
 
 const StyledH2 = styled.h2`
@@ -37,12 +38,16 @@ const StyledTechnologies = styled.span`
 	font-size: 12px;
 `;
 
+const StyledPhotoCredit = styled.span`
+	font-size: 10px;
+`;
+
 const StyledCardTextContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 	justify-content: space-between;
-	padding: 8px;
+	padding: 0 8px 8px;
 `;
 
 const StyledProjectsContainer = styled.div`
@@ -54,11 +59,15 @@ interface IProjectCard {
 }
 
 const ProjectCard: FC<IProjectCard> = ({
-	project: {name, description, link, technologies}
+	project: {name, description, link, technologies, image}
 }: IProjectCard) => (
 	<StyledProjectCard href={link} target='_blank'>
-		<img alt='project card' src='https://via.placeholder.com/150' />
+		<Image alt='project card' src={image.src} height={500} width={500} />
 		<StyledCardTextContainer>
+			<StyledPhotoCredit>
+				Photo cred:{' '}
+				<a href={`https://unsplash.com/${image.credit}`}>{image.credit}</a>
+			</StyledPhotoCredit>
 			<StyledCardName>{name}</StyledCardName>
 			<StyledCardDescription>{description}</StyledCardDescription>
 			{technologies ? (
