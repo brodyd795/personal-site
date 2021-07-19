@@ -62,7 +62,10 @@ const ProjectCard: FC<IProjectCard> = ({
 	project: {name, description, link, technologies, image}
 }: IProjectCard) => (
 	<StyledProjectCard href={link} target='_blank'>
-		{/* TODO: further optimization needed? */}
+		{/* TODO: 
+		- further image optimization needed?
+		- layout shift of cards?
+		*/}
 		<Image alt='project card' src={image.src} height={500} width={500} />
 		<StyledCardTextContainer>
 			<StyledPhotoCredit>
