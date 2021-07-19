@@ -2,10 +2,7 @@ import React, {FC} from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import {IProject, projects} from '../data/projects';
-
-const StyledH2 = styled.h2`
-	text-align: center;
-`;
+import {StyledH2} from './styles';
 
 const StyledProjectCard = styled.a`
 	display: flex;
