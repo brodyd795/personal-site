@@ -8,7 +8,8 @@
 		"project": "./tsconfig.json"
 	},
 	"rules": {
-		"import/prefer-default-export": 0
+		"import/prefer-default-export": 0,
+		"react/jsx-props-no-spreading": 0
 	},
 	"extends": ["airbnb-typescript", "eslint-config-prettier"]
 }
