@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import {timelineEvents} from '../data/timeline-events';
 import {StyledH2} from './styles';
@@ -22,6 +23,12 @@ const StyledEvent = styled.div`
 	display: flex;
 `;
 
+const StyledMarkdown = styled(ReactMarkdown)`
+	p {
+		margin: 0;
+	}
+`;
+
 export const Timeline: FC = () => (
 	<StyledTimelineContainer>
 		<StyledH2>Timeline</StyledH2>
@@ -32,7 +39,7 @@ export const Timeline: FC = () => (
 					{events.map((event) => (
 						<StyledLi key={event}>
 							<StyledEvent>
-								<span>{event}</span>
+								<StyledMarkdown>{event}</StyledMarkdown>
 							</StyledEvent>
 						</StyledLi>
 					))}

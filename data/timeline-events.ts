@@ -24,7 +24,7 @@ export const timelineEvents: IYearEvents[] = [
 		year: 2018,
 		events: [
 			'Got married to my (now) wife, Rachel! ♥️',
-			'Graduated from ISU with two BAs and suma cum laude honors'
+			'Graduated from ISU with two BAs and _suma cum laude_ honors'
 		]
 	}
 ];
