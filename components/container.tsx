@@ -6,7 +6,12 @@ import {Header} from './header';
 const StyledContainer = styled.div`
 	display: flex;
 	flex: 1;
-	flex-flow: column;
+	flex-direction: column;
+	align-items: center;
+`;
+
+const StyledChildrenContainer = styled.div`
+	max-width: 1024px;
 `;
 
 interface IProps {
@@ -21,6 +26,6 @@ export const Container = ({children, headerText, subHeaderText}: IProps) => (
 			<title>Brody Dingel</title>
 		</Head>
 		<Header headerText={headerText} subHeaderText={subHeaderText} />
-		{children}
+		<StyledChildrenContainer>{children}</StyledChildrenContainer>
 	</StyledContainer>
 );

@@ -6,6 +6,9 @@ import Link from 'next/link';
 const StyledHeader = styled.div`
 	background-color: #272e41;
 	color: white;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 `;
 
 const StyledTopBar = styled.div`
@@ -35,6 +38,10 @@ const StyledDescription = styled.p`
 	padding: 16px 32px 32px;
 `;
 
+const StyledHeaderInnerContainer = styled.div`
+	max-width: 1024px;
+`;
+
 interface IHeaderProps {
 	headerText: string;
 	subHeaderText: string;
@@ -45,17 +52,19 @@ export const Header: FC<IHeaderProps> = ({
 	subHeaderText
 }: IHeaderProps) => (
 	<StyledHeader>
-		<StyledTopBar>
-			<Link href='/'>
-				<StyledLink>Home</StyledLink>
-			</Link>
-			<Link href='/about'>
-				<StyledLink>About</StyledLink>
-			</Link>
-		</StyledTopBar>
-		<StyledHero>
-			<StyledH1>{headerText}</StyledH1>
-			<StyledDescription>{subHeaderText}</StyledDescription>
-		</StyledHero>
+		<StyledHeaderInnerContainer>
+			<StyledTopBar>
+				<Link href='/'>
+					<StyledLink>Home</StyledLink>
+				</Link>
+				<Link href='/about'>
+					<StyledLink>About</StyledLink>
+				</Link>
+			</StyledTopBar>
+			<StyledHero>
+				<StyledH1>{headerText}</StyledH1>
+				<StyledDescription>{subHeaderText}</StyledDescription>
+			</StyledHero>
+		</StyledHeaderInnerContainer>
 	</StyledHeader>
 );

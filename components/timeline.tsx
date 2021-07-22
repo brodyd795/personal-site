@@ -44,6 +44,7 @@ export const Timeline: FC = () => (
 						</StyledLi>
 					))}
 				</StyledUl>
+				<hr />
 			</div>
 		))}
 	</StyledTimelineContainer>
