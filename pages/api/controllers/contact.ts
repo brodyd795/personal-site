@@ -3,13 +3,10 @@ import {submitContactForm} from '../services/submit';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
-		submitContactForm(req.body.values);
-		const data = {foo: 'bar'};
+		await submitContactForm(req.body.values);
 
-		res.json(data);
+		res.status(200).end();
 	} catch (error) {
-		console.log(`error`, error);
-
 		res.status(error.status || 500).end(error.message);
 	}
 };

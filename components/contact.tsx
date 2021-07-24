@@ -46,8 +46,6 @@ export const Contact: FC = () => {
 	} as Submission);
 
 	const handleSubmit = async (values: FieldValues) => {
-		console.log(`values`, values);
-
 		const res = await fetch(`/api/controllers/contact`, {
 			body: JSON.stringify({
 				values
