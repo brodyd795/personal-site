@@ -21,6 +21,11 @@ type FieldValues = {
 	message: string;
 };
 
+type Submission = {
+	hasSubmitted: boolean;
+	wasSuccessful: boolean;
+};
+
 interface ISubmissionAlertProps {
 	submission: Submission;
 }
@@ -28,20 +33,15 @@ interface ISubmissionAlertProps {
 const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 	submission
 }: ISubmissionAlertProps): JSX.Element | null => {
-	if (submission.hasSubmitted && submission.wasSuccessful) {
-		return <div>Yay!</div>;
-	}
+	if (submission.hasSubmitted) {
+		if (submission.wasSuccessful) {
+			return <div>Yay!</div>;
+		}
 
-	if (submission.hasSubmitted && !submission.wasSuccessful) {
 		return <div>Oh no!</div>;
 	}
 
 	return null;
-};
-
-type Submission = {
-	hasSubmitted: boolean;
-	wasSuccessful: boolean;
 };
 
 export const Contact: FC = () => {
