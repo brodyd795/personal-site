@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Container} from '../components/container';
 import {Projects} from '../components/projects';
 import {Timeline} from '../components/timeline';
+import {Contact} from '../components/contact';
 
 const StyledMain = styled.main`
 	display: flex;
@@ -17,8 +18,9 @@ const subHeaderText =
 const Home = () => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>
 		<StyledMain>
-			<Projects />
-			<Timeline />
+			{/* <Projects /> */}
+			{/* <Timeline /> */}
+			<Contact />
 		</StyledMain>
 	</Container>
 );
