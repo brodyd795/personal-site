@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Formik, Field, Form} from 'formik';
 
 import {StyledH2} from './styles';
+import {FieldValues} from '../types/shared-types';
 
 const StyledContactContainer = styled.div``;
 
@@ -14,12 +15,6 @@ const StyledForm = styled(Form)`
 const StyledField = styled(Field)`
 	margin: 8px 0;
 `;
-
-type FieldValues = {
-	name: string;
-	email: string;
-	message: string;
-};
 
 type Submission = {
 	hasSubmitted: boolean;
@@ -50,13 +45,30 @@ export const Contact: FC = () => {
 		wasSuccessful: true
 	} as Submission);
 
-	const handleSubmit = (values: FieldValues) => {
+	const handleSubmit = async (values: FieldValues) => {
 		console.log(`values`, values);
 
-		setSubmission({
-			hasSubmitted: true,
-			wasSuccessful: true
+		const res = await fetch(`/api/controllers/contact`, {
+			body: JSON.stringify({
+				values
+			}),
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			method: 'POST'
 		});
+
+		if (res.ok) {
+			setSubmission({
+				hasSubmitted: true,
+				wasSuccessful: true
+			});
+		} else {
+			setSubmission({
+				hasSubmitted: true,
+				wasSuccessful: false
+			});
+		}
 	};
 
 	return (
