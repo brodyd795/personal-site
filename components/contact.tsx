@@ -13,7 +13,7 @@ const StyledForm = styled(Form)`
 `;
 
 const StyledField = styled(Field)`
-	margin: 8px 0;
+	margin: 8px;
 `;
 
 interface IStyledAlertProps {
@@ -32,6 +32,8 @@ const StyledSuccessWord = styled.span`
 	font-weight: bold;
 	margin: 0 6px;
 `;
+
+const StyledH3 = styled.h3``;
 
 type Submission = {
 	hasSubmitted: boolean;
@@ -104,30 +106,40 @@ export const Contact: FC = () => {
 	return (
 		<StyledContactContainer>
 			<StyledH2>Contact</StyledH2>
-			<span>Drop a message, ask a question, or just say hi</span>
+			<StyledH3>Drop a message, ask a question, or just say hi!</StyledH3>
 			<Formik
 				initialValues={{name: '', email: '', message: ''}}
 				onSubmit={handleSubmit}
 			>
 				<StyledForm>
-					<StyledField
-						name='name'
-						type='text'
-						placeholder='Name'
-						aria-label='Name'
-					/>
-					<StyledField
-						name='email'
-						type='email'
-						placeholder='Email'
-						aria-label='Email'
-					/>
-					<StyledField
-						name='message'
-						type='message'
-						placeholder='Message'
-						aria-label='Message'
-					/>
+					<label htmlFor='name'>
+						Name
+						<StyledField
+							id='name'
+							name='name'
+							type='text'
+							placeholder='John Doe'
+							aria-label='name'
+						/>
+					</label>
+					<label htmlFor='email'>
+						Email
+						<StyledField
+							name='email'
+							type='email'
+							placeholder='me@example.com'
+							aria-label='email'
+						/>
+					</label>
+					<label htmlFor='message'>
+						Message
+						<StyledField
+							name='message'
+							type='message'
+							placeholder="How's it going?"
+							aria-label='message'
+						/>
+					</label>
 					<button type='submit' aria-label='Submit'>
 						Submit
 					</button>
