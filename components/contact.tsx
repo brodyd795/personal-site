@@ -16,6 +16,23 @@ const StyledField = styled(Field)`
 	margin: 8px 0;
 `;
 
+interface IStyledAlertProps {
+	readonly wasSuccessful: boolean;
+}
+
+const StyledAlert = styled.div<IStyledAlertProps>`
+	background-color: ${({wasSuccessful}) =>
+		wasSuccessful ? '#abffab' : '#ffabab'};
+	padding: 8px;
+	border: ${({wasSuccessful}) =>
+		`1px solid ${wasSuccessful ? '#204018' : '#401818'}`};
+`;
+
+const StyledSuccessWord = styled.span`
+	font-weight: bold;
+	margin: 0 6px;
+`;
+
 type Submission = {
 	hasSubmitted: boolean;
 	wasSuccessful: boolean;
@@ -30,10 +47,25 @@ const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 }: ISubmissionAlertProps): JSX.Element | null => {
 	if (submission.hasSubmitted) {
 		if (submission.wasSuccessful) {
-			return <div>Yay!</div>;
+			return (
+				<StyledAlert wasSuccessful>
+					<span>👍🏼</span>
+					<StyledSuccessWord>Success!</StyledSuccessWord>
+					<span>I’ll get back to you as soon as I can.</span>
+				</StyledAlert>
+			);
 		}
 
-		return <div>Oh no!</div>;
+		return (
+			<StyledAlert wasSuccessful={false}>
+				<span>😬</span>
+				<StyledSuccessWord>Oops!</StyledSuccessWord>
+				<span>
+					Something went wrong. Please try again, and I’ll look into what
+					happened!
+				</span>
+			</StyledAlert>
+		);
 	}
 
 	return null;
