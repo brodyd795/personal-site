@@ -18,8 +18,8 @@ const subHeaderText =
 const Home = () => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>
 		<StyledMain>
-			{/* <Projects /> */}
-			{/* <Timeline /> */}
+			<Projects />
+			<Timeline />
 			<Contact />
 		</StyledMain>
 	</Container>
