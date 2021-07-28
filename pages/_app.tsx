@@ -19,9 +19,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const MyApp = ({Component}: IProps) => (
+const MyApp = ({Component, pageProps, err}: IProps) => (
 	<>
-		<Component />
+		<Component {...pageProps} err={err} />
 		<GlobalStyle />
 	</>
 );
