@@ -1,4 +1,3 @@
-import {withSentryConfig} from '@sentry/nextjs';
+const {withSentryConfig} = require('@sentry/nextjs');
 
-// Any other exports must come before this. See @sentry/nextjs documentation.
-module.exports = withSentryConfig(moduleExports, SentryWebpackPluginOptions);
+module.exports = withSentryConfig();
