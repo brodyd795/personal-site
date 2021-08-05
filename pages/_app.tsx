@@ -1,9 +1,6 @@
-import React, {FC} from 'react';
+import {AppProps} from 'next/app';
+import React from 'react';
 import {createGlobalStyle} from 'styled-components';
-
-interface IProps {
-	Component: FC;
-}
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -19,9 +16,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const MyApp = ({Component}: IProps) => (
+const MyApp = ({Component, pageProps, err}: AppProps & {err: any}) => (
 	<>
-		<Component />
+		<Component {...pageProps} err={err} />
 		<GlobalStyle />
 	</>
 );

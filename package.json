@@ -16,6 +16,7 @@
 	},
 	"dependencies": {
 		"@sendgrid/mail": "^7.4.5",
+		"@sentry/nextjs": "^6.10.0",
 		"formik": "^2.2.9",
 		"next": "11.0.1",
 		"react": "17.0.2",
