@@ -7,16 +7,16 @@ import {StyledH2} from './styles';
 const StyledTimelineContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 `;
 
 const StyledUl = styled.ul`
 	padding-left: 0;
-	width: 500px;
 `;
 
 const StyledLi = styled.li`
-	margin: 8px 20px;
+	a {
+		color: #6f6c6c;
+	}
 `;
 
 const StyledEvent = styled.div`
@@ -34,7 +34,7 @@ export const Timeline: FC = () => (
 		<StyledH2>Timeline</StyledH2>
 		{timelineEvents.map(({year, events}) => (
 			<div key={year}>
-				<span>{year}</span>
+				<h3>{year}</h3>
 				<StyledUl>
 					{events.map((event) => (
 						<StyledLi key={event}>

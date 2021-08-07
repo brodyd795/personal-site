@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyledChildrenContainer = styled.div`
-	max-width: 1024px;
+	max-width: 700px; // todo: finalize width
 `;
 
 interface IProps {
