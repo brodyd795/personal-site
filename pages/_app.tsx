@@ -1,6 +1,9 @@
 import {AppProps} from 'next/app';
-import React from 'react';
+import {useRouter} from 'next/dist/client/router';
+import React, {useEffect} from 'react';
 import {createGlobalStyle} from 'styled-components';
+
+import * as gtag from '../lib/gtag';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,11 +19,27 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const MyApp = ({Component, pageProps, err}: AppProps & {err: any}) => (
-	<>
-		<Component {...pageProps} err={err} />
-		<GlobalStyle />
-	</>
-);
+const MyApp = ({Component, pageProps, err}: AppProps & {err: any}) => {
+	const router = useRouter();
+
+	useEffect(() => {
+		const handleRouteChange = (url: string) => {
+			gtag.pageView(url);
+		};
+
+		router.events.on('routeChangeComplete', handleRouteChange);
+
+		return () => {
+			router.events.off('routeChangeComplete', handleRouteChange);
+		};
+	}, [router.events]);
+
+	return (
+		<>
+			<Component {...pageProps} err={err} />
+			<GlobalStyle />
+		</>
+	);
+};
 
 export default MyApp;
