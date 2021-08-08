@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
 import {Header} from './header';
+import {Footer} from './footer';
 
 const StyledContainer = styled.div`
 	display: flex;
@@ -27,5 +28,6 @@ export const Container = ({children, headerText, subHeaderText}: IProps) => (
 		</Head>
 		<Header headerText={headerText} subHeaderText={subHeaderText} />
 		<StyledChildrenContainer>{children}</StyledChildrenContainer>
+		<Footer />
 	</StyledContainer>
 );
