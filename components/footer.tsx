@@ -2,7 +2,14 @@ import React, {FC} from 'react';
 
 import styled from 'styled-components';
 
-const StyledFooter = styled.footer``;
+const StyledFooter = styled.footer`
+	background-color: #dfdfdf;
+	text-align: center;
+	width: 100%;
+	padding: 16px;
+	margin-top: 40px;
+	border-top: 1px solid grey;
+`;
 
 export const Footer: FC = () => {
 	const firstYear = 2021;
