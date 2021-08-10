@@ -57,7 +57,7 @@ export const projects: IProject[] = [
 	{
 		name: 'Hy-Vee Aisles Online',
 		link: 'https://hy-vee.com/aisles-online',
-		technologies: ['Next.js'],
+		technologies: ['Next.js!'],
 		image: {
 			src: '/project-images/accounting.jpg',
 			credit: '@kellysikkema'

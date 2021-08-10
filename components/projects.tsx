@@ -38,7 +38,13 @@ const StyledTechnologies = styled.div`
 
 const StyledPhotoCredit = styled.div`
 	font-size: 10px;
-	margin-top: 8px;
+	margin-top: 12px;
+	font-style: italic;
+
+	a {
+		text-decoration: underline;
+		color: grey;
+	}
 `;
 
 const StyledCardTextContainer = styled.div`
@@ -68,7 +74,7 @@ const ProjectCard: FC<IProjectCard> = ({
 				<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
 			) : null}
 			<StyledPhotoCredit>
-				Photo cred:{' '}
+				photo cred:{' '}
 				<a href={`https://unsplash.com/${image.credit}`}>{image.credit}</a>
 			</StyledPhotoCredit>
 		</StyledCardTextContainer>
