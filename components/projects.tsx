@@ -10,10 +10,16 @@ const StyledProjectCard = styled.a`
 	justify-content: flex-end;
 	width: 200px;
 	border: 2px solid black;
+	border-radius: 10px;
 	text-align: center;
 	margin: 8px;
 	text-decoration: none;
 	color: grey;
+	transition: box-shadow 0.3s;
+
+	&:hover {
+		box-shadow: 2px 4px red;
+	}
 `;
 
 const StyledCardName = styled.div`
