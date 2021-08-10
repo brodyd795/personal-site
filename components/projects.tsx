@@ -7,6 +7,7 @@ import {StyledH2} from './styles';
 const StyledProjectCard = styled.a`
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-end;
 	width: 200px;
 	border: 2px solid black;
 	text-align: center;
@@ -15,14 +16,11 @@ const StyledProjectCard = styled.a`
 	color: grey;
 `;
 
-const StyledCardName = styled.span`
-	font-size: 20px;
-	margin-top: 4px;
-`;
-
-const StyledCardDescription = styled.span`
-	font-size: 16px;
-	margin: 4px;
+const StyledCardName = styled.div`
+	font-size: 22px;
+	margin-top: 12px;
+	font-weight: bold;
+	margin-bottom: 20px;
 `;
 
 const StyledProjectCardsContainer = styled.div`
@@ -31,12 +29,16 @@ const StyledProjectCardsContainer = styled.div`
 	flex-wrap: wrap;
 `;
 
-const StyledTechnologies = styled.span`
-	font-size: 12px;
+const StyledTechnologies = styled.div`
+	font-size: 16px;
+	font-style: italic;
+	margin-top: auto;
+	margin-bottom: auto;
 `;
 
-const StyledPhotoCredit = styled.span`
+const StyledPhotoCredit = styled.div`
 	font-size: 10px;
+	margin-top: 8px;
 `;
 
 const StyledCardTextContainer = styled.div`
@@ -44,7 +46,7 @@ const StyledCardTextContainer = styled.div`
 	flex-direction: column;
 	flex: 1;
 	justify-content: space-between;
-	padding: 0 8px 8px;
+	padding: 0 8px 4px;
 `;
 
 const StyledProjectsContainer = styled.div`
@@ -56,24 +58,19 @@ interface IProjectCard {
 }
 
 const ProjectCard: FC<IProjectCard> = ({
-	project: {name, description, link, technologies, image}
+	project: {name, link, technologies, image}
 }: IProjectCard) => (
 	<StyledProjectCard href={link} target='_blank'>
-		{/* TODO: 
-		- further image optimization needed?
-		- layout shift of cards?
-		*/}
 		<Image alt='project card' src={image.src} height={500} width={500} />
 		<StyledCardTextContainer>
+			<StyledCardName>{name}</StyledCardName>
+			{technologies ? (
+				<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
+			) : null}
 			<StyledPhotoCredit>
 				Photo cred:{' '}
 				<a href={`https://unsplash.com/${image.credit}`}>{image.credit}</a>
 			</StyledPhotoCredit>
-			<StyledCardName>{name}</StyledCardName>
-			<StyledCardDescription>{description}</StyledCardDescription>
-			{technologies ? (
-				<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
-			) : null}
 		</StyledCardTextContainer>
 	</StyledProjectCard>
 );

@@ -1,6 +1,5 @@
 export interface IProject {
 	name: string;
-	description: string;
 	link: string;
 	technologies?: string[];
 	image: {
@@ -12,7 +11,6 @@ export interface IProject {
 export const projects: IProject[] = [
 	{
 		name: 'Accounting',
-		description: 'Personal accounting app',
 		link: 'https://github.com/brodyd795/accounting',
 		technologies: ['Next.js', 'MySQL', 'Styled Components'],
 		image: {
@@ -22,7 +20,6 @@ export const projects: IProject[] = [
 	},
 	{
 		name: 'Course Website',
-		description: 'Website for my students',
 		link: 'https://github.com/brodyd795/course-website',
 		technologies: ['React', 'Express', 'Bootstrap'],
 		image: {
@@ -31,8 +28,7 @@ export const projects: IProject[] = [
 		}
 	},
 	{
-		name: '#100 Days of Code',
-		description: 'My first round!',
+		name: '#100DaysOfCode',
 		link: 'https://github.com/brodyd795/100-days-of-code',
 		technologies: ['Vanilla HTML, CSS, & JS'],
 		image: {
@@ -41,8 +37,7 @@ export const projects: IProject[] = [
 		}
 	},
 	{
-		name: 'Secret Message App',
-		description: 'Send secret messages securely',
+		name: 'Secret message app',
 		link: 'https://github.com/brodyd795/secret-message',
 		technologies: ['Next.js', 'Tailwind CSS', 'MySQL'],
 		image: {
@@ -51,8 +46,7 @@ export const projects: IProject[] = [
 		}
 	},
 	{
-		name: 'COVID-19 vaccine appt finder',
-		description: 'Notified me of available appointments',
+		name: 'Covid-19 vaccine appt finder',
 		link: 'https://github.com/brodyd795/covid-vaccine-appointment-notifier',
 		technologies: ['Node.js', 'Twilio', 'Cheerio'],
 		image: {
@@ -62,8 +56,8 @@ export const projects: IProject[] = [
 	},
 	{
 		name: 'Hy-Vee Aisles Online',
-		description: 'A team effort!',
 		link: 'https://hy-vee.com/aisles-online',
+		technologies: ['Next.js'],
 		image: {
 			src: '/project-images/accounting.jpg',
 			credit: '@kellysikkema'
