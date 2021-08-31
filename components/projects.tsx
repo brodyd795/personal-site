@@ -14,11 +14,13 @@ const StyledProjectCard = styled.a`
 	text-align: center;
 	margin: 8px;
 	text-decoration: none;
-	color: grey;
-	transition: box-shadow 0.3s;
+	color: #1d1e22;
+	box-shadow: 4px 4px #535457;
+	transition: box-shadow 0.2s;
+	padding-bottom: 4px;
 
 	&:hover {
-		box-shadow: 2px 4px red;
+		box-shadow: 6px 6px #535457;
 	}
 `;
 
@@ -42,17 +44,6 @@ const StyledTechnologies = styled.div`
 	margin-bottom: auto;
 `;
 
-const StyledPhotoCredit = styled.div`
-	font-size: 10px;
-	margin-top: 12px;
-	font-style: italic;
-
-	a {
-		text-decoration: underline;
-		color: grey;
-	}
-`;
-
 const StyledCardTextContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -65,6 +56,11 @@ const StyledProjectsContainer = styled.div`
 	margin: 0 24px;
 `;
 
+const StyledImage = styled(Image)`
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+`;
+
 interface IProjectCard {
 	project: IProject;
 }
@@ -73,16 +69,12 @@ const ProjectCard: FC<IProjectCard> = ({
 	project: {name, link, technologies, image}
 }: IProjectCard) => (
 	<StyledProjectCard href={link} target='_blank'>
-		<Image alt='project card' src={image.src} height={500} width={500} />
+		<StyledImage alt='project card' src={image.src} height={500} width={500} />
 		<StyledCardTextContainer>
 			<StyledCardName>{name}</StyledCardName>
 			{technologies ? (
 				<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
 			) : null}
-			<StyledPhotoCredit>
-				photo cred:{' '}
-				<a href={`https://unsplash.com/${image.credit}`}>{image.credit}</a>
-			</StyledPhotoCredit>
 		</StyledCardTextContainer>
 	</StyledProjectCard>
 );
