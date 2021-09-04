@@ -14,6 +14,18 @@ const StyledForm = styled(Form)`
 
 const StyledField = styled(Field)`
 	margin: 8px;
+	border: 2px solid grey;
+	border-radius: 4px;
+	padding: 4px;
+
+	::placeholder {
+		font-family: Helvetica, sans-serif;
+	}
+`;
+
+const StyledInput = styled(StyledField)`
+	width: 200px;
+	/* height: 20px; */
 `;
 
 interface IStyledAlertProps {
@@ -34,6 +46,11 @@ const StyledSuccessWord = styled.span`
 `;
 
 const StyledH3 = styled.h3``;
+
+const StyledSubmitButton = styled.button`
+	width: 100px;
+	height: 30px;
+`;
 
 type Submission = {
 	hasSubmitted: boolean;
@@ -112,37 +129,42 @@ export const Contact: FC = () => {
 				onSubmit={handleSubmit}
 			>
 				<StyledForm>
-					<label htmlFor='name'>
+					<label htmlFor='name' hidden>
 						Name
-						<StyledField
-							id='name'
-							name='name'
-							type='text'
-							placeholder='John Doe'
-							aria-label='name'
-						/>
 					</label>
-					<label htmlFor='email'>
+					<StyledInput
+						id='name'
+						name='name'
+						type='text'
+						placeholder='First and last name'
+						aria-label='name'
+						required
+					/>
+					<label htmlFor='email' hidden>
 						Email
-						<StyledField
-							name='email'
-							type='email'
-							placeholder='me@example.com'
-							aria-label='email'
-						/>
 					</label>
-					<label htmlFor='message'>
+					<StyledInput
+						name='email'
+						type='email'
+						placeholder='me@example.com'
+						aria-label='email'
+						required
+					/>
+					<label htmlFor='message' hidden>
 						Message
-						<StyledField
-							name='message'
-							type='message'
-							placeholder="How's it going?"
-							aria-label='message'
-						/>
 					</label>
-					<button type='submit' aria-label='Submit'>
+					<StyledField
+						name='message'
+						type='message'
+						component='textarea'
+						rows={4}
+						placeholder="How's it going?"
+						aria-label='message'
+						required
+					/>
+					<StyledSubmitButton type='submit' aria-label='Submit'>
 						Submit
-					</button>
+					</StyledSubmitButton>
 				</StyledForm>
 			</Formik>
 			<SubmissionAlert submission={submission} />
