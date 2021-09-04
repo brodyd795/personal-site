@@ -7,7 +7,7 @@ import * as gtag from '../lib/gtag';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    color: grey;
+    color: #1d1e22;
     margin: 0;
     font-family: Helvetica, sans-serif;
   }
