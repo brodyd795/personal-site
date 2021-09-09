@@ -60,6 +60,7 @@ const StyledShowMoreButton = styled.button`
 	background-color: #dedede;
 	border: 1px solid black;
 	border-radius: 20px;
+	cursor: pointer;
 `;
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (

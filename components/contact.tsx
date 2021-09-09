@@ -50,6 +50,11 @@ const StyledH3 = styled.h3``;
 const StyledSubmitButton = styled.button`
 	width: 100px;
 	height: 30px;
+	margin: 8px;
+	background-color: #dedede;
+	border: 1px solid black;
+	border-radius: 20px;
+	cursor: pointer;
 `;
 
 type Submission = {
