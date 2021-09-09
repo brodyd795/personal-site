@@ -40,6 +40,7 @@ const StyledDescription = styled.p`
 
 const StyledHeaderInnerContainer = styled.div`
 	max-width: 1024px;
+	width: 100%;
 `;
 
 interface IHeaderProps {

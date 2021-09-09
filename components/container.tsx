@@ -13,6 +13,8 @@ const StyledContainer = styled.div`
 
 const StyledChildrenContainer = styled.div`
 	max-width: 768px;
+	width: 100%;
+	flex: 1;
 `;
 
 interface IProps {
