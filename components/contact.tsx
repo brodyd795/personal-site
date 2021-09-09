@@ -126,7 +126,7 @@ export const Contact: FC = () => {
 	};
 
 	return (
-		<StyledContactContainer>
+		<StyledContactContainer id='contact'>
 			<StyledH2>Contact</StyledH2>
 			<StyledH3>Drop a message, ask a question, or just say hi!</StyledH3>
 			<Formik

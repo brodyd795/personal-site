@@ -13,7 +13,7 @@ const StyledHeader = styled.div`
 
 const StyledTopBar = styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	padding: 8px;
 `;
 
@@ -24,11 +24,20 @@ const StyledLink = styled.a`
 	padding: 16px;
 	border-bottom: 2px solid transparent;
 	transition: border 0.2s ease;
+	color: white;
+
+	:visited {
+		color: white;
+	}
 
 	:hover {
 		cursor: pointer;
 		border-bottom: 2px solid white;
 	}
+`;
+
+const StyledHomeLink = styled(StyledLink)`
+	margin-right: auto;
 `;
 
 const StyledH1 = styled.h1`
@@ -59,11 +68,12 @@ export const Header: FC<IHeaderProps> = ({
 		<StyledHeaderInnerContainer>
 			<StyledTopBar>
 				<Link href='/'>
-					<StyledLink>Home</StyledLink>
+					<StyledHomeLink>Home</StyledHomeLink>
 				</Link>
 				<Link href='/about'>
 					<StyledLink>About</StyledLink>
 				</Link>
+				<StyledLink href='#contact'>Contact</StyledLink>
 			</StyledTopBar>
 			<StyledHero>
 				<StyledH1>{headerText}</StyledH1>
