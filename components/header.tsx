@@ -22,9 +22,12 @@ const StyledHero = styled.div``;
 const StyledLink = styled.a`
 	text-decoration: none;
 	padding: 16px;
+	border-bottom: 2px solid transparent;
+	transition: border 0.2s ease;
 
 	:hover {
 		cursor: pointer;
+		border-bottom: 2px solid white;
 	}
 `;
 
