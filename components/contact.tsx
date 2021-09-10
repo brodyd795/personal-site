@@ -2,10 +2,16 @@ import React, {FC, useState} from 'react';
 import styled from 'styled-components';
 import {Formik, Field, Form} from 'formik';
 
-import {StyledH2} from './styles';
+import {StyledH2 as H2} from './styles';
 import {FieldValues} from '../types/shared-types';
 
-const StyledContactContainer = styled.div``;
+const StyledContactContainer = styled.div`
+	background-color: #272e41;
+	color: white;
+	border-radius: 8px;
+	margin: 80px 32px 32px;
+	padding: 16px;
+`;
 
 const StyledForm = styled(Form)`
 	display: flex;
@@ -25,7 +31,6 @@ const StyledField = styled(Field)`
 
 const StyledInput = styled(StyledField)`
 	width: 200px;
-	/* height: 20px; */
 `;
 
 interface IStyledAlertProps {
@@ -45,12 +50,19 @@ const StyledSuccessWord = styled.span`
 	margin: 0 6px;
 `;
 
-const StyledH3 = styled.h3``;
+const StyledH3 = styled.h3`
+	margin: 8px;
+`;
+
+const StyledH2 = styled(H2)`
+	margin-top: 8px;
+	color: white;
+`;
 
 const StyledSubmitButton = styled.button`
 	width: 100px;
 	height: 30px;
-	margin: 8px;
+	margin: 8px auto auto;
 	background-color: #dedede;
 	border: 1px solid black;
 	border-radius: 20px;
@@ -151,7 +163,7 @@ export const Contact: FC = () => {
 					<StyledInput
 						name='email'
 						type='email'
-						placeholder='me@example.com'
+						placeholder='you@some-domain.com'
 						aria-label='email'
 						required
 					/>
