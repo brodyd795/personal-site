@@ -13,8 +13,9 @@ const StyledP = styled(ReactMarkdown)`
 `;
 
 const StyledHeading = styled.h2`
-	margin-top: 30px;
+	margin-top: 32px;
 	padding: 12px;
+	font-size: 32px;
 `;
 
 const About = () => (
@@ -22,7 +23,7 @@ const About = () => (
 		<main>
 			<StyledHeading>{`Hi! I'm Brody 👋🏻`}</StyledHeading>
 			{aboutData.map((paragraph) => (
-				<StyledP>{paragraph}</StyledP>
+				<StyledP key={paragraph}>{paragraph}</StyledP>
 			))}
 			<Contact />
 		</main>
