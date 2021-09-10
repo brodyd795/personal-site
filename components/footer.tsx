@@ -7,9 +7,13 @@ const StyledFooter = styled.footer`
 	font-size: 12px;
 	text-align: center;
 	width: 100%;
-	padding: 8px;
 	margin-top: 40px;
 	border-top: 1px solid grey;
+`;
+
+const StyledText = styled.p`
+	margin: 0;
+	padding: 8px;
 `;
 
 export const Footer: FC = () => {
@@ -18,6 +22,8 @@ export const Footer: FC = () => {
 	const throughYear = currentYear > firstYear ? ` - ${currentYear}` : '';
 
 	return (
-		<StyledFooter>{`© ${firstYear}${throughYear} Brody Dingel`}</StyledFooter>
+		<StyledFooter>
+			<StyledText>{`© ${firstYear}${throughYear} Brody Dingel`}</StyledText>
+		</StyledFooter>
 	);
 };
