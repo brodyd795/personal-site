@@ -10,6 +10,10 @@ const StyledP = styled(ReactMarkdown)`
 	line-height: 1.5;
 	font-size: 20px;
 	padding: 0 12px;
+
+	a:visited {
+		color: #1d1e22;
+	}
 `;
 
 const StyledHeading = styled.h2`
