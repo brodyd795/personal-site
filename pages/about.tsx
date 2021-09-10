@@ -25,7 +25,8 @@ const StyledHeading = styled.h2`
 const About = () => (
 	<Container headerText='About' subHeaderText=''>
 		<main>
-			<StyledHeading>{`Hi! I'm Brody 👋🏻`}</StyledHeading>
+			{/* eslint-disable-next-line react/no-unescaped-entities */}
+			<StyledHeading>Hi! I'm Brody 👋🏻</StyledHeading>
 			{aboutData.map((paragraph) => (
 				<StyledP key={paragraph}>{paragraph}</StyledP>
 			))}

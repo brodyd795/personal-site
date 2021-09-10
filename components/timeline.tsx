@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
-import {IEvent, IYearEvents, timelineEvents} from '../data/timeline-events';
+import {IYearEvents, timelineEvents} from '../data/timeline-events';
 import {StyledH2} from './styles';
 
 const StyledTimelineContainer = styled.div`
