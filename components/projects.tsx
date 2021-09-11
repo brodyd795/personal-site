@@ -74,7 +74,7 @@ const ProjectCard: FC<IProjectCard> = ({
 			src={image.src}
 			layout='responsive'
 			width={500}
-			height={500}
+			height={300}
 			priority
 		/>
 		<StyledCardTextContainer>
