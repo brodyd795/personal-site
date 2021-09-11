@@ -88,7 +88,7 @@ export const Timeline: FC = () => {
 		<StyledTimelineContainer>
 			<StyledH2>Timeline</StyledH2>
 			{initialEvents.map(({year, events}) => (
-				<Year year={year} events={events} />
+				<Year year={year} events={events} key={year} />
 			))}
 			{!showMore && (
 				<StyledShowMoreButton type='button' onClick={() => setShowMore(true)}>
