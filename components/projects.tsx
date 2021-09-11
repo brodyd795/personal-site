@@ -53,6 +53,7 @@ const StyledCardTextContainer = styled.div`
 `;
 
 const StyledProjectsContainer = styled.div`
+	border: 8px solid red;
 	margin: 0 24px;
 `;
 
@@ -76,6 +77,7 @@ const ProjectCard: FC<IProjectCard> = ({
 			width={500}
 			height={500}
 			priority
+			// placeholder='blur'
 		/>
 		<StyledCardTextContainer>
 			<StyledCardName>{name}</StyledCardName>
@@ -86,13 +88,71 @@ const ProjectCard: FC<IProjectCard> = ({
 	</StyledProjectCard>
 );
 
+const StyledContainer = styled.div`
+	padding: 0 0.5rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+
+	border: 8px solid blue;
+`;
+
+const StyledCard = styled.div`
+	margin: 1rem;
+	padding: 1.5rem;
+	text-align: left;
+	color: inherit;
+	text-decoration: none;
+	border: 1px solid #eaeaea;
+	border-radius: 10px;
+	min-width: 8rem;
+	flex: 1;
+`;
+
+const TestCard = () => (
+	<StyledCard>
+		<Image
+			src='/project-images/secret-message.jpg'
+			// just put the original width and height of the original image, in order to provide the right aspect ratio
+			// Next.js will automatically reduce the size if the rendered image needs to be smaller.
+			width={500}
+			height={500}
+			layout='responsive'
+			className='card-img-top'
+			alt='...'
+		/>
+		<div className='card-body'>
+			<h5 className='card-title'>Card title</h5>
+			<p className='card-text'>
+				Some quick example text to build on the card title and make up the bulk
+				of the card's content.
+			</p>
+			<a href='#' className='btn btn-primary'>
+				Go somewhere
+			</a>
+		</div>
+	</StyledCard>
+);
+
+const Test = () => (
+	<StyledContainer>
+		<TestCard />
+		<TestCard />
+		<TestCard />
+		<TestCard />
+		<TestCard />
+	</StyledContainer>
+);
+
 export const Projects: FC = () => (
 	<StyledProjectsContainer>
-		<StyledH2>Projects</StyledH2>
+		{/* <StyledH2>Projects</StyledH2>
 		<StyledProjectCardsContainer>
 			{projects.map((project) => (
 				<ProjectCard key={project.name} project={project} />
 			))}
-		</StyledProjectCardsContainer>
+		</StyledProjectCardsContainer> */}
+		<Test />
 	</StyledProjectsContainer>
 );
