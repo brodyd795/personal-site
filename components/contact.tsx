@@ -20,7 +20,7 @@ const StyledForm = styled(Form)`
 
 const StyledField = styled(Field)`
 	margin: 8px;
-	border: 2px solid grey;
+	border: 1px solid grey;
 	border-radius: 4px;
 	padding: 4px;
 
@@ -43,9 +43,14 @@ const StyledAlert = styled.div<IStyledAlertProps>`
 	padding: 8px;
 	border: ${({wasSuccessful}) =>
 		`1px solid ${wasSuccessful ? '#204018' : '#401818'}`};
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	margin-top: 8px;
+	color: black;
 `;
 
-const StyledSuccessWord = styled.span`
+const StyledStatusWord = styled.span`
 	font-weight: bold;
 	margin: 0 6px;
 `;
@@ -81,25 +86,20 @@ interface ISubmissionAlertProps {
 const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 	submission
 }: ISubmissionAlertProps): JSX.Element | null => {
-	if (submission.hasSubmitted) {
-		if (submission.wasSuccessful) {
-			return (
-				<StyledAlert wasSuccessful>
-					<span>👍🏼</span>
-					<StyledSuccessWord>Success!</StyledSuccessWord>
-					<span>I’ll get back to you as soon as I can.</span>
-				</StyledAlert>
-			);
-		}
+	if (submission.hasSubmitted && submission.wasSuccessful) {
+		return (
+			<StyledAlert wasSuccessful>
+				<StyledStatusWord>Success!</StyledStatusWord>
+				<span>I’ll get back to you as soon as I can.</span>
+			</StyledAlert>
+		);
+	}
 
+	if (submission.hasSubmitted && !submission.wasSuccessful) {
 		return (
 			<StyledAlert wasSuccessful={false}>
-				<span>😬</span>
-				<StyledSuccessWord>Oops!</StyledSuccessWord>
-				<span>
-					Something went wrong. Please try again, and I’ll look into what
-					happened!
-				</span>
+				<StyledStatusWord>Oops!</StyledStatusWord>
+				<span>Something went wrong.</span>
 			</StyledAlert>
 		);
 	}
