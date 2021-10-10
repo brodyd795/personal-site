@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
+import {useUser, withPageAuthRequired} from '@auth0/nextjs-auth0';
 
+import {ADMIN_EMAILS} from '../enums/admin-emails';
 import {Container} from '../components/container';
 
 const StyledInput = styled.input`
@@ -22,6 +24,19 @@ const apiUrl = 'http://localhost:3000/api/controllers/add-to-reading-list';
 const Reading = () => {
 	const [url, setUrl] = useState('');
 	const [success, setSuccess] = useState<boolean | null>(null);
+	const {user, error, isLoading} = useUser();
+
+	if (error) {
+		return 'Error';
+	}
+
+	if (isLoading) {
+		return 'Loading user profile...';
+	}
+
+	if (!user || !user.email || !ADMIN_EMAILS.includes(user.email)) {
+		return 'Unauthorized';
+	}
 
 	const handleChange = (e: {target: {value: React.SetStateAction<string>}}) => {
 		setUrl(e.target.value);
@@ -73,5 +88,7 @@ const Reading = () => {
 		</Container>
 	);
 };
+
+export const getServerSideProps = withPageAuthRequired();
 
 export default Reading;
