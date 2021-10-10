@@ -17,16 +17,37 @@ const StyledSubmit = styled.input`
 	height: 24px;
 `;
 
+const apiUrl = 'http://localhost:3000/api/controllers/add-to-reading-list';
+
 const Reading = () => {
 	const [url, setUrl] = useState('');
+	const [success, setSuccess] = useState<boolean | null>(null);
 
 	const handleChange = (e: {target: {value: React.SetStateAction<string>}}) => {
 		setUrl(e.target.value);
 	};
 
-	const handleSubmit = (e: {preventDefault: () => void}) => {
+	const handleSubmit = async (e: {preventDefault: () => void}) => {
+		const key = process.env.READING_LIST_EXTENSION_SECRET;
 		e.preventDefault();
 		console.log('url', url);
+		console.log(`key`, key);
+
+		try {
+			const result = await fetch(apiUrl, {
+				method: 'POST',
+				body: JSON.stringify({url, key})
+			});
+
+			if (result.status === 200) {
+				setSuccess(true);
+			} else {
+				setSuccess(false);
+			}
+		} catch (error) {
+			console.log(`error`, error);
+			setSuccess(false);
+		}
 	};
 
 	return (
@@ -47,6 +68,7 @@ const Reading = () => {
 					</label>
 					<StyledSubmit type='submit' value='Add' />
 				</form>
+				{success ? 'Yay!' : 'Oh no!'}
 			</main>
 		</Container>
 	);
