@@ -12,6 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 			console.log('submitted url with correct key', url, keySent, key);
 		} else {
 			console.log('bad key', key, keySent);
+			throw new Error('Bad key');
 		}
 		// await submitContactForm(req.body.values);
 
