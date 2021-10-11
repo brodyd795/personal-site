@@ -5,6 +5,7 @@ import {captureException} from '@sentry/nextjs';
 
 import {ADMIN_EMAILS} from '../enums/admin-emails';
 import {Container} from '../components/container';
+import {domains} from '../enums/domains';
 
 const StyledInput = styled.input`
 	margin: 20px auto;
@@ -20,7 +21,7 @@ const StyledSubmit = styled.input`
 	height: 24px;
 `;
 
-const apiUrl = 'http://localhost:3000/api/controllers/add-to-reading-list';
+const apiUrl = `http://${domains.PRODUCTION}/api/controllers/add-to-reading-list`;
 
 const Reading = () => {
 	const [url, setUrl] = useState('');
