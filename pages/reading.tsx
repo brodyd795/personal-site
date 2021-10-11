@@ -21,7 +21,7 @@ const StyledSubmit = styled.input`
 	height: 24px;
 `;
 
-const apiUrl = `http://${domains.PRODUCTION}/api/controllers/add-to-reading-list`;
+const apiUrl = `https://${domains.PRODUCTION}/api/controllers/add-to-reading-list`;
 
 const Reading = () => {
 	const [url, setUrl] = useState('');
