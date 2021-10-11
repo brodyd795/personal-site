@@ -1,6 +1,8 @@
 import type {NextApiRequest, NextApiResponse} from 'next';
 import {withSentry, captureException, flush} from '@sentry/nextjs';
+import {getSession} from '@auth0/nextjs-auth0';
 
+import {ADMIN_EMAILS} from '../../../enums/admin-emails';
 import {addToReadingList} from '../services/add-to-reading-list';
 
 interface IRequestBody {
@@ -10,11 +12,15 @@ interface IRequestBody {
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
+		const session = getSession(req, res);
+		const isAuthenticated = ADMIN_EMAILS.includes(session?.user.email);
+
 		const {url, key: keySent}: IRequestBody = JSON.parse(req.body);
 		const key = process.env.READING_LIST_EXTENSION_SECRET;
+		const hasValidKey = key === keySent;
 
-		if (key !== keySent) {
-			throw new Error('Bad key');
+		if (!isAuthenticated && !hasValidKey) {
+			throw new Error('Unauthorized.');
 		}
 
 		await addToReadingList(url);

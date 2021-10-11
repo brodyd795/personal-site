@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {useUser, withPageAuthRequired} from '@auth0/nextjs-auth0';
+import {captureException} from '@sentry/nextjs';
 
 import {ADMIN_EMAILS} from '../enums/admin-emails';
 import {Container} from '../components/container';
@@ -43,25 +44,18 @@ const Reading = () => {
 	};
 
 	const handleSubmit = async (e: {preventDefault: () => void}) => {
-		const key = process.env.READING_LIST_EXTENSION_SECRET;
 		e.preventDefault();
-		console.log('url', url);
-		console.log(`key`, key);
 
-		try {
-			const result = await fetch(apiUrl, {
-				method: 'POST',
-				body: JSON.stringify({url, key})
-			});
+		const res = await fetch(apiUrl, {
+			method: 'POST',
+			body: JSON.stringify({url})
+		});
 
-			if (result.status === 200) {
-				setSuccess(true);
-			} else {
-				setSuccess(false);
-			}
-		} catch (error) {
-			console.log(`error`, error);
+		if (res.status === 200) {
+			setSuccess(true);
+		} else {
 			setSuccess(false);
+			captureException('Failed addition to reading list');
 		}
 	};
 
@@ -83,7 +77,7 @@ const Reading = () => {
 					</label>
 					<StyledSubmit type='submit' value='Add' />
 				</form>
-				{success ? 'Yay!' : 'Oh no!'}
+				{success ? 'Success!' : 'Something went wrong. Please try again.'}
 			</main>
 		</Container>
 	);
