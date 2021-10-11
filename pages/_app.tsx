@@ -6,6 +6,8 @@ import {UserProvider} from '@auth0/nextjs-auth0';
 
 import * as gtag from '../lib/gtag';
 
+import * as gtag from '../lib/gtag';
+
 const GlobalStyle = createGlobalStyle`
   body {
     color: grey;
