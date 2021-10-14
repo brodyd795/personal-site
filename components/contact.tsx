@@ -179,8 +179,8 @@ export const Contact: FC = () => {
 						aria-label='message'
 						required
 					/>
-					<StyledSubmitButton type='submit' aria-label='Submit'>
-						Submit
+					<StyledSubmitButton type='submit' aria-label='Send'>
+						Send
 					</StyledSubmitButton>
 				</StyledForm>
 			</Formik>
