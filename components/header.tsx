@@ -73,7 +73,9 @@ export const Header: FC<IHeaderProps> = ({
 				<Link href='/about'>
 					<StyledLink>About</StyledLink>
 				</Link>
-				<StyledLink href='#contact'>Contact</StyledLink>
+				<Link href='/#contact'>
+					<StyledLink>Contact</StyledLink>
+				</Link>
 			</StyledTopBar>
 			<StyledHero>
 				<StyledH1>{headerText}</StyledH1>
