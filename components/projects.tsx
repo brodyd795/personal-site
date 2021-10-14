@@ -68,7 +68,7 @@ interface IProjectCard {
 const ProjectCard: FC<IProjectCard> = ({
 	project: {name, link, technologies, image}
 }: IProjectCard) => (
-	<StyledProjectCard href={link} target='_blank'>
+	<StyledProjectCard href={link} target='_blank' rel='noopener'>
 		<StyledImage
 			alt='project card'
 			src={image.src}
