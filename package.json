@@ -12,7 +12,8 @@
 		"start": "next start",
 		"lint": "eslint . --ext .tsx --ext .ts",
 		"prettier": "prettier --write \"**/*.{ts,tsx,json}\"",
-		"test": "yarn lint && yarn prettier && yarn tsc"
+		"jest": "jest",
+		"test": "yarn lint && yarn prettier && yarn tsc && yarn jest"
 	},
 	"dependencies": {
 		"@auth0/nextjs-auth0": "1.6.1",
