@@ -27,5 +27,5 @@
 			}
 		]
 	},
-	"extends": ["airbnb-typescript", "eslint-config-prettier"]
+	"extends": ["airbnb-typescript", "eslint-config-prettier", "plugin:@next/next/recommended"]
 }

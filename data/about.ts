@@ -2,7 +2,7 @@ export const aboutData = [
 	`I'm a software engineer at [Hy-Vee](https://hy-vee.com). 
 	I grew up in small-town Iowa and went to Iowa State University 
 	in 2014. I discovered a love for 
-	Spanish and Linguistics pretty quickly (spoiler alert – non-CS 
+	Spanish and Linguistics pretty quickly (spoiler alert – non-CS 
 	background!), and I started working on the [CyWrite project](https://github.com/chukharev/cywrite), 
 	an automated writing evaluation tool for ESL classrooms. I 
 	picked up some beginner programming skills along the way and 

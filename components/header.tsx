@@ -67,13 +67,13 @@ export const Header: FC<IHeaderProps> = ({
 	<StyledHeader>
 		<StyledHeaderInnerContainer>
 			<StyledTopBar>
-				<Link href='/'>
+				<Link passHref href='/'>
 					<StyledHomeLink>Home</StyledHomeLink>
 				</Link>
-				<Link href='/about'>
+				<Link passHref href='/about'>
 					<StyledLink>About</StyledLink>
 				</Link>
-				<Link href='#contact'>
+				<Link passHref href='#contact'>
 					<StyledLink>Contact</StyledLink>
 				</Link>
 			</StyledTopBar>
