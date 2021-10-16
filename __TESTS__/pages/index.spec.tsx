@@ -85,4 +85,30 @@ describe('Index', () => {
 
         expect(screen.queryByRole('button', {name: 'See All'})).toBeNull();
     });
+
+    test('should show contact form', async () => {
+        render();
+
+        expect(await screen.findByRole('heading', {name: 'Contact'})).toBeVisible();
+        expect(await screen.findByRole('heading', {name: 'Drop a message, ask a question, or just say hi!'})).toBeVisible();
+
+        const nameField = await screen.findByLabelText('name');
+        const emailField = await screen.findByLabelText('email')
+        const messageField = await screen.findByLabelText('message');
+        const sendButton = await screen.findByRole('button', {name: 'Send'});
+
+        expect(nameField).toHaveTextContent('');
+        expect(nameField).toHaveAttribute('placeholder', 'First and last name');
+        expect(emailField).toHaveTextContent('');
+        expect(emailField).toHaveAttribute('placeholder', 'you@some-domain.com');
+        expect(messageField).toHaveTextContent('');
+        expect(messageField).toHaveAttribute('placeholder', "How's it going?");
+
+        user.type(nameField, 'Brody');
+        user.type(emailField, 'brodydingel@gmail.com');
+        user.type(messageField, 'This is only a test!');
+        user.click(sendButton);
+
+        // TODO: add msw, intercept the request with msw, and assert on response
+    });
 });
