@@ -1,6 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import React from 'react';
-import {render as rtlRender, screen} from '@testing-library/react';
+import {render as rtlRender, screen, cleanup} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import user from '@testing-library/user-event';
 
@@ -20,6 +20,14 @@ describe('Index', () => {
 
     beforeEach(() => {
         server.resetHandlers();
+    });
+
+    afterEach(() => {
+        cleanup();
+    });
+
+    afterAll(() => {
+        server.close();
     });
 
     test('should show header', async () => {
@@ -141,5 +149,13 @@ describe('Index', () => {
 
         expect(await screen.findByText('Oops!')).toBeVisible();
         expect(await screen.findByText('Something went wrong.')).toBeVisible();
+    });
+
+    test('should show footer', async () => {
+        render();
+
+        const currentYear = new Date().getFullYear();
+
+        expect(await screen.findByText(`© 2020 – ${currentYear} Brody Dingel`)).toBeVisible();
     });
 });

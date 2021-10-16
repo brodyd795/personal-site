@@ -17,13 +17,11 @@ const StyledText = styled.p`
 `;
 
 export const Footer: FC = () => {
-	const firstYear = 2021;
 	const currentYear = new Date().getFullYear();
-	const throughYear = currentYear > firstYear ? ` - ${currentYear}` : '';
 
 	return (
 		<StyledFooter>
-			<StyledText>{`© ${firstYear}${throughYear} Brody Dingel`}</StyledText>
+			<StyledText>{`© 2020 – ${currentYear} Brody Dingel`}</StyledText>
 		</StyledFooter>
 	);
 };
