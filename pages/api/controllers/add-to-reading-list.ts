@@ -30,6 +30,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 		captureException(error);
 		await flush(2000);
 
+		// @ts-ignore
 		res.status(error.status || 500).end(error.message);
 	}
 };
