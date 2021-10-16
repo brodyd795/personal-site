@@ -1,9 +1,11 @@
 import React, {FC, useState} from 'react';
 import styled from 'styled-components';
 import {Formik, Field, Form} from 'formik';
+import fetch from 'cross-fetch';
 
 import {StyledH2 as H2} from './styles';
 import {FieldValues} from '../types/shared-types';
+import {getBaseUrl} from '../utils/url-helpers';
 
 const StyledContactContainer = styled.div`
 	background-color: #272e41;
@@ -114,7 +116,7 @@ export const Contact: FC = () => {
 	} as Submission);
 
 	const handleSubmit = async (values: FieldValues) => {
-		const res = await fetch(`/api/controllers/contact`, {
+		const res = await fetch(`${getBaseUrl()}/api/controllers/contact`, {
 			body: JSON.stringify({
 				values
 			}),
@@ -124,7 +126,7 @@ export const Contact: FC = () => {
 			method: 'POST'
 		});
 
-		if (res.ok) {
+		if (res.status === 200) {
 			setSubmission({
 				hasSubmitted: true,
 				wasSuccessful: true

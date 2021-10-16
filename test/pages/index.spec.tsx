@@ -6,10 +6,21 @@ import user from '@testing-library/user-event';
 
 import {projects} from '../../data/projects';
 import Index from '../../pages';
-import { timelineEvents } from '../../data/timeline-events';
+import {timelineEvents} from '../../data/timeline-events';
+import {server, contactHandlerOnFailure} from '../infrastructure';
 
 describe('Index', () => {
     const render = () => rtlRender(<Index />);
+
+    beforeAll(() => {
+        server.listen({
+            onUnhandledRequest: 'error'
+        });
+    });
+
+    beforeEach(() => {
+        server.resetHandlers();
+    });
 
     test('should show header', async () => {
         render();
@@ -86,7 +97,7 @@ describe('Index', () => {
         expect(screen.queryByRole('button', {name: 'See All'})).toBeNull();
     });
 
-    test('should show contact form', async () => {
+    test('should allow user to fill out contact form and alert on success', async () => {
         render();
 
         expect(await screen.findByRole('heading', {name: 'Contact'})).toBeVisible();
@@ -109,6 +120,26 @@ describe('Index', () => {
         user.type(messageField, 'This is only a test!');
         user.click(sendButton);
 
-        // TODO: add msw, intercept the request with msw, and assert on response
+        expect(await screen.findByText('Success!')).toBeVisible();
+        expect(await screen.findByText('I’ll get back to you as soon as I can.')).toBeVisible();
+    });
+
+    test('should alert user on failure of filling out contact form', async () => {
+        server.use(contactHandlerOnFailure);
+
+        render();
+        
+        const nameField = await screen.findByLabelText('name');
+        const emailField = await screen.findByLabelText('email')
+        const messageField = await screen.findByLabelText('message');
+        const sendButton = await screen.findByRole('button', {name: 'Send'});
+
+        user.type(nameField, 'Brody');
+        user.type(emailField, 'brodydingel@gmail.com');
+        user.type(messageField, 'This is only a test!');
+        user.click(sendButton);
+
+        expect(await screen.findByText('Oops!')).toBeVisible();
+        expect(await screen.findByText('Something went wrong.')).toBeVisible();
     });
 });
