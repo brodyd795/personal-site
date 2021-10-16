@@ -2,6 +2,7 @@ import {AppProps} from 'next/app';
 import {useRouter} from 'next/dist/client/router';
 import React, {useEffect} from 'react';
 import {createGlobalStyle} from 'styled-components';
+import {UserProvider} from '@auth0/nextjs-auth0';
 
 import * as gtag from '../lib/gtag';
 
@@ -21,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
 
 const MyApp = ({Component, pageProps, err}: AppProps & {err: any}) => {
 	const router = useRouter();
+	const {user} = pageProps;
 
 	useEffect(() => {
 		const handleRouteChange = (url: string) => {
@@ -35,10 +37,10 @@ const MyApp = ({Component, pageProps, err}: AppProps & {err: any}) => {
 	}, [router.events]);
 
 	return (
-		<>
+		<UserProvider user={user}>
 			<Component {...pageProps} err={err} />
 			<GlobalStyle />
-		</>
+		</UserProvider>
 	);
 };
 
