@@ -1,7 +1,7 @@
 export interface IProject {
 	name: string;
 	link: string;
-	technologies?: string[];
+	technologies: string[];
 	image: {
 		src: string;
 	};
