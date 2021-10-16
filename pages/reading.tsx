@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {useUser, withPageAuthRequired} from '@auth0/nextjs-auth0';
+import {useUser, withPageAuthRequired, UserProvider} from '@auth0/nextjs-auth0';
 import {captureException} from '@sentry/nextjs';
 
 import {ADMIN_EMAILS} from '../enums/admin-emails';
@@ -29,15 +29,15 @@ const Reading = () => {
 	const {user, error, isLoading} = useUser();
 
 	if (error) {
-		return 'Error';
+		return <div>Error</div>;
 	}
 
 	if (isLoading) {
-		return 'Loading user profile...';
+		return <div>Loading user profile...</div>;
 	}
 
 	if (!user || !user.email || !ADMIN_EMAILS.includes(user.email)) {
-		return 'Unauthorized';
+		return <div>Unauthorized</div>;
 	}
 
 	const handleChange = (e: {target: {value: React.SetStateAction<string>}}) => {
@@ -84,6 +84,12 @@ const Reading = () => {
 	);
 };
 
+const Wrapper = () => (
+	<UserProvider>
+		<Reading />
+	</UserProvider>
+);
+
 export const getServerSideProps = withPageAuthRequired();
 
-export default Reading;
+export default Wrapper;
