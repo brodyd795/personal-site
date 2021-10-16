@@ -8,11 +8,11 @@
 	"license": "ISC",
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build",
+		"build": "yarn test && next build",
 		"start": "next start",
 		"lint": "eslint . --ext .tsx --ext .ts",
 		"prettier": "prettier --write \"**/*.{ts,tsx,json}\"",
-		"validate": "yarn lint && yarn prettier && yarn tsc"
+		"test": "yarn lint && yarn prettier && yarn tsc"
 	},
 	"dependencies": {
 		"@auth0/nextjs-auth0": "1.6.1",
