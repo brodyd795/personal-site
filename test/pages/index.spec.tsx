@@ -1,16 +1,22 @@
 /* eslint-disable no-await-in-loop */
-import React from 'react';
-import {render as rtlRender, screen, cleanup} from '@testing-library/react';
+import {screen, cleanup} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import user from '@testing-library/user-event';
+import {getPage} from 'next-page-tester';
 
 import {projects} from '../../data/projects';
-import Index from '../../pages';
 import {timelineEvents} from '../../data/timeline-events';
+
 import {server, contactHandlerOnFailure} from '../infrastructure';
 
 describe('Index', () => {
-	const render = () => rtlRender(<Index />);
+	const render = async () => {
+		const {render: nextRender} = await getPage({
+			route: '/'
+		});
+
+		nextRender();
+	}
 
 	beforeAll(() => {
 		server.listen({
@@ -67,7 +73,10 @@ describe('Index', () => {
 			} = projects[index];
 
 			const name = await screen.findByText(projectName);
-			const image = await screen.findByAltText(projectName);
+			// The next/image component tacks on a <noscript> with an <img /> inside as a fallback,
+			// which is unfortunately detected here. This workaround works 🤷
+			const imageAndFallback = await screen.findAllByAltText(projectName);
+			const image = imageAndFallback[0];
 			const card = await screen.findByTestId(`project-card-${projectName}`);
 			const technologies = await screen.findByText(
 				projectTechnologies.join(', ')
