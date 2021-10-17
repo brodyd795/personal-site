@@ -1,22 +1,15 @@
 /* eslint-disable no-await-in-loop */
-import {screen, cleanup} from '@testing-library/react';
+import React from 'react';
+import {screen, cleanup, render as rtlRender} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import user from '@testing-library/user-event';
-import {getPage} from 'next-page-tester';
-
 import {projects} from '../../data/projects';
 import {timelineEvents} from '../../data/timeline-events';
-
+import Index from '../../pages';
 import {server, contactHandlerOnFailure} from '../infrastructure';
 
 describe('Index', () => {
-	const render = async () => {
-		const {render: nextRender} = await getPage({
-			route: '/'
-		});
-
-		nextRender();
-	}
+	const render = () => rtlRender(<Index />)
 
 	beforeAll(() => {
 		server.listen({
@@ -72,20 +65,15 @@ describe('Index', () => {
 				technologies: projectTechnologies
 			} = projects[index];
 
-			const name = await screen.findByText(projectName);
-			// The next/image component tacks on a <noscript> with an <img /> inside as a fallback,
-			// which is unfortunately detected here. This workaround works 🤷
-			const imageAndFallback = await screen.findAllByAltText(projectName);
-			const image = imageAndFallback[0];
 			const card = await screen.findByTestId(`project-card-${projectName}`);
-			const technologies = await screen.findByText(
-				projectTechnologies.join(', ')
-			);
+			const name = await screen.findByText(projectName);
+			const image = await screen.findByAltText(projectName);
+			const technologies = await screen.findByText(projectTechnologies.join(', '));
 
-			expect(name).toBeVisible();
-			expect(technologies).toBeVisible();
-			expect(image).toBeVisible();
 			expect(card).toHaveAttribute('href', link);
+			expect(name).toBeVisible();
+			expect(image).toBeVisible();
+			expect(technologies).toBeVisible();
 		}
 	});
 
