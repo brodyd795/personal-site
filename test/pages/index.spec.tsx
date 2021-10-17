@@ -111,7 +111,7 @@ describe('Index', () => {
 	test('should show more timeline events', async () => {
 		render();
 
-		const {year: nextYear, events: nextYearEvents} = timelineEvents.at(4)!;
+		const {year: nextYear, events: nextYearEvents} = timelineEvents[4];
 
 		expect(screen.queryByText(nextYear)).toBeNull();
 
