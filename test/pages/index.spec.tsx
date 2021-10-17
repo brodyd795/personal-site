@@ -12,7 +12,8 @@ import {server, contactHandlerOnFailure} from '../infrastructure';
 describe('Index', () => {
 	const render = async () => {
 		const {render: nextRender} = await getPage({
-			route: '/'
+			route: '/',
+			useApp: true
 		});
 
 		nextRender();
@@ -73,10 +74,9 @@ describe('Index', () => {
 			} = projects[index];
 
 			const name = await screen.findByText(projectName);
-			// The next/image component tacks on a <noscript> with an <img /> inside as a fallback,
-			// which is unfortunately detected here. This workaround works 🤷
+			// The next/image component tacks on a <noscript> with an <img />
+			// inside as a fallback, which is detected here.
 			const imageAndFallback = await screen.findAllByAltText(projectName);
-			const image = imageAndFallback[0];
 			const card = await screen.findByTestId(`project-card-${projectName}`);
 			const technologies = await screen.findByText(
 				projectTechnologies.join(', ')
@@ -84,7 +84,9 @@ describe('Index', () => {
 
 			expect(name).toBeVisible();
 			expect(technologies).toBeVisible();
-			expect(image).toBeVisible();
+			expect(imageAndFallback).toHaveLength(2);
+			expect(imageAndFallback[0]).toBeVisible();
+			expect(imageAndFallback[1]).toBeVisible();
 			expect(card).toHaveAttribute('href', link);
 		}
 	});
