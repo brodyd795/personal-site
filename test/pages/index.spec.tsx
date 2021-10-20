@@ -17,7 +17,7 @@ describe('Index', () => {
 		});
 
 		nextRender();
-	}
+	};
 
 	beforeAll(() => {
 		server.listen({

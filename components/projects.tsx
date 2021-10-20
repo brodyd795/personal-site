@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 import {IProject, projects} from '../data/projects';
 import {StyledH2} from './styles';
 
@@ -9,6 +8,7 @@ const StyledProjectCard = styled.a`
 	flex-direction: column;
 	justify-content: flex-end;
 	width: 200px;
+	height: 200px;
 	border: 2px solid black;
 	border-radius: 10px;
 	text-align: center;
@@ -56,17 +56,12 @@ const StyledProjectsContainer = styled.div`
 	margin: 0 24px;
 `;
 
-const StyledImage = styled(Image)`
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
-`;
-
 interface IProjectCard {
 	project: IProject;
 }
 
 const ProjectCard: FC<IProjectCard> = ({
-	project: {name, link, technologies, image}
+	project: {name, link, technologies}
 }: IProjectCard) => (
 	<StyledProjectCard
 		href={link}
@@ -74,14 +69,6 @@ const ProjectCard: FC<IProjectCard> = ({
 		rel='noopener'
 		data-testid={`project-card-${name}`}
 	>
-		<StyledImage
-			alt={name}
-			src={image.src}
-			layout='responsive'
-			width={500}
-			height={300}
-			priority
-		/>
 		<StyledCardTextContainer>
 			<StyledCardName>{name}</StyledCardName>
 			{technologies ? (
