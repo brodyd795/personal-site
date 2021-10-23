@@ -16,7 +16,8 @@ interface ISubmissionAlertProps {
 
 const fieldStyles: string = 'm-8 p-4 border-2 border-grey-500';
 const statusWordStyles: string = 'my-0 mx-6';
-const getAlertStyles = (wasSuccessful: boolean) => `${wasSuccessful ? 'bg-green-200' : 'bg-red-200'}`;
+const getAlertStyles = (wasSuccessful: boolean) =>
+	`${wasSuccessful ? 'bg-green-200' : 'bg-red-200'}`;
 
 const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 	submission
@@ -84,7 +85,8 @@ export const Contact: FC = () => {
 					<label htmlFor='name' hidden>
 						Name
 					</label>
-					<Field className={`${fieldStyles} w-80`}
+					<Field
+						className={`${fieldStyles} w-80`}
 						id='name'
 						name='name'
 						type='text'
@@ -95,7 +97,8 @@ export const Contact: FC = () => {
 					<label htmlFor='email' hidden>
 						Email
 					</label>
-					<Field className={`${fieldStyles} w-80`}
+					<Field
+						className={`${fieldStyles} w-80`}
 						name='email'
 						type='email'
 						placeholder='you@some-domain.com'
@@ -105,7 +108,8 @@ export const Contact: FC = () => {
 					<label htmlFor='message' hidden>
 						Message
 					</label>
-					<Field className={fieldStyles}
+					<Field
+						className={fieldStyles}
 						name='message'
 						type='message'
 						component='textarea'
@@ -114,7 +118,11 @@ export const Contact: FC = () => {
 						aria-label='message'
 						required
 					/>
-					<button className='w-20 bg-white rounded m-8' type='submit' aria-label='Send'>
+					<button
+						className='w-20 bg-white rounded m-8'
+						type='submit'
+						aria-label='Send'
+					>
 						Send
 					</button>
 				</Form>

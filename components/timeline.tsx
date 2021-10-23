@@ -30,7 +30,11 @@ export const Timeline: FC = () => {
 				<Year year={year} events={events} key={year} />
 			))}
 			{!showMore && (
-				<button className='bg-gray=500 border-2 border-black rounded' type='button' onClick={() => setShowMore(true)}>
+				<button
+					className='bg-gray=500 border-2 border-black rounded'
+					type='button'
+					onClick={() => setShowMore(true)}
+				>
 					See All
 				</button>
 			)}

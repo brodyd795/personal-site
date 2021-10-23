@@ -54,14 +54,20 @@ const Reading = () => {
 				<form onSubmit={handleSubmit}>
 					<label id='url' htmlFor='url'>
 						<span hidden>Url:</span>
-						<input className='m-20 p-4 border-2 border-black rounded'
+						<input
+							className='m-20 p-4 border-2 border-black rounded'
 							onChange={handleChange}
 							value={url}
 							name='url'
 							placeholder='https://example.com'
 						/>
 					</label>
-					<button className='ml-8 h-20 border-2 border-black rounded' type='submit'>Add</button>
+					<button
+						className='ml-8 h-20 border-2 border-black rounded'
+						type='submit'
+					>
+						Add
+					</button>
 				</form>
 				{success ? 'Success!' : 'Something went wrong. Please try again.'}
 			</main>
