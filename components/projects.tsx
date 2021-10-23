@@ -1,60 +1,6 @@
 import React, {FC} from 'react';
-import styled from 'styled-components';
 import {IProject, projects} from '../data/projects';
 import {StyledH2} from './styles';
-
-const StyledProjectCard = styled.a`
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	width: 200px;
-	height: 200px;
-	border: 2px solid black;
-	border-radius: 10px;
-	text-align: center;
-	margin: 8px;
-	text-decoration: none;
-	color: #1d1e22;
-	box-shadow: 4px 4px #535457;
-	transition: box-shadow 0.2s;
-	padding-bottom: 4px;
-
-	&:hover {
-		box-shadow: 6px 6px #535457;
-	}
-`;
-
-const StyledCardName = styled.div`
-	font-size: 22px;
-	margin-top: 12px;
-	font-weight: bold;
-	margin-bottom: 20px;
-`;
-
-const StyledProjectCardsContainer = styled.div`
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-`;
-
-const StyledTechnologies = styled.div`
-	font-size: 16px;
-	font-style: italic;
-	margin-top: auto;
-	margin-bottom: auto;
-`;
-
-const StyledCardTextContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	justify-content: space-between;
-	padding: 0 8px 4px;
-`;
-
-const StyledProjectsContainer = styled.div`
-	margin: 0 24px;
-`;
 
 interface IProjectCard {
 	project: IProject;
@@ -63,28 +9,28 @@ interface IProjectCard {
 const ProjectCard: FC<IProjectCard> = ({
 	project: {name, link, technologies}
 }: IProjectCard) => (
-	<StyledProjectCard
+	<a
 		href={link}
 		target='_blank'
-		rel='noopener'
+		rel='noreferrer'
 		data-testid={`project-card-${name}`}
 	>
-		<StyledCardTextContainer>
-			<StyledCardName>{name}</StyledCardName>
+		<div className='flex flex-col flex-1 justify-between'>
+			<span>{name}</span>
 			{technologies ? (
-				<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
+				<span className='italic'>{technologies.join(', ')}</span>
 			) : null}
-		</StyledCardTextContainer>
-	</StyledProjectCard>
+		</div>
+	</a>
 );
 
 export const Projects: FC = () => (
-	<StyledProjectsContainer>
+	<div>
 		<StyledH2>Projects</StyledH2>
-		<StyledProjectCardsContainer>
+		<div className='flex justify-center flex-wrap'>
 			{projects.map((project) => (
 				<ProjectCard key={project.name} project={project} />
 			))}
-		</StyledProjectCardsContainer>
-	</StyledProjectsContainer>
+		</div>
+	</div>
 );
