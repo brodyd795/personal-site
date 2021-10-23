@@ -1,86 +1,38 @@
 import React, {FC} from 'react';
 
-import styled from 'styled-components';
 import Link from 'next/link';
-
-const StyledHeader = styled.div`
-	background-color: #272e41;
-	color: white;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-`;
-
-const StyledTopBar = styled.div`
-	display: flex;
-	justify-content: flex-end;
-	padding: 8px;
-`;
-
-const StyledHero = styled.div``;
-
-const StyledLink = styled.a`
-	text-decoration: none;
-	padding: 16px;
-	border-bottom: 2px solid transparent;
-	transition: border 0.2s ease;
-	color: white;
-
-	:visited {
-		color: white;
-	}
-
-	:hover {
-		cursor: pointer;
-		border-bottom: 2px solid white;
-	}
-`;
-
-const StyledHomeLink = styled(StyledLink)`
-	margin-right: auto;
-`;
-
-const StyledH1 = styled.h1`
-	font-size: 40px;
-	text-align: center;
-`;
-
-const StyledDescription = styled.p`
-	text-align: center;
-	padding: 16px 32px 32px;
-`;
-
-const StyledHeaderInnerContainer = styled.div`
-	max-width: 1024px;
-	width: 100%;
-`;
 
 interface IHeaderProps {
 	headerText: string;
 	subHeaderText: string;
 }
 
+const linkStyles: string = 'p-16 transition duration-500 ease-in-out hover:border-gray-700 border-transparent border-b-2 hover:border-current';
+
 export const Header: FC<IHeaderProps> = ({
 	headerText,
 	subHeaderText
 }: IHeaderProps) => (
-	<StyledHeader>
-		<StyledHeaderInnerContainer>
-			<StyledTopBar>
-				<Link passHref href='/'>
-					<StyledHomeLink>Home</StyledHomeLink>
+	<header className='w-full text-white flex justify-center bg-gray-500'>
+		<div className='w-full'>
+			<nav className='p-8 flex justify-end'>
+				<Link href='/'>
+					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+					<a className={`${linkStyles} mr-auto`}>Home</a>
 				</Link>
-				<Link passHref href='/about'>
-					<StyledLink>About</StyledLink>
+				<Link href='/about'>
+					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+					<a className={linkStyles}>About</a>
 				</Link>
-				<Link passHref href='#contact'>
-					<StyledLink>Contact</StyledLink>
+				<Link href='#contact'>
+					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+					<a className={linkStyles}>Contact</a>
 				</Link>
-			</StyledTopBar>
-			<StyledHero>
-				<StyledH1>{headerText}</StyledH1>
-				<StyledDescription>{subHeaderText}</StyledDescription>
-			</StyledHero>
-		</StyledHeaderInnerContainer>
-	</StyledHeader>
+			</nav>
+			<div>
+				<h1 className='text-center text-6xl'>{headerText}</h1>
+				<span className='text-center block m-8'>{subHeaderText}</span>
+			</div>
+		</div>
+	</header>
 );
