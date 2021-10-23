@@ -86,7 +86,7 @@ export const Contact: FC = () => {
 						Name
 					</label>
 					<Field
-						className={`${fieldStyles} w-80`}
+						className={`${fieldStyles}`}
 						id='name'
 						name='name'
 						type='text'
@@ -98,7 +98,7 @@ export const Contact: FC = () => {
 						Email
 					</label>
 					<Field
-						className={`${fieldStyles} w-80`}
+						className={`${fieldStyles}`}
 						name='email'
 						type='email'
 						placeholder='you@some-domain.com'
