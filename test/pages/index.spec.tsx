@@ -74,9 +74,6 @@ describe('Index', () => {
 			} = projects[index];
 
 			const name = await screen.findByText(projectName);
-			// The next/image component tacks on a <noscript> with an <img />
-			// inside as a fallback, which is detected here.
-			const imageAndFallback = await screen.findAllByAltText(projectName);
 			const card = await screen.findByTestId(`project-card-${projectName}`);
 			const technologies = await screen.findByText(
 				projectTechnologies.join(', ')
@@ -84,9 +81,6 @@ describe('Index', () => {
 
 			expect(name).toBeVisible();
 			expect(technologies).toBeVisible();
-			expect(imageAndFallback).toHaveLength(2);
-			expect(imageAndFallback[0]).toBeVisible();
-			expect(imageAndFallback[1]).toBeVisible();
 			expect(card).toHaveAttribute('href', link);
 		}
 	});
