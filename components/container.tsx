@@ -1,21 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import Head from 'next/head';
 import {Header} from './header';
 import {Footer} from './footer';
-
-const StyledContainer = styled.div`
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-	align-items: center;
-`;
-
-const StyledChildrenContainer = styled.div`
-	max-width: 768px;
-	width: 100%;
-	flex: 1;
-`;
 
 interface IProps {
 	children: React.ReactNode;
@@ -24,12 +10,12 @@ interface IProps {
 }
 
 export const Container = ({children, headerText, subHeaderText}: IProps) => (
-	<StyledContainer>
+	<div className='flex flex-col flex-1 items-center'>
 		<Head>
 			<title>Brody Dingel</title>
 		</Head>
 		<Header headerText={headerText} subHeaderText={subHeaderText} />
-		<StyledChildrenContainer>{children}</StyledChildrenContainer>
+		<div className='flex-1 w-full'>{children}</div>
 		<Footer />
-	</StyledContainer>
+	</div>
 );
