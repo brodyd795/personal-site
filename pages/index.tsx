@@ -1,16 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import {Container} from '../components/container';
 import {Projects} from '../components/projects';
 import {Timeline} from '../components/timeline';
 import {Contact} from '../components/contact';
-
-const StyledMain = styled.main`
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-`;
 
 const headerText = "Hi, I'm Brody.";
 const subHeaderText =
@@ -18,11 +11,11 @@ const subHeaderText =
 
 const Home = () => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>
-		<StyledMain>
+		<main className='flex flex-col flex-1'>
 			<Projects />
 			<Timeline />
 			<Contact />
-		</StyledMain>
+		</main>
 	</Container>
 );
 
