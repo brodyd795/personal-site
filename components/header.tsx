@@ -2,6 +2,8 @@ import React, {FC} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import backgroundImage from '../public/background.jpg';
+
 interface IHeaderProps {
 	headerText: string;
 	subHeaderText: string;
@@ -16,7 +18,7 @@ export const Header: FC<IHeaderProps> = ({
 }: IHeaderProps) => (
 	<header className='h-screen w-full text-white flex justify-center'>
 		<div className='h-100 w-100 overflow-hidden z-0'>
-			<Image src='/background.jpg' priority layout='fill' />
+			<Image src={backgroundImage} priority layout='fill' placeholder='blur' />
 		</div>
 		<div className='h-100 w-full flex flex-col z-10'>
 			<nav className='p-2 flex justify-end'>
