@@ -24,7 +24,7 @@ export const Timeline: FC = () => {
 	const otherEvents = timelineEvents.slice(3);
 
 	return (
-		<div className='flex flex-col mx-32'>
+		<div className='h-screen w-full flex flex-col'>
 			<h2>Timeline</h2>
 			{initialEvents.map(({year, events}) => (
 				<Year year={year} events={events} key={year} />
