@@ -1,82 +1,21 @@
 import React, {FC, useState} from 'react';
 import ReactMarkdown from 'react-markdown';
-import styled from 'styled-components';
 import {IYearEvents, timelineEvents} from '../data/timeline-events';
-import {StyledH2} from './styles';
-
-const StyledTimelineContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	margin: 0 32px;
-`;
-
-const StyledUl = styled.ul`
-	padding-left: 8px;
-	border-left: 2px solid black;
-	list-style-type: none;
-
-	@media (min-width: 500px) {
-		margin-left: 28px;
-	}
-`;
-
-const StyledLi = styled.li`
-	margin: 4px 0;
-
-	a {
-		color: #1d1e22;
-	}
-`;
-
-const StyledEvent = styled.div``;
-
-const StyledEventHeading = styled.p`
-	margin: auto;
-	color: #1d1e22;
-	font-weight: bold;
-`;
-
-const StyledEventSubtext = styled(ReactMarkdown)`
-	color: #3c3d48;
-`;
-
-const StyledYearContainer = styled.div`
-	@media (min-width: 500px) {
-		display: flex;
-	}
-`;
-
-const StyledYear = styled.h3`
-	@media (min-width: 500px) {
-		margin-left: 8px;
-		align-self: center;
-	}
-`;
-
-const StyledShowMoreButton = styled.button`
-	width: 100px;
-	height: 30px;
-	align-self: center;
-	background-color: #dedede;
-	border: 1px solid black;
-	border-radius: 20px;
-	cursor: pointer;
-`;
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
-	<StyledYearContainer key={year}>
-		<StyledYear>{year}</StyledYear>
-		<StyledUl>
+	<div key={year}>
+		<span>{year}</span>
+		<ul className='pl-8 list-none'>
 			{events.map(({heading, subtext}) => (
-				<StyledLi key={subtext}>
-					<StyledEvent>
-						<StyledEventHeading>{heading}</StyledEventHeading>
-						<StyledEventSubtext>{subtext}</StyledEventSubtext>
-					</StyledEvent>
-				</StyledLi>
+				<li className='m-4' key={subtext}>
+					<div>
+						<span>{heading}</span>
+						<ReactMarkdown>{subtext}</ReactMarkdown>
+					</div>
+				</li>
 			))}
-		</StyledUl>
-	</StyledYearContainer>
+		</ul>
+	</div>
 );
 
 export const Timeline: FC = () => {
@@ -85,20 +24,20 @@ export const Timeline: FC = () => {
 	const otherEvents = timelineEvents.slice(3);
 
 	return (
-		<StyledTimelineContainer>
-			<StyledH2>Timeline</StyledH2>
+		<div className='flex flex-col mx-32'>
+			<h2>Timeline</h2>
 			{initialEvents.map(({year, events}) => (
 				<Year year={year} events={events} key={year} />
 			))}
 			{!showMore && (
-				<StyledShowMoreButton type='button' onClick={() => setShowMore(true)}>
+				<button className='bg-gray=500 border-2 border-black rounded' type='button' onClick={() => setShowMore(true)}>
 					See All
-				</StyledShowMoreButton>
+				</button>
 			)}
 			{showMore &&
 				otherEvents.map(({year, events}) => (
 					<Year year={year} events={events} key={year} />
 				))}
-		</StyledTimelineContainer>
+		</div>
 	);
 };

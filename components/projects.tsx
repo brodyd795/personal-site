@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import {IProject, projects} from '../data/projects';
-import {StyledH2} from './styles';
 
 interface IProjectCard {
 	project: IProject;
@@ -26,7 +25,7 @@ const ProjectCard: FC<IProjectCard> = ({
 
 export const Projects: FC = () => (
 	<div>
-		<StyledH2>Projects</StyledH2>
+		<h2>Projects</h2>
 		<div className='flex justify-center flex-wrap'>
 			{projects.map((project) => (
 				<ProjectCard key={project.name} project={project} />
