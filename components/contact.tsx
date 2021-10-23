@@ -1,80 +1,9 @@
 import React, {FC, useState} from 'react';
-import styled from 'styled-components';
 import {Formik, Field, Form} from 'formik';
 import fetch from 'cross-fetch';
 
-import {StyledH2 as H2} from './styles';
 import {FieldValues} from '../types/shared-types';
 import {getBaseUrl} from '../utils/url-helpers';
-
-const StyledContactContainer = styled.div`
-	background-color: #272e41;
-	color: white;
-	border-radius: 8px;
-	margin: 80px 32px 32px;
-	padding: 16px;
-`;
-
-const StyledForm = styled(Form)`
-	display: flex;
-	flex-direction: column;
-`;
-
-const StyledField = styled(Field)`
-	margin: 8px;
-	border: 1px solid grey;
-	border-radius: 4px;
-	padding: 4px;
-
-	::placeholder {
-		font-family: Helvetica, sans-serif;
-	}
-`;
-
-const StyledInput = styled(StyledField)`
-	width: 200px;
-`;
-
-interface IStyledAlertProps {
-	readonly wasSuccessful: boolean;
-}
-
-const StyledAlert = styled.div<IStyledAlertProps>`
-	background-color: ${({wasSuccessful}) =>
-		wasSuccessful ? '#abffab' : '#ffabab'};
-	padding: 8px;
-	border: ${({wasSuccessful}) =>
-		`1px solid ${wasSuccessful ? '#204018' : '#401818'}`};
-	border-radius: 8px;
-	display: flex;
-	align-items: center;
-	margin-top: 8px;
-	color: black;
-`;
-
-const StyledStatusWord = styled.span`
-	font-weight: bold;
-	margin: 0 6px;
-`;
-
-const StyledH3 = styled.h3`
-	margin: 8px;
-`;
-
-const StyledH2 = styled(H2)`
-	margin-top: 8px;
-	color: white;
-`;
-
-const StyledSubmitButton = styled.button`
-	width: 100px;
-	height: 30px;
-	margin: 8px auto auto;
-	background-color: #dedede;
-	border: 1px solid black;
-	border-radius: 20px;
-	cursor: pointer;
-`;
 
 type Submission = {
 	hasSubmitted: boolean;
@@ -85,24 +14,28 @@ interface ISubmissionAlertProps {
 	submission: Submission;
 }
 
+const fieldStyles: string = 'm-8 p-4 border-2 border-grey-500';
+const statusWordStyles: string = 'my-0 mx-6';
+const getAlertStyles = (wasSuccessful: boolean) => `${wasSuccessful ? 'bg-green-200' : 'bg-red-200'}`;
+
 const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 	submission
 }: ISubmissionAlertProps): JSX.Element | null => {
 	if (submission.hasSubmitted && submission.wasSuccessful) {
 		return (
-			<StyledAlert wasSuccessful>
-				<StyledStatusWord>Success!</StyledStatusWord>
+			<div className={getAlertStyles(submission.wasSuccessful)}>
+				<span className={statusWordStyles}>Success!</span>
 				<span>I’ll get back to you as soon as I can.</span>
-			</StyledAlert>
+			</div>
 		);
 	}
 
 	if (submission.hasSubmitted && !submission.wasSuccessful) {
 		return (
-			<StyledAlert wasSuccessful={false}>
-				<StyledStatusWord>Oops!</StyledStatusWord>
+			<div className={getAlertStyles(submission.wasSuccessful)}>
+				<span className={statusWordStyles}>Oops!</span>
 				<span>Something went wrong.</span>
-			</StyledAlert>
+			</div>
 		);
 	}
 
@@ -140,18 +73,18 @@ export const Contact: FC = () => {
 	};
 
 	return (
-		<StyledContactContainer id='contact'>
-			<StyledH2>Contact</StyledH2>
-			<StyledH3>Drop a message, ask a question, or just say hi!</StyledH3>
+		<div className='p-16 m-32 bg-gray-500' id='contact'>
+			<h2 className='m-4'>Contact</h2>
+			<h3 className='m-4'>Drop a message, ask a question, or just say hi!</h3>
 			<Formik
 				initialValues={{name: '', email: '', message: ''}}
 				onSubmit={handleSubmit}
 			>
-				<StyledForm>
+				<Form className='flex flex-col'>
 					<label htmlFor='name' hidden>
 						Name
 					</label>
-					<StyledInput
+					<Field className={`${fieldStyles} w-80`}
 						id='name'
 						name='name'
 						type='text'
@@ -162,7 +95,7 @@ export const Contact: FC = () => {
 					<label htmlFor='email' hidden>
 						Email
 					</label>
-					<StyledInput
+					<Field className={`${fieldStyles} w-80`}
 						name='email'
 						type='email'
 						placeholder='you@some-domain.com'
@@ -172,7 +105,7 @@ export const Contact: FC = () => {
 					<label htmlFor='message' hidden>
 						Message
 					</label>
-					<StyledField
+					<Field className={fieldStyles}
 						name='message'
 						type='message'
 						component='textarea'
@@ -181,12 +114,12 @@ export const Contact: FC = () => {
 						aria-label='message'
 						required
 					/>
-					<StyledSubmitButton type='submit' aria-label='Send'>
+					<button className='w-20 bg-white rounded m-8' type='submit' aria-label='Send'>
 						Send
-					</StyledSubmitButton>
-				</StyledForm>
+					</button>
+				</Form>
 			</Formik>
 			<SubmissionAlert submission={submission} />
-		</StyledContactContainer>
+		</div>
 	);
 };
