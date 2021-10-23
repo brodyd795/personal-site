@@ -1,25 +1,10 @@
 import React, {useState} from 'react';
-import styled from 'styled-components';
 import {useUser, withPageAuthRequired, UserProvider} from '@auth0/nextjs-auth0';
 import {captureException} from '@sentry/nextjs';
 
 import {ADMIN_EMAILS} from '../enums/admin-emails';
 import {Container} from '../components/container';
 import {domains} from '../enums/domains';
-
-const StyledInput = styled.input`
-	margin: 20px auto;
-	padding: 4px;
-	border: 1px solid black;
-	border-radius: 4px;
-`;
-
-const StyledSubmit = styled.input`
-	margin-left: 8px;
-	border: 1px solid black;
-	border-radius: 4px;
-	height: 24px;
-`;
 
 const apiUrl = `https://${domains.PRODUCTION}/api/controllers/add-to-reading-list`;
 
@@ -69,14 +54,14 @@ const Reading = () => {
 				<form onSubmit={handleSubmit}>
 					<label id='url' htmlFor='url'>
 						<span hidden>Url:</span>
-						<StyledInput
+						<input className='m-20 p-4 border-2 border-black rounded'
 							onChange={handleChange}
 							value={url}
 							name='url'
 							placeholder='https://example.com'
 						/>
 					</label>
-					<StyledSubmit type='submit' value='Add' />
+					<button className='ml-8 h-20 border-2 border-black rounded' type='submit' value='Add' />
 				</form>
 				{success ? 'Success!' : 'Something went wrong. Please try again.'}
 			</main>
