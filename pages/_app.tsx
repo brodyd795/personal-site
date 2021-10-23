@@ -2,6 +2,7 @@ import {AppProps} from 'next/app';
 import {useRouter} from 'next/dist/client/router';
 import React, {useEffect} from 'react';
 import {createGlobalStyle} from 'styled-components';
+import '../styles/globals.css';
 
 import * as gtag from '../lib/gtag';
 
