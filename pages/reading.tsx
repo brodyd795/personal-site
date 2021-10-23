@@ -61,7 +61,7 @@ const Reading = () => {
 							placeholder='https://example.com'
 						/>
 					</label>
-					<button className='ml-8 h-20 border-2 border-black rounded' type='submit' value='Add' />
+					<button className='ml-8 h-20 border-2 border-black rounded' type='submit'>Add</button>
 				</form>
 				{success ? 'Success!' : 'Something went wrong. Please try again.'}
 			</main>
