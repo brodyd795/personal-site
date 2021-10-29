@@ -17,14 +17,14 @@ jest.mock('next/image', () => (props: ImageProps) => {
 	const toPass = {
 		...props,
 		priority: priority?.toString()
-	}
+	};
 
-return (
-	
-	// @ts-ignore
-	// eslint-disable-next-line @next/next/no-img-element
-	<img {...toPass} alt='' />
-)});
+	return (
+		// @ts-ignore
+		// eslint-disable-next-line @next/next/no-img-element
+		<img {...toPass} alt='' />
+	);
+});
 
 describe('Index', () => {
 	const render = async () => {

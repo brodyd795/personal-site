@@ -46,7 +46,7 @@ const NavButton = ({isActive, section}: INavButton) => {
 };
 
 const Home = () => {
-	const [scrollY, setScrollY] = useState(0);
+	const [, setScrollY] = useState(0);
 
 	const scrollListener = () => {
 		setScrollY(window.pageYOffset);
