@@ -1,13 +1,30 @@
 /* eslint-disable no-await-in-loop */
+import React from 'react';
 import {screen, cleanup} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import user from '@testing-library/user-event';
 import {getPage} from 'next-page-tester';
+import {ImageProps} from 'next/image';
 
 import {projects} from '../../data/projects';
 import {timelineEvents} from '../../data/timeline-events';
 
 import {server, contactHandlerOnFailure} from '../infrastructure';
+
+jest.mock('next/image', () => (props: ImageProps) => {
+	const {priority} = props;
+
+	const toPass = {
+		...props,
+		priority: priority?.toString()
+	}
+
+return (
+	
+	// @ts-ignore
+	// eslint-disable-next-line @next/next/no-img-element
+	<img {...toPass} alt='' />
+)});
 
 describe('Index', () => {
 	const render = async () => {
