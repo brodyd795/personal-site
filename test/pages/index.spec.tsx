@@ -1,15 +1,14 @@
 /* eslint-disable no-await-in-loop */
 import React from 'react';
-import {screen, cleanup} from '@testing-library/react';
+import {screen, cleanup, render as rtlRender} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import user from '@testing-library/user-event';
-import {getPage} from 'next-page-tester';
 import {ImageProps} from 'next/image';
 
 import {projects} from '../../data/projects';
 import {timelineEvents} from '../../data/timeline-events';
-
 import {server, contactHandlerOnFailure} from '../infrastructure';
+import Index from '../../pages/index';
 
 jest.mock('next/image', () => (props: ImageProps) => {
 	const {priority} = props;
@@ -27,13 +26,8 @@ jest.mock('next/image', () => (props: ImageProps) => {
 });
 
 describe('Index', () => {
-	const render = async () => {
-		const {render: nextRender} = await getPage({
-			route: '/',
-			useApp: true
-		});
-
-		nextRender();
+	const render = () => {
+		rtlRender(<Index />);
 	};
 
 	beforeAll(() => {
