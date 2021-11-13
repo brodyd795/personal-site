@@ -109,6 +109,12 @@ describe('Index', () => {
 
 		expect(await screen.findByText('An error occurred.')).toBeVisible();
 	});
+	
+	// test('should show reading list loading state', async () => {
+	// 	render();
+		
+	// 	expect(await screen.findByText('Loading...')).toBeVisible();
+	// });
 
 	test('should show initial timeline events', async () => {
 		render();
