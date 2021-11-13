@@ -7,7 +7,7 @@ import {ImageProps} from 'next/image';
 
 import {projects} from '../../data/projects';
 import {timelineEvents} from '../../data/timeline-events';
-import {server, contactHandlerOnFailure} from '../infrastructure';
+import {server, contactHandlerOnFailure, readingListErrorHandler} from '../infrastructure';
 import Index from '../../pages/index';
 
 jest.mock('next/image', () => (props: ImageProps) => {
@@ -94,6 +94,20 @@ describe('Index', () => {
 			expect(technologies).toBeVisible();
 			expect(card).toHaveAttribute('href', link);
 		}
+	});
+
+	test('should show reading list', async () => {
+		render();
+
+		expect(await screen.findByText('https://example.com')).toBeVisible();
+	});
+
+	test('should show reading list error', async () => {
+		server.use(readingListErrorHandler);
+
+		render();
+
+		expect(await screen.findByText('An error occurred.')).toBeVisible();
 	});
 
 	test('should show initial timeline events', async () => {
