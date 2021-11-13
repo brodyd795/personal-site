@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "./generated/prisma-client-js"
 }
 
 datasource db {
@@ -9,6 +10,6 @@ datasource db {
 
 model reading_list {
   id         Int      @id @default(autoincrement())
-  url        String   @db.VarChar(100)
+  url        String?  @unique(map: "url") @db.VarChar(100)
   date_added DateTime @db.Date
 }

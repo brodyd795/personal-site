@@ -1,8 +1,8 @@
-import {PrismaClient} from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prismaClient } from "./prisma-client";
 
 export const addToReadingList = async (url: string) => {
+	const prisma = prismaClient();
+
 	await prisma.reading_list.create({
 		data: {
 			url,
