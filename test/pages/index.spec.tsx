@@ -4,11 +4,16 @@ import {screen, cleanup, render as rtlRender} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import user from '@testing-library/user-event';
 import {ImageProps} from 'next/image';
-import { SWRConfig } from "swr";
+import {SWRConfig} from 'swr';
 
 import {projects} from '../../data/projects';
 import {timelineEvents} from '../../data/timeline-events';
-import {server, contactHandlerOnFailure, readingListErrorHandler, readingListLoadingHandler} from '../infrastructure';
+import {
+	server,
+	contactHandlerOnFailure,
+	readingListErrorHandler,
+	readingListLoadingHandler
+} from '../infrastructure';
 import Index from '../../pages/index';
 
 jest.mock('next/image', () => (props: ImageProps) => {
@@ -29,9 +34,9 @@ jest.mock('next/image', () => (props: ImageProps) => {
 describe('Index', () => {
 	const render = () => {
 		const Wrapper = ({children}: {children: React.ReactNode}) => (
-			<SWRConfig value={{ provider: () => new Map() }}>{children}</SWRConfig>
+			<SWRConfig value={{provider: () => new Map()}}>{children}</SWRConfig>
 		);
-	
+
 		return rtlRender(<Index />, {
 			wrapper: Wrapper
 		});
@@ -116,12 +121,12 @@ describe('Index', () => {
 
 		expect(await screen.findByText('An error occurred.')).toBeVisible();
 	});
-	
+
 	test('should show reading list loading state', async () => {
 		server.use(readingListLoadingHandler);
 
 		render();
-		
+
 		expect(await screen.findByText('Loading...')).toBeVisible();
 	});
 

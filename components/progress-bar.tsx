@@ -53,25 +53,25 @@ export const ProgressBar = () => {
 
 	return (
 		<div className='fixed top-20 left-0 z-20'>
-            <ul>
-                <ProgressButton isActive={progress >= 0 && progress < 20} section='#' />
-                <ProgressButton
-                    isActive={progress >= 20 && progress < 40}
-                    section='#projects'
-                />
-                <ProgressButton
-                    isActive={progress >= 40 && progress < 60}
-                    section='#timeline'
-                />
-                <ProgressButton
-                    isActive={progress >= 60 && progress <= 80}
-                    section='#contact'
-                />
-                <ProgressButton
-                    isActive={progress >= 80 && progress <= 100}
-                    section='#reading-list'
-                />
-            </ul>
-        </div>
-	)
-}
+			<ul>
+				<ProgressButton isActive={progress >= 0 && progress < 20} section='#' />
+				<ProgressButton
+					isActive={progress >= 20 && progress < 40}
+					section='#projects'
+				/>
+				<ProgressButton
+					isActive={progress >= 40 && progress < 60}
+					section='#timeline'
+				/>
+				<ProgressButton
+					isActive={progress >= 60 && progress <= 80}
+					section='#contact'
+				/>
+				<ProgressButton
+					isActive={progress >= 80 && progress <= 100}
+					section='#reading-list'
+				/>
+			</ul>
+		</div>
+	);
+};

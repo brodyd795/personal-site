@@ -2,12 +2,12 @@ import {setupServer} from 'msw/node';
 import {rest} from 'msw';
 
 import {domains} from '../enums/domains';
-import { GetReadingListResponse } from '../pages/api/controllers/get-reading-list';
+import {GetReadingListResponse} from '../pages/api/controllers/get-reading-list';
 
 const contactUrl = `http://${domains.LOCALHOST}/api/controllers/contact`;
 const readingListUrl = `http://${domains.LOCALHOST}/api/controllers/get-reading-list`;
 
-const readingListMockData: GetReadingListResponse = ({
+const readingListMockData: GetReadingListResponse = {
 	list: [
 		{
 			id: 1,
@@ -15,7 +15,7 @@ const readingListMockData: GetReadingListResponse = ({
 			url: 'https://example.com'
 		}
 	]
-})
+};
 
 const contactHandler = rest.post(contactUrl, (req, res, ctx) =>
 	res(ctx.status(200))
@@ -33,6 +33,17 @@ const readingListLoadingHandler = rest.get(readingListUrl, (req, res, ctx) =>
 	res(ctx.delay(), ctx.json(readingListMockData))
 );
 
-const server = setupServer(contactHandler, contactHandlerOnFailure, readingListHandler, readingListErrorHandler, readingListLoadingHandler);
+const server = setupServer(
+	contactHandler,
+	contactHandlerOnFailure,
+	readingListHandler,
+	readingListErrorHandler,
+	readingListLoadingHandler
+);
 
-export {server, contactHandlerOnFailure, readingListErrorHandler, readingListLoadingHandler};
+export {
+	server,
+	contactHandlerOnFailure,
+	readingListErrorHandler,
+	readingListLoadingHandler
+};

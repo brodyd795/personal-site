@@ -1,4 +1,4 @@
-import { prismaClient } from "./prisma-client";
+import {prismaClient} from './prisma-client';
 
 export const getReadingList = async () => {
 	const prisma = prismaClient();
