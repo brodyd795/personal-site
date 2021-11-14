@@ -18,7 +18,10 @@ export const ReadingList: FC = () => {
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}
 			{data?.list.map((item) => (
-				<div key={item.id}>{item.url}</div>
+				<div key={item.id}>
+					<div>{item.url}</div>
+					<div>{item.title}</div>
+				</div>
 			))}
 		</div>
 	);
