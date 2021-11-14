@@ -17,10 +17,10 @@ export const ReadingList: FC = () => {
 			<h2>Reading List</h2>
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}
-			{data?.list.map((item) => (
-				<div key={item.id}>
-					<div>{item.url}</div>
-					<div>{item.title}</div>
+			{data?.list.map(({id, url, title}) => (
+				<div key={id}>
+					<div>{url}</div>
+					<div>{title}</div>
 				</div>
 			))}
 		</div>
