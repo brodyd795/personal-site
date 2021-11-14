@@ -4,6 +4,7 @@ import {screen, cleanup, render as rtlRender} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import user from '@testing-library/user-event';
 import {ImageProps} from 'next/image';
+import { SWRConfig } from "swr";
 
 import {projects} from '../../data/projects';
 import {timelineEvents} from '../../data/timeline-events';
@@ -27,7 +28,13 @@ jest.mock('next/image', () => (props: ImageProps) => {
 
 describe('Index', () => {
 	const render = () => {
-		rtlRender(<Index />);
+		const Wrapper = ({children}: {children: React.ReactNode}) => (
+			<SWRConfig value={{ provider: () => new Map() }}>{children}</SWRConfig>
+		);
+	
+		return rtlRender(<Index />, {
+			wrapper: Wrapper
+		});
 	};
 
 	beforeAll(() => {
