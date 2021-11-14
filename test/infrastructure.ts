@@ -29,7 +29,10 @@ const readingListHandler = rest.get(readingListUrl, (req, res, ctx) =>
 const readingListErrorHandler = rest.get(readingListUrl, (req, res, ctx) =>
 	res(ctx.status(500))
 );
+const readingListLoadingHandler = rest.get(readingListUrl, (req, res, ctx) =>
+	res(ctx.delay(), ctx.json(readingListMockData))
+);
 
-const server = setupServer(contactHandler, contactHandlerOnFailure, readingListHandler, readingListErrorHandler);
+const server = setupServer(contactHandler, contactHandlerOnFailure, readingListHandler, readingListErrorHandler, readingListLoadingHandler);
 
-export {server, contactHandlerOnFailure, readingListErrorHandler};
+export {server, contactHandlerOnFailure, readingListErrorHandler, readingListLoadingHandler};

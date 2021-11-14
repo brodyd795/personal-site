@@ -8,7 +8,7 @@ import { SWRConfig } from "swr";
 
 import {projects} from '../../data/projects';
 import {timelineEvents} from '../../data/timeline-events';
-import {server, contactHandlerOnFailure, readingListErrorHandler} from '../infrastructure';
+import {server, contactHandlerOnFailure, readingListErrorHandler, readingListLoadingHandler} from '../infrastructure';
 import Index from '../../pages/index';
 
 jest.mock('next/image', () => (props: ImageProps) => {
@@ -117,11 +117,13 @@ describe('Index', () => {
 		expect(await screen.findByText('An error occurred.')).toBeVisible();
 	});
 	
-	// test('should show reading list loading state', async () => {
-	// 	render();
+	test('should show reading list loading state', async () => {
+		server.use(readingListLoadingHandler);
+
+		render();
 		
-	// 	expect(await screen.findByText('Loading...')).toBeVisible();
-	// });
+		expect(await screen.findByText('Loading...')).toBeVisible();
+	});
 
 	test('should show initial timeline events', async () => {
 		render();
