@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import useSWR from 'swr';
-import {fetch} from 'cross-fetch';
 
 import {GetReadingListResponse} from '../pages/api/controllers/get-reading-list';
 import {getBaseUrl} from '../utils/url-helpers';

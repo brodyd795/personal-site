@@ -1,3 +1,3 @@
-require('cross-fetch');
+require('whatwg-fetch');
 
 export {};

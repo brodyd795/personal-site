@@ -1,6 +1,5 @@
 import React, {FC, useState} from 'react';
 import {Formik, Field, Form} from 'formik';
-import fetch from 'cross-fetch';
 
 import {FieldValues} from '../types/shared-types';
 import {getBaseUrl} from '../utils/url-helpers';

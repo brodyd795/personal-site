@@ -20,7 +20,8 @@
 		"@prisma/client": "^3.2.1",
 		"@sendgrid/mail": "^7.4.5",
 		"@sentry/nextjs": "^6.10.0",
-		"cross-fetch": "^3.1.4",
+		"axios": "^0.24.0",
+		"cheerio": "^1.0.0-rc.10",
 		"formik": "^2.2.9",
 		"next": "12.0.0",
 		"prisma": "^3.2.1",
@@ -52,6 +53,7 @@
 		"prettier": "^2.3.2",
 		"tailwindcss": "^2.2.17",
 		"ts-node": "^10.3.0",
-		"typescript": "^4.3.5"
+		"typescript": "^4.3.5",
+		"whatwg-fetch": "^3.6.2"
 	}
 }
