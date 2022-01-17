@@ -16,7 +16,7 @@ interface ISubmissionAlertProps {
 const fieldStyles: string = 'm-8 p-4 border-2 border-grey-500';
 const statusWordStyles: string = 'my-0 mx-6';
 const getAlertStyles = (wasSuccessful: boolean) =>
-	`${wasSuccessful ? 'bg-green-200' : 'bg-red-200'}`;
+	`${wasSuccessful ? 'bg-emerald-200' : 'bg-red-200'}`;
 
 const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 	submission
@@ -73,7 +73,7 @@ export const Contact: FC = () => {
 	};
 
 	return (
-		<div className='min-h-screen w-full bg-gray-500' id='contact'>
+		<div className='min-h-screen w-full bg-zinc-500' id='contact'>
 			<h2 className='m-4'>Contact</h2>
 			<h3 className='m-4'>Drop a message, ask a question, or just say hi!</h3>
 			<Formik

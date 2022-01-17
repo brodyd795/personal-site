@@ -10,7 +10,7 @@ interface IHeaderProps {
 }
 
 const linkStyles: string =
-	'p-2 transition duration-500 ease-in-out hover:border-gray-700 border-transparent border-b-2 hover:border-current';
+	'p-2 transition duration-500 ease-in-out hover:border-zinc-700 border-transparent border-b-2 hover:border-current';
 
 export const Header: FC<IHeaderProps> = ({
 	headerText,
@@ -37,7 +37,7 @@ export const Header: FC<IHeaderProps> = ({
 			</nav>
 			<div className='flex-1 flex flex-col justify-center mb-80'>
 				<h1 className='text-center text-8xl'>{headerText}</h1>
-				{subHeaderText.map((text) => <span key={text} className='text-center block text-xl'>{text}</span>)}
+				{subHeaderText.map((text) => <span key={text} className='text-center block first-of-type:mt-16 text-xl'>{text}</span>)}
 			</div>
 		</div>
 	</header>

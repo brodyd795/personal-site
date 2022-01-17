@@ -24,7 +24,7 @@ const ProjectCard: FC<IProjectCard> = ({
 );
 
 export const Projects: FC = () => (
-	<div className='min-h-screen w-full bg-green-100' id='projects'>
+	<div className='min-h-screen w-full bg-emerald-100' id='projects'>
 		<h2>Projects</h2>
 		<div className='flex justify-center flex-wrap'>
 			{projects.map((project) => (

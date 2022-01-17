@@ -18,15 +18,16 @@ interface IProgressButton {
 const ProgressButton = ({isActive, section}: IProgressButton) => {
 	const router = useRouter();
 	const buttonSize = 5;
+	const dimensions = `w-${buttonSize} h-${buttonSize}`;
 
 	return (
 		<li
-			className={`rounded-full w-${buttonSize} m-5 h-${buttonSize} cursor-pointer ${
+			className={`rounded-full ${dimensions} m-5 cursor-pointer ${
 				isActive ? 'bg-blue-500' : 'bg-red-500'
 			}`}
 		>
 			<button
-				className={`h-${buttonSize} w-${buttonSize}`}
+				className={dimensions}
 				id={`progress-button-${section}`}
 				type='button'
 				onClick={() => {

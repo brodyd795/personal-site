@@ -31,7 +31,7 @@ export const Timeline: FC = () => {
 			))}
 			{!showMore && (
 				<button
-					className='bg-gray=500 border-2 border-black rounded'
+					className='bg-zinc-500 border-2 border-black rounded'
 					type='button'
 					onClick={() => setShowMore(true)}
 				>
