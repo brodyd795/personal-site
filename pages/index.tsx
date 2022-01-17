@@ -9,7 +9,7 @@ import {ProgressBar} from '../components/progress-bar';
 
 const headerText = "Hi, I'm Brody.";
 const subHeaderText =
-	"I'm a full-stack software engineer. I currently work as a Software Engineer at Hy-Vee on the Browse/Shop team. Nice to meet you!";
+	["I'm a full-stack software engineer at Hy-Vee.", "Nice to meet you!"];
 
 const Home = () => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>

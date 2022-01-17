@@ -6,7 +6,7 @@ import backgroundImage from '../public/background.jpg';
 
 interface IHeaderProps {
 	headerText: string;
-	subHeaderText: string;
+	subHeaderText: string[];
 }
 
 const linkStyles: string =
@@ -37,7 +37,7 @@ export const Header: FC<IHeaderProps> = ({
 			</nav>
 			<div className='flex-1 flex flex-col justify-center mb-80'>
 				<h1 className='text-center text-8xl'>{headerText}</h1>
-				<span className='text-center block m-8 text-xl'>{subHeaderText}</span>
+				{subHeaderText.map((text) => <span key={text} className='text-center block text-xl'>{text}</span>)}
 			</div>
 		</div>
 	</header>

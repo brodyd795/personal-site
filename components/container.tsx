@@ -6,7 +6,7 @@ import {Footer} from './footer';
 interface IProps {
 	children: React.ReactNode;
 	headerText: string;
-	subHeaderText: string;
+	subHeaderText: string[];
 }
 
 export const Container = ({children, headerText, subHeaderText}: IProps) => (
