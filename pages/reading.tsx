@@ -38,7 +38,7 @@ const Reading = () => {
 				method: 'POST',
 				body: JSON.stringify({url})
 			});
-	
+
 			if (res.status === 200) {
 				setSuccess(true);
 			} else {

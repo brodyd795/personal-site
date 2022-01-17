@@ -59,14 +59,14 @@
 		"whatwg-fetch": "^3.6.2"
 	},
 	"husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.{js,ts,tsx,json}": [
-            "prettier --write",
-            "git add"
-        ]
-    }
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,ts,tsx,json}": [
+			"prettier --write",
+			"git add"
+		]
+	}
 }
