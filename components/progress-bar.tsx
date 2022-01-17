@@ -20,17 +20,22 @@ const ProgressButton = ({isActive, section}: IProgressButton) => {
 
 	return (
 		<li
-			className={`rounded-full w-10 h-10 ${
+			className={`rounded-full w-10 h-10 cursor-pointer ${
 				isActive ? 'bg-blue-500' : 'bg-red-500'
 			}`}
 		>
 			<button
+				className='h-10 w-10'
+				id={`progress-button-${section}`}
 				type='button'
 				onClick={() => {
 					router.push(section);
 				}}
 			>
-				–––
+				<label
+					htmlFor={`progress-button-${section}`}
+					hidden
+				>{`Go to ${section}`}</label>
 			</button>
 		</li>
 	);
@@ -52,7 +57,7 @@ export const ProgressBar = () => {
 	const progress = getProgress();
 
 	return (
-		<div className='fixed top-20 left-0 z-20'>
+		<div className='fixed inset-0 flex items-center ml-2 z-20'>
 			<ul>
 				<ProgressButton isActive={progress >= 0 && progress < 20} section='#' />
 				<ProgressButton
