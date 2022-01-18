@@ -31,21 +31,19 @@ export const Timeline: FC = () => {
 				{initialEvents.map(({year, events}) => (
 					<Year year={year} events={events} key={year} />
 				))}
-				{!showMore && (
-					<div className='flex justify-center'>
-						<button
-							className='bg-zinc-500 border-2 border-black rounded w-28'
-							type='button'
-							onClick={() => setShowMore(true)}
-						>
-							See All
-						</button>
-					</div>
-				)}
 				{showMore &&
 					otherEvents.map(({year, events}) => (
 						<Year year={year} events={events} key={year} />
 					))}
+					<div className='flex justify-center'>
+						<button
+							className='bg-zinc-500 border-2 border-black rounded w-28'
+							type='button'
+							onClick={() => setShowMore(!showMore)}
+						>
+							{showMore ? 'Show less' : 'Show more'}
+						</button>
+					</div>
 			</div>
 		</div>
 	);
