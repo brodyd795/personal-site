@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {IProject, projects} from '../data/projects';
-import { Heading } from './heading';
+import {Heading} from './heading';
 
 interface IProjectCard {
 	project: IProject;
@@ -26,7 +26,10 @@ const ProjectCard: FC<IProjectCard> = ({
 );
 
 export const Projects: FC = () => (
-	<div className='min-h-screen w-full bg-emerald-100  flex flex-col items-center' id='projects'>
+	<div
+		className='min-h-screen w-full bg-emerald-100  flex flex-col items-center'
+		id='projects'
+	>
 		<Heading text='Projects' />
 		<div className='flex justify-center flex-wrap max-w-screen-lg'>
 			{projects.map((project) => (

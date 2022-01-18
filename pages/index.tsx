@@ -8,8 +8,10 @@ import {ReadingList} from '../components/reading-list';
 import {ProgressBar} from '../components/progress-bar';
 
 const headerText = "Hi, I'm Brody.";
-const subHeaderText =
-	["I'm a full-stack software engineer at Hy-Vee.", "Nice to meet you!"];
+const subHeaderText = [
+	"I'm a full-stack software engineer at Hy-Vee.",
+	'Nice to meet you!'
+];
 
 const Home = () => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>

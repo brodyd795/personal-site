@@ -37,7 +37,14 @@ export const Header: FC<IHeaderProps> = ({
 			</nav>
 			<div className='flex-1 flex flex-col justify-center mb-80'>
 				<h1 className='text-center text-8xl'>{headerText}</h1>
-				{subHeaderText.map((text) => <span key={text} className='text-center block first-of-type:mt-16 text-xl'>{text}</span>)}
+				{subHeaderText.map((text) => (
+					<span
+						key={text}
+						className='text-center block first-of-type:mt-16 text-xl'
+					>
+						{text}
+					</span>
+				))}
 			</div>
 		</div>
 	</header>

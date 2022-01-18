@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
 import ReactMarkdown from 'react-markdown';
 import {IYearEvents, timelineEvents} from '../data/timeline-events';
-import { Heading } from './heading';
+import {Heading} from './heading';
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
 	<div key={year}>
@@ -25,7 +25,10 @@ export const Timeline: FC = () => {
 	const otherEvents = timelineEvents.slice(3);
 
 	return (
-		<div className='min-h-screen w-full flex flex-col items-center' id='timeline'>
+		<div
+			className='min-h-screen w-full flex flex-col items-center'
+			id='timeline'
+		>
 			<Heading text='Timeline' />
 			<div className='max-w-screen-lg mx-2 mb-10'>
 				{initialEvents.map(({year, events}) => (
@@ -35,15 +38,15 @@ export const Timeline: FC = () => {
 					otherEvents.map(({year, events}) => (
 						<Year year={year} events={events} key={year} />
 					))}
-					<div className='flex justify-center'>
-						<button
-							className='bg-zinc-500 border-2 border-black rounded w-28'
-							type='button'
-							onClick={() => setShowMore(!showMore)}
-						>
-							{showMore ? 'Show less' : 'Show more'}
-						</button>
-					</div>
+				<div className='flex justify-center'>
+					<button
+						className='bg-zinc-500 border-2 border-black rounded w-28'
+						type='button'
+						onClick={() => setShowMore(!showMore)}
+					>
+						{showMore ? 'Show less' : 'Show more'}
+					</button>
+				</div>
 			</div>
 		</div>
 	);
