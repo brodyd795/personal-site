@@ -6,11 +6,11 @@ import { Heading } from './heading';
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
 	<div key={year}>
 		<span>{year}</span>
-		<ul className='pl-8 list-none'>
+		<ul className='md:ml-10 md:border-l-2 border-zinc-500 list-none'>
 			{events.map(({heading, subtext}) => (
-				<li className='m-4' key={subtext}>
+				<li className='md:m-2' key={subtext}>
 					<div>
-						<span>{heading}</span>
+						<span className='font-semibold'>{heading}</span>
 						<ReactMarkdown>{subtext}</ReactMarkdown>
 					</div>
 				</li>
@@ -27,7 +27,7 @@ export const Timeline: FC = () => {
 	return (
 		<div className='min-h-screen w-full flex flex-col items-center' id='timeline'>
 			<Heading text='Timeline' />
-			<div className='max-w-screen-lg'>
+			<div className='max-w-screen-lg mx-2 mb-10'>
 				{initialEvents.map(({year, events}) => (
 					<Year year={year} events={events} key={year} />
 				))}
