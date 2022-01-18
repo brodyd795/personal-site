@@ -6,7 +6,7 @@ interface IProjectCard {
 }
 
 const ProjectCard: FC<IProjectCard> = ({
-	project: {name, link, technologies}
+	project: {name, link, technologies, description}
 }: IProjectCard) => (
 	<a
 		href={link}
@@ -14,19 +14,20 @@ const ProjectCard: FC<IProjectCard> = ({
 		rel='noreferrer'
 		data-testid={`project-card-${name}`}
 	>
-		<div className='flex flex-col flex-1 justify-between'>
-			<span>{name}</span>
+		<div className='flex flex-col flex-1 justify-between border-zinc-500 border-2 m-1 w-80 h-52 p-2'>
+			<span className='text-center font-bold text-xl'>{name}</span>
+			<span className='mt-4 mb-auto'>{description}</span>
 			{technologies ? (
-				<span className='italic'>{technologies.join(', ')}</span>
+				<span className='italic mt-2'>{technologies.join(', ')}</span>
 			) : null}
 		</div>
 	</a>
 );
 
 export const Projects: FC = () => (
-	<div className='min-h-screen w-full bg-emerald-100' id='projects'>
-		<h2>Projects</h2>
-		<div className='flex justify-center flex-wrap'>
+	<div className='min-h-screen w-full bg-emerald-100  flex flex-col items-center' id='projects'>
+		<h2 className='text-4xl text-center m-4'>Projects</h2>
+		<div className='flex justify-center flex-wrap max-w-screen-lg'>
 			{projects.map((project) => (
 				<ProjectCard key={project.name} project={project} />
 			))}
