@@ -17,8 +17,7 @@ interface IProgressButton {
 
 const ProgressButton = ({isActive, section}: IProgressButton) => {
 	const router = useRouter();
-	const buttonSize = 5;
-	const dimensions = `w-${buttonSize} h-${buttonSize}`;
+	const dimensions = 'w-5 h-5';
 
 	return (
 		<li
