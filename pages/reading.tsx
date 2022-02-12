@@ -57,7 +57,7 @@ const Reading = () => {
 
 	const getSuccessMessage = () => {
 		if (loading) {
-			return 'Loading...'
+			return 'Loading...';
 		}
 
 		if (hasSubmitted) {
@@ -65,7 +65,7 @@ const Reading = () => {
 		}
 
 		return '';
-	}
+	};
 
 	return (
 		<main className='flex flex-col items-center h-screen flex-1 justify-center'>
@@ -80,10 +80,7 @@ const Reading = () => {
 						placeholder='https://example.com'
 					/>
 				</label>
-				<button
-					className='p-1 m-2 border-2 border-black rounded'
-					type='submit'
-				>
+				<button className='p-1 m-2 border-2 border-black rounded' type='submit'>
 					Add
 				</button>
 			</form>
