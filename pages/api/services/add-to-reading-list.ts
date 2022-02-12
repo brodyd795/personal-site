@@ -12,15 +12,17 @@ export const addToReadingList = async (url: string) => {
 
 	const prisma = prismaClient();
 
+	const newItem = {
+		url,
+		date_added: new Date(),
+		title,
+		description,
+		domain,
+		image
+	};
+
 	await prisma.reading_list.create({
-		data: {
-			url,
-			date_added: new Date(),
-			title,
-			description,
-			domain,
-			image
-		}
+		data: newItem
 	});
 
 	await prisma.$disconnect();
