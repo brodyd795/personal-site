@@ -25,7 +25,7 @@ export const Timeline: FC = () => {
 	const otherEvents = timelineEvents.slice(3);
 
 	return (
-		<div className='w-full py-10 flex flex-col items-center' id='timeline'>
+		<div className='w-full mt-10 flex flex-col items-center' id='timeline'>
 			<Heading text='Timeline' />
 			<div className='max-w-screen-lg mx-2 mb-10'>
 				{initialEvents.map(({year, events}) => (

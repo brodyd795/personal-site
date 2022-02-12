@@ -14,7 +14,7 @@ export const ReadingList: FC = () => {
 	);
 
 	return (
-		<div className='min-h-screen w-full flex flex-col' id='reading-list'>
+		<div className='mt-10 w-full flex flex-col' id='reading-list'>
 			<Heading text='Reading List' />
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}

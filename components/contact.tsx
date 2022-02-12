@@ -73,7 +73,7 @@ export const Contact: FC = () => {
 	};
 
 	return (
-		<div className='min-h-screen w-full bg-zinc-500' id='contact'>
+		<div className='mt-10 w-full bg-zinc-500' id='contact'>
 			<h2 className='m-4'>Contact</h2>
 			<h3 className='m-4'>Drop a message, ask a question, or just say hi!</h3>
 			<Formik
