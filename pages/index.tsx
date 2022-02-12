@@ -19,8 +19,8 @@ const Home = () => (
 		<main className='flex flex-col flex-1'>
 			<Projects />
 			<Timeline />
-			<Contact />
 			<ReadingList />
+			<Contact />
 		</main>
 	</Container>
 );
