@@ -20,11 +20,11 @@ export const ReadingList: FC = () => {
 			{error && <div>An error occurred.</div>}
 			<div className='max-w-screen-lg mx-2 mb-10'>
 				<h3>{"Here's what I've been reading recently"}</h3>
-				{data?.list.map(({id, url, title, img, date_added, description}) => (
+				{data?.list.map(({id, url, title, image, date_added, description}) => (
 					<div key={id}>
 						<div>{url}</div>
 						<div>{title}</div>
-						<div>{img}</div>
+						<div>{image}</div>
 						<div>{date_added}</div>
 						<div>{description}</div>
 					</div>

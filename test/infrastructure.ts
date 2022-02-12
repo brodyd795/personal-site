@@ -13,6 +13,9 @@ const readingListMockData: GetReadingListResponse = {
 			id: 1,
 			date_added: new Date('2021-01-01'),
 			title: 'foo',
+			description: 'foo',
+			image: 'https://picsum.photos/200/300',
+			domain: 'https://example.com',
 			url: 'https://example.com'
 		}
 	]

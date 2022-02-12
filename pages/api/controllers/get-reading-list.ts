@@ -1,8 +1,8 @@
 import type {NextApiRequest, NextApiResponse} from 'next';
 import {withSentry, captureException, flush} from '@sentry/nextjs';
+import { reading_list } from '@prisma/client';
 
 import {getReadingList} from '../services/get-reading-list';
-import {reading_list} from '../../../prisma/generated/prisma-client-js';
 
 export interface GetReadingListResponse {
 	list: reading_list[];
@@ -20,9 +20,10 @@ const handler = async (
 		captureException(error);
 		await flush(2000);
 
-		// @ts-ignore
 		res
-			.status(error.status || 500)
+		// @ts-ignore
+		.status(error.status || 500)
+		// @ts-ignore
 			.end(error.message || 'An unexpected error occurred');
 	}
 };
