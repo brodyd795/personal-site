@@ -71,11 +71,11 @@ export const ProgressBar = () => {
 				/>
 				<ProgressButton
 					isActive={progress >= 60 && progress <= 80}
-					section='#contact'
+					section='#reading-list'
 				/>
 				<ProgressButton
 					isActive={progress >= 80 && progress <= 100}
-					section='#reading-list'
+					section='#contact'
 				/>
 			</ul>
 		</div>

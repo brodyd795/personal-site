@@ -1,9 +1,13 @@
 import {AppProps} from 'next/app';
 import {useRouter} from 'next/dist/client/router';
 import React, {useEffect} from 'react';
+import { config } from '@fortawesome/fontawesome-svg-core'
 import '../styles/globals.css';
 
 import * as gtag from '../lib/gtag';
+
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 const MyApp = ({Component, pageProps, err}: AppProps & {err: any}) => {
 	const router = useRouter();
