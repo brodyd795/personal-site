@@ -31,10 +31,19 @@ const ProjectCard: FC<IProjectCard> = ({
 					<span className='text-xs italic text-white'>{`Credit: ${projectImage.credit}`}</span>
 				</div>
 				<div className='flex flex-col flex-1 pl-4 bg-blue-200'>
-					<span className='mt-4 mb-auto'><span className='font-bold'>{'TL;DR: '}</span>{tldr}</span>
-					<span className='mt-2 mb-auto'><span className='font-bold'>{'What I\'ve learned: '}</span>{description}</span>
+					<span className='mt-4 mb-auto'>
+						<span className='font-bold'>{'TL;DR: '}</span>
+						{tldr}
+					</span>
+					<span className='mt-2 mb-auto'>
+						<span className='font-bold'>{"What I've learned: "}</span>
+						{description}
+					</span>
 					{technologies ? (
-						<span className='italic mt-2'><span className='font-bold'>{'Using: '}</span>{technologies.join(', ')}</span>
+						<span className='italic mt-2'>
+							<span className='font-bold'>{'Using: '}</span>
+							{technologies.join(', ')}
+						</span>
 					) : null}
 				</div>
 			</div>

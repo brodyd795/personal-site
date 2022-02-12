@@ -4,7 +4,12 @@ import {prismaClient} from './prisma-client';
 
 export const addToReadingList = async (url: string) => {
 	// @ts-ignore
-	const {title, description, domain, img: image} = await linkPreviewGenerator(url)
+	const {
+		title,
+		description,
+		domain,
+		img: image
+	} = await linkPreviewGenerator(url);
 
 	const prisma = prismaClient();
 

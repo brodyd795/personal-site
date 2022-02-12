@@ -21,7 +21,9 @@ const handler = async (
 		await flush(2000);
 
 		// @ts-ignore
-		res.status(error.status || 500).end(error.message || 'An unexpected error occurred');
+		res
+			.status(error.status || 500)
+			.end(error.message || 'An unexpected error occurred');
 	}
 };
 
