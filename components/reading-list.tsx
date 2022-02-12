@@ -14,12 +14,12 @@ export const ReadingList: FC = () => {
 	);
 
 	return (
-		<div className='mt-10 w-full flex flex-col' id='reading-list'>
+		<div className='mt-10 w-full flex flex-col items-center' id='reading-list'>
 			<Heading text='Reading List' />
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}
-			<div>
-				<div>{"Here's what I've been reading recently"}</div>
+			<div className='max-w-screen-lg mx-2 mb-10'>
+				<h3>{"Here's what I've been reading recently"}</h3>
 				{data?.list.map(({id, url, title, img, date_added, description}) => (
 					<div key={id}>
 						<div>{url}</div>
