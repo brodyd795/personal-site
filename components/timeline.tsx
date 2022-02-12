@@ -26,7 +26,7 @@ export const Timeline: FC = () => {
 
 	return (
 		<div
-			className='min-h-screen w-full flex flex-col items-center'
+			className='w-full py-10 flex flex-col items-center'
 			id='timeline'
 		>
 			<Heading text='Timeline' />

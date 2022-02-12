@@ -12,6 +12,7 @@ const readingListMockData: GetReadingListResponse = {
 		{
 			id: 1,
 			date_added: new Date('2021-01-01'),
+			title: 'foo',
 			url: 'https://example.com'
 		}
 	]

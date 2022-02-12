@@ -6,7 +6,7 @@ import {aboutData} from '../data/about';
 import {Contact} from '../components/contact';
 
 const About = () => (
-	<Container headerText='About' subHeaderText=''>
+	<Container headerText='About' subHeaderText={['']}>
 		<main>
 			{/* eslint-disable-next-line react/no-unescaped-entities */}
 			<h2>Hi! I'm Brody 👋🏻</h2>
