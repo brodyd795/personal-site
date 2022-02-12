@@ -3,7 +3,6 @@ import linkPreviewGenerator from 'link-preview-generator';
 import {prismaClient} from './prisma-client';
 
 export const addToReadingList = async (url: string) => {
-	// @ts-ignore
 	const {
 		title,
 		description,
