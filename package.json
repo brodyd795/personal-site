@@ -9,6 +9,7 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "yarn test && next build",
+		"schema:migrate:dev": "npx prisma migrate dev",
 		"start": "next start",
 		"lint": "eslint . --ext .tsx --ext .ts",
 		"prettier": "prettier --write \"**/*.{ts,tsx,json}\"",
@@ -17,7 +18,7 @@
 	},
 	"dependencies": {
 		"@auth0/nextjs-auth0": "1.6.1",
-		"@prisma/client": "^3.2.1",
+		"@prisma/client": "3.9.2",
 		"@sendgrid/mail": "^7.4.5",
 		"@sentry/nextjs": "^6.10.0",
 		"axios": "^0.24.0",
@@ -25,7 +26,7 @@
 		"formik": "^2.2.9",
 		"link-preview-generator": "^1.0.7",
 		"next": "12.0.0",
-		"prisma": "^3.2.1",
+		"prisma": "^3.9.2",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
 		"react-markdown": "^6.0.2",

@@ -53,7 +53,7 @@ const Reading = () => {
 	return (
 		<Container
 			headerText='Add to Reading List'
-			subHeaderText='Add to your reading list below!'
+			subHeaderText={['Add to your reading list below!']}
 		>
 			<main>
 				<form onSubmit={handleSubmit}>

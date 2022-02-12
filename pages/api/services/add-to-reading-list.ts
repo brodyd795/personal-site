@@ -1,9 +1,10 @@
+import linkPreviewGenerator from 'link-preview-generator';
+
 import {prismaClient} from './prisma-client';
 
-import {scrapePageTitle} from './scrape-service';
-
 export const addToReadingList = async (url: string) => {
-	const title = await scrapePageTitle(url);
+	// @ts-ignore
+	const {title, description, domain, img: image} = await linkPreviewGenerator(url)
 
 	const prisma = prismaClient();
 
@@ -11,7 +12,10 @@ export const addToReadingList = async (url: string) => {
 		data: {
 			url,
 			date_added: new Date(),
-			title
+			title,
+			description,
+			domain,
+			image
 		}
 	});
 

@@ -1,11 +1,11 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/prisma-client-js"
 }
 
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model reading_list {
@@ -13,4 +13,7 @@ model reading_list {
   url        String?  @unique(map: "url") @db.VarChar(100)
   date_added DateTime @db.Date
   title      String   @db.VarChar(100)
+  image     String? @db.VarChar(500)
+  description String? @db.VarChar(1000)
+  domain String? @db.VarChar(100)
 }
