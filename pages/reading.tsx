@@ -3,7 +3,6 @@ import {useUser, withPageAuthRequired, UserProvider} from '@auth0/nextjs-auth0';
 import {captureException} from '@sentry/nextjs';
 
 import {ADMIN_EMAILS} from '../enums/admin-emails';
-import {Container} from '../components/container';
 import {domains} from '../enums/domains';
 
 // TODO: make this dynamic per env
@@ -11,14 +10,16 @@ const apiUrl = `http://${domains.LOCALHOST}/api/controllers/add-to-reading-list`
 
 const Reading = () => {
 	const [url, setUrl] = useState('');
-	const [success, setSuccess] = useState<boolean | null>(null);
-	const {user, error, isLoading} = useUser();
+	const [success, setSuccess] = useState<boolean>(false);
+	const {user, error, isLoading: userLoading} = useUser();
+	const [hasSubmitted, setHasSubmitted] = useState(false);
+	const [loading, setLoading] = useState(false);
 
 	if (error) {
 		return <div>Error</div>;
 	}
 
-	if (isLoading) {
+	if (userLoading) {
 		return <div>Loading user profile...</div>;
 	}
 
@@ -32,6 +33,7 @@ const Reading = () => {
 
 	const handleSubmit = async (e: {preventDefault: () => void}) => {
 		e.preventDefault();
+		setLoading(true);
 
 		try {
 			const res = await fetch(apiUrl, {
@@ -47,36 +49,46 @@ const Reading = () => {
 			}
 		} catch (err) {
 			captureException(err);
+		} finally {
+			setHasSubmitted(true);
+			setLoading(false);
 		}
 	};
 
+	const getSuccessMessage = () => {
+		if (loading) {
+			return 'Loading...'
+		}
+
+		if (hasSubmitted) {
+			return success ? 'Success!' : 'Something went wrong. Please try again.';
+		}
+
+		return '';
+	}
+
 	return (
-		<Container
-			headerText='Add to Reading List'
-			subHeaderText={['Add to your reading list below!']}
-		>
-			<main>
-				<form onSubmit={handleSubmit}>
-					<label id='url' htmlFor='url'>
-						<span hidden>Url:</span>
-						<input
-							className='m-20 p-4 border-2 border-black rounded'
-							onChange={handleChange}
-							value={url}
-							name='url'
-							placeholder='https://example.com'
-						/>
-					</label>
-					<button
-						className='ml-8 h-20 border-2 border-black rounded'
-						type='submit'
-					>
-						Add
-					</button>
-				</form>
-				{success ? 'Success!' : 'Something went wrong. Please try again.'}
-			</main>
-		</Container>
+		<main className='flex flex-col items-center h-screen flex-1 justify-center'>
+			<form onSubmit={handleSubmit} className='flex flex-col items-center'>
+				<label id='url' htmlFor='url'>
+					<span hidden>Url:</span>
+					<input
+						className='p-2 m-2 border-2 border-black rounded'
+						onChange={handleChange}
+						value={url}
+						name='url'
+						placeholder='https://example.com'
+					/>
+				</label>
+				<button
+					className='p-1 m-2 border-2 border-black rounded'
+					type='submit'
+				>
+					Add
+				</button>
+			</form>
+			{getSuccessMessage()}
+		</main>
 	);
 };
 
