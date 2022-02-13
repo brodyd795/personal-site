@@ -20,20 +20,18 @@ const ReadingCard: FC = ({data: {id, url, title, image, date_added, domain, desc
 		<div className='flex flex-col border-zinc-500 border-2 my-2 px-2'>
 			<div className='flex'>
 				<div className='flex items-center'>{`${String(index + 1).padStart(2, '0')}`}</div>
-				<div className='flex flex-col mx-2'>
+				<div className='flex flex-col ml-4 mr-2 pb-2 flex-1'>
 					<div className='w-100'>
 						<div className='mt-4 mb-auto flex justify-between'>
 							<div className='font-bold'>{title}</div>
 							<div>
-								<span>{domain}</span>
+								<span><i>{domain}</i></span>
 								<a class="external" href="https://example.org" target="_blank"><FontAwesomeIcon icon={faExternalLink} className='pl-1' /></a>
 							</div>
 						</div>
 					</div>
-					<div>
-						<span className='mt-2 mb-auto'>
-							<span>{description}</span>
-						</span>
+					<div className='mt-2'>
+						<span>{description}</span>
 					</div>
 				</div>
 			</div>
@@ -53,10 +51,12 @@ export const ReadingList: FC = () => {
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}
 			<div className='max-w-screen-lg mx-2 mb-10'>
-				<h2 className='text-xl'>{"Here's what I've been reading recently"}</h2>
-				{data?.list.map((readingItem, index) => (
-					<ReadingCard data={readingItem} key={readingItem.id} index={index} />
-				))}
+				<h2 className='text-xl'>{"Here's what I've been reading recently:"}</h2>
+				<div className='mt-4'>
+					{data?.list.map((readingItem, index) => (
+						<ReadingCard data={readingItem} key={readingItem.id} index={index} />
+					))}
+				</div>
 			</div>
 		</div>
 	);
