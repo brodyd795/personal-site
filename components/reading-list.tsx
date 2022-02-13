@@ -10,14 +10,14 @@ import {Heading} from './heading';
 
 const fetcher = (url: RequestInfo) => fetch(url).then((res) => res.json());
 
-const ReadingCard: FC = ({data: {id, url, title, image, date_added, domain, description}, index}: {data: reading_list}) => (
+const ReadingCard: FC = ({data: {url, title, domain, description}, index}: {data: reading_list, index: number}) => (
 	<a
 		href={url}
 		target='_blank'
 		rel='noreferrer'
 		data-testid={`project-card-${title}`}
 	>
-		<div className='flex flex-col border-zinc-500 border-2 my-2 px-2'>
+		<div className='flex flex-col border-zinc-500 border-2 my-2 px-2 transition ease-in-out delay-50 hover:scale-[1.01] hover:scale-102 hover:bg-indigo-100 duration-300'>
 			<div className='flex'>
 				<div className='flex items-center'>{`${String(index + 1).padStart(2, '0')}`}</div>
 				<div className='flex flex-col ml-4 mr-2 pb-2 flex-1'>
