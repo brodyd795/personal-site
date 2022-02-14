@@ -19,7 +19,7 @@ const ReadingCard: FC = ({data: {url, title, domain, description}, index}: {data
 	>
 		<div className='flex flex-col border-zinc-500 border-2 my-2 px-2 transition ease-in-out delay-50 hover:scale-[1.01] hover:scale-102 hover:bg-indigo-100 duration-300'>
 			<div className='flex'>
-				<div className='flex items-center'>{`${String(index + 1).padStart(2, '0')}`}</div>
+				<div className='flex items-center'>{String(index + 1).padStart(2, '0')}</div>
 				<div className='flex flex-col ml-4 mr-2 pb-2 flex-1'>
 					<div className='w-100'>
 						<div className='mt-4 mb-auto flex justify-between'>
