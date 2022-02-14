@@ -10,7 +10,12 @@ import {Heading} from './heading';
 
 const fetcher = (url: RequestInfo) => fetch(url).then((res) => res.json());
 
-const ReadingCard: FC = ({data: {url, title, domain, description}, index}: {data: reading_list, index: number}) => (
+interface IReadingCard {
+	data: reading_list;
+	index: number;
+}
+
+const ReadingCard: FC<IReadingCard> = ({data: {url, title, domain, description}, index}) => (
 	<a
 		href={url}
 		target='_blank'
@@ -26,7 +31,7 @@ const ReadingCard: FC = ({data: {url, title, domain, description}, index}: {data
 							<div className='font-bold'>{title}</div>
 							<div>
 								<span><i>{domain}</i></span>
-								<a class="external" href="https://example.org" target="_blank"><FontAwesomeIcon icon={faExternalLink} className='pl-1' /></a>
+								<a aria-label={url} className="external" href="https://example.org" rel='noreferrer' target="_blank"><FontAwesomeIcon icon={faExternalLink} className='pl-1' /></a>
 							</div>
 						</div>
 					</div>
