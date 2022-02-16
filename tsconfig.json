@@ -18,16 +18,19 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "types": ["jest", "@testing-library/jest-dom"],
   },
   "include": [
     "next-env.d.ts",
+    // "(data|prisma|pages|public|styles|utils)/**/*.(ts|tsx)",
     "**/*.ts",
     "**/*.tsx",
     "**/*.js"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "cypress/**/*.ts"
   ],
   "ts-node": {
     "compilerOptions": {

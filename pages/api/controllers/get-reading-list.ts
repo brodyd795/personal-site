@@ -22,8 +22,10 @@ const handler = async (
 
 		// todo: check out https://kentcdodds.com/blog/get-a-catch-block-error-message-with-typescript
 		res
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			.status(error.status || 500)
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			.end(error.message || 'An unexpected error occurred');
 	}

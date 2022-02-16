@@ -2,7 +2,7 @@ import linkPreviewGenerator from 'link-preview-generator';
 
 import {prismaClient} from './prisma-client';
 
-export const addToReadingList = async (url: string) => {
+export const addToReadingList = async (url: string): Promise<void> => {
 	const {
 		title,
 		description,

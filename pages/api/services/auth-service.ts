@@ -8,11 +8,13 @@ interface IRequestBody {
 	key: string;
 }
 
-export const getUrlIfIsAuthenticated = (req: NextApiRequest, res: NextApiResponse) => {
+type Req = Omit<NextApiRequest, 'body'> & {body: string}
+
+export const getUrlIfIsAuthenticated = (req: Req, res: NextApiResponse): string => {
     const session = getSession(req, res);
     const isAuthenticated = ADMIN_EMAILS.includes(session?.user.email);
 
-    const {url, key: keySent}: IRequestBody = JSON.parse(req.body);
+    const {url, key: keySent} = JSON.parse(req.body) as IRequestBody;
     const key = process.env.READING_LIST_EXTENSION_SECRET;
     const hasValidKey = key === keySent;
 

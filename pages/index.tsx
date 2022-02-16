@@ -13,7 +13,7 @@ const subHeaderText = [
 	'Nice to meet you!'
 ];
 
-const Home = () => (
+const Home = (): JSX.Element => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>
 		<ProgressBar />
 		<main className='flex flex-col flex-1'>

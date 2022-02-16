@@ -5,7 +5,7 @@ import {Container} from '../components/container';
 import {aboutData} from '../data/about';
 import {Contact} from '../components/contact';
 
-const About = () => (
+const About = (): JSX.Element => (
 	<Container headerText='About' subHeaderText={['']}>
 		<main>
 			{/* eslint-disable-next-line react/no-unescaped-entities */}

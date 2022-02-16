@@ -45,7 +45,7 @@ const ReadingCard: FC<IReadingCard> = ({data: {url, title, domain, description},
 );
 
 export const ReadingList: FC = () => {
-	const {data, error} = useSWR<GetReadingListResponse>(
+	const {data, error} = useSWR<GetReadingListResponse, Error>(
 		`${getBaseUrl()}/api/controllers/get-reading-list`,
 		fetcher
 	);

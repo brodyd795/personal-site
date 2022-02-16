@@ -4,7 +4,7 @@ import Document, {Html, Head, Main, NextScript} from 'next/document';
 import {GA_TRACKING_ID} from '../lib/gtag';
 
 export default class MyDocument extends Document {
-	render() {
+	render(): JSX.Element {
 		return (
 			<Html lang='en'>
 				<Head>

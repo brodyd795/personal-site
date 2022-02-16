@@ -16,7 +16,7 @@ interface IProgressButton {
 }
 
 const ProgressButton = ({isActive, section}: IProgressButton) => {
-	const router = useRouter();
+	const {push} = useRouter();
 	const dimensions = 'w-5 h-5';
 
 	return (
@@ -29,8 +29,8 @@ const ProgressButton = ({isActive, section}: IProgressButton) => {
 				className={dimensions}
 				id={`progress-button-${section}`}
 				type='button'
-				onClick={() => {
-					router.push(section);
+				onClick={async (): Promise<void> => {
+					await push(section);
 				}}
 			>
 				<label
@@ -42,7 +42,7 @@ const ProgressButton = ({isActive, section}: IProgressButton) => {
 	);
 };
 
-export const ProgressBar = () => {
+export const ProgressBar = (): JSX.Element => {
 	const [, setScrollY] = useState(0);
 
 	const scrollListener = () => {

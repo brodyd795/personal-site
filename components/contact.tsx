@@ -13,8 +13,8 @@ interface ISubmissionAlertProps {
 	submission: Submission;
 }
 
-const fieldStyles: string = 'm-8 p-4 border-2 border-grey-500';
-const statusWordStyles: string = 'my-0 mx-6';
+const fieldStyles = 'm-8 p-4 border-2 border-grey-500';
+const statusWordStyles = 'my-0 mx-6';
 const getAlertStyles = (wasSuccessful: boolean) =>
 	`${wasSuccessful ? 'bg-emerald-200' : 'bg-red-200'}`;
 

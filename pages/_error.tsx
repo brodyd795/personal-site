@@ -34,7 +34,6 @@ MyError.getInitialProps = async ({res, err, asPath}: NextPageContext) => {
 	} as NextPageContext);
 
 	// Workaround for https://github.com/vercel/next.js/issues/8592, mark when getInitialProps has run
-	// @ts-ignore
 	errorInitialProps.hasGetInitialPropsRun = true;
 
 	if (err) {
@@ -46,7 +45,7 @@ MyError.getInitialProps = async ({res, err, asPath}: NextPageContext) => {
 	}
 
 	Sentry.captureException(
-		new Error(`_error.js getInitialProps missing data at path: ${asPath}`)
+		new Error(`_error.js getInitialProps missing data at path: ${asPath ?? ''}`)
 	);
 
 	await Sentry.flush(2000);

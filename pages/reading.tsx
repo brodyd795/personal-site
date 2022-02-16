@@ -89,7 +89,7 @@ const Reading = () => {
 	);
 };
 
-const Wrapper = () => (
+const Wrapper = (): JSX.Element => (
 	<UserProvider>
 		<Reading />
 	</UserProvider>

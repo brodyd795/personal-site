@@ -1,6 +1,9 @@
 import type {Config} from '@jest/types';
 
 const config: Config.InitialOptions = {
+	roots: [
+		'<rootDir>'
+	  ],
 	testEnvironment: 'jsdom',
 	setupFiles: ['./jest.setup.ts'],
 	moduleNameMapper: {

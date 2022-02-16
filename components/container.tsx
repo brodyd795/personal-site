@@ -9,7 +9,7 @@ interface IProps {
 	subHeaderText: string[];
 }
 
-export const Container = ({children, headerText, subHeaderText}: IProps) => (
+export const Container = ({children, headerText, subHeaderText}: IProps): JSX.Element => (
 	<div className='flex flex-col flex-1 items-center'>
 		<Head>
 			<title>Brody Dingel</title>
