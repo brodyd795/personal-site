@@ -22,7 +22,9 @@ const MyError = ({
 };
 
 MyError.getInitialProps = async (ctx: NextPageContext) => {
-	const errorInitialProps = await NextErrorComponent.getInitialProps(ctx) as AppErrorProps;
+	const errorInitialProps = (await NextErrorComponent.getInitialProps(
+		ctx
+	)) as AppErrorProps;
 
 	errorInitialProps.hasGetInitialPropsRun = true;
 
@@ -35,7 +37,9 @@ MyError.getInitialProps = async (ctx: NextPageContext) => {
 	}
 
 	Sentry.captureException(
-		new Error(`_error.js getInitialProps missing data at path: ${ctx.asPath ?? ''}`)
+		new Error(
+			`_error.js getInitialProps missing data at path: ${ctx.asPath ?? ''}`
+		)
 	);
 
 	await Sentry.flush(2000);

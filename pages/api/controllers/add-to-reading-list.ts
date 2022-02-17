@@ -10,7 +10,7 @@ interface IRequestBody {
 	key: string;
 }
 
-type Req = Omit<NextApiRequest, 'body'> & {body: string}
+type Req = Omit<NextApiRequest, 'body'> & {body: string};
 
 const handler = async (req: Req, res: NextApiResponse) => {
 	try {

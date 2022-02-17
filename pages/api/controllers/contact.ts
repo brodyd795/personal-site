@@ -2,9 +2,9 @@ import type {NextApiRequest, NextApiResponse} from 'next';
 import {withSentry, captureException, flush} from '@sentry/nextjs';
 
 import {submitContactForm} from '../services/submit';
-import {FieldValues} from "../../../types/shared-types";
+import {FieldValues} from '../../../types/shared-types';
 
-type Req = Omit<NextApiRequest, 'body'> & {body: {values: FieldValues}}
+type Req = Omit<NextApiRequest, 'body'> & {body: {values: FieldValues}};
 
 const handler = async (req: Req, res: NextApiResponse) => {
 	try {

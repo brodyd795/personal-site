@@ -1,8 +1,8 @@
 import type {NextApiRequest, NextApiResponse} from 'next';
 import {withSentry, captureException, flush} from '@sentry/nextjs';
 
-import { getUrlIfIsAuthenticated } from '../services/auth-service';
-import { deleteFromReadingList } from '../services/delete-from-reading-list';
+import {getUrlIfIsAuthenticated} from '../services/auth-service';
+import {deleteFromReadingList} from '../services/delete-from-reading-list';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {

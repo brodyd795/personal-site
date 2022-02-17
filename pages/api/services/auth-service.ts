@@ -8,19 +8,22 @@ interface IRequestBody {
 	key: string;
 }
 
-type Req = Omit<NextApiRequest, 'body'> & {body: string}
+type Req = Omit<NextApiRequest, 'body'> & {body: string};
 
-export const getUrlIfIsAuthenticated = (req: Req, res: NextApiResponse): string => {
-    const session = getSession(req, res);
-    const isAuthenticated = ADMIN_EMAILS.includes(session?.user.email);
+export const getUrlIfIsAuthenticated = (
+	req: Req,
+	res: NextApiResponse
+): string => {
+	const session = getSession(req, res);
+	const isAuthenticated = ADMIN_EMAILS.includes(session?.user.email);
 
-    const {url, key: keySent} = JSON.parse(req.body) as IRequestBody;
-    const key = process.env.READING_LIST_EXTENSION_SECRET;
-    const hasValidKey = key === keySent;
+	const {url, key: keySent} = JSON.parse(req.body) as IRequestBody;
+	const key = process.env.READING_LIST_EXTENSION_SECRET;
+	const hasValidKey = key === keySent;
 
-    if (!isAuthenticated && !hasValidKey) {
-        throw new Error('Unauthorized.');
-    }
+	if (!isAuthenticated && !hasValidKey) {
+		throw new Error('Unauthorized.');
+	}
 
-    return url;
-}
+	return url;
+};

@@ -1,4 +1,4 @@
-import type {reading_list} from "@prisma/client";
+import type {reading_list} from '@prisma/client';
 
 import {prismaClient} from './prisma-client';
 

@@ -13,7 +13,7 @@ export const getBaseUrl = (): string => {
 	const environment = process.env.VERCEL_ENV;
 
 	if (!environment) {
-		throw new Error('Failed to get environment. Must set VERCEL_ENV.')
+		throw new Error('Failed to get environment. Must set VERCEL_ENV.');
 	}
 
 	if (environment === environments.PRODUCTION) {
@@ -22,8 +22,8 @@ export const getBaseUrl = (): string => {
 	if (environment === environments.PREVIEW) {
 		return process.env.VERCEL_GIT_COMMIT_REF === 'dev'
 			? `https://${domains.DEV}`
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			: `https://${process.env.VERCEL_URL!}`;
+			: // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+			  `https://${process.env.VERCEL_URL!}`;
 	}
 
 	return `http://${domains.LOCALHOST}`;
