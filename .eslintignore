@@ -1,3 +1,4 @@
 next-env.d.ts
 sentry.*.config.js
 prisma/generated
+cypress
