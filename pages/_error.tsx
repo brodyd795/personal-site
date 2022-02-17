@@ -1,25 +1,19 @@
 import React from 'react';
-import {NextPageContext} from 'next';
-import NextErrorComponent from 'next/error';
+import {NextPageContext, NextPage} from 'next';
+import NextErrorComponent, {ErrorProps} from 'next/error';
 
 import * as Sentry from '@sentry/nextjs';
 
-interface IMyErrorProps {
-	statusCode: number;
+interface AppErrorProps extends ErrorProps {
+	err: Error;
 	hasGetInitialPropsRun: boolean;
-	err:
-		| (Error & {
-				statusCode?: number | undefined;
-		  })
-		| null
-		| undefined;
 }
 
 const MyError = ({
 	statusCode,
 	hasGetInitialPropsRun,
 	err
-}: IMyErrorProps): JSX.Element => {
+}: AppErrorProps): JSX.Element => {
 	if (!hasGetInitialPropsRun && err) {
 		Sentry.captureException(err);
 	}
@@ -27,17 +21,13 @@ const MyError = ({
 	return <NextErrorComponent statusCode={statusCode} />;
 };
 
-MyError.getInitialProps = async ({res, err, asPath}: NextPageContext) => {
-	const errorInitialProps = await NextErrorComponent.getInitialProps({
-		res,
-		err
-	} as NextPageContext);
+MyError.getInitialProps = async (ctx: NextPageContext) => {
+	const errorInitialProps = await NextErrorComponent.getInitialProps(ctx) as AppErrorProps;
 
-	// Workaround for https://github.com/vercel/next.js/issues/8592, mark when getInitialProps has run
 	errorInitialProps.hasGetInitialPropsRun = true;
 
-	if (err) {
-		Sentry.captureException(err);
+	if (ctx.err) {
+		Sentry.captureException(ctx.err);
 
 		await Sentry.flush(2000);
 
@@ -45,7 +35,7 @@ MyError.getInitialProps = async ({res, err, asPath}: NextPageContext) => {
 	}
 
 	Sentry.captureException(
-		new Error(`_error.js getInitialProps missing data at path: ${asPath ?? ''}`)
+		new Error(`_error.js getInitialProps missing data at path: ${ctx.asPath ?? ''}`)
 	);
 
 	await Sentry.flush(2000);
