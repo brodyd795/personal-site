@@ -8,6 +8,6 @@ const config: Config.InitialOptions = {
 		'^.+\\.(css)$': '<rootDir>/test/mocks/cssMock.ts',
 		'^.+\\.(jpg)$': '<rootDir>/test/mocks/fileMock.ts'
 	},
-	testMatch: ["<rootDir>/test/**/*.tsx"]
+	testMatch: ['<rootDir>/test/**/*.tsx']
 };
 export default config;

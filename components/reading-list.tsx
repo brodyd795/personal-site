@@ -45,7 +45,7 @@ const ReadingCard: FC<IReadingCard> = ({
 								{/* 	rel='noreferrer' */}
 								{/* 	target='_blank' */}
 								{/* > */}
-									<FontAwesomeIcon icon={faExternalLink} className='pl-1' />
+								<FontAwesomeIcon icon={faExternalLink} className='pl-1' />
 								{/* </a> */}
 							</div>
 						</div>

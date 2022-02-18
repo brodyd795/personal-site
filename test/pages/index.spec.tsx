@@ -15,7 +15,7 @@ import {
 	readingListLoadingHandler
 } from '../infrastructure';
 import Index from '../../pages/index';
-import {createRouter} from "../mocks/nextRouterMock";
+import {createRouter} from '../mocks/nextRouterMock';
 
 describe('Index', () => {
 	const {useRouter} = nextRouter as jest.Mocked<typeof nextRouter>;
@@ -69,15 +69,9 @@ describe('Index', () => {
 
 		expect(await screen.findByText("Hi, I'm Brody.")).toBeVisible();
 		expect(
-			await screen.findByText(
-				"I'm a full-stack software engineer at Hy-Vee."
-			)
+			await screen.findByText("I'm a full-stack software engineer at Hy-Vee.")
 		).toBeVisible();
-		expect(
-			await screen.findByText(
-				"Nice to meet you!"
-			)
-		).toBeVisible();
+		expect(await screen.findByText('Nice to meet you!')).toBeVisible();
 	});
 
 	test('should show projects', async () => {
