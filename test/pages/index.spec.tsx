@@ -5,6 +5,7 @@ import '@testing-library/jest-dom/extend-expect';
 import user from '@testing-library/user-event';
 import {SWRConfig} from 'swr';
 
+import * as nextRouter from 'next/router';
 import {projects} from '../../data/projects';
 import {timelineEvents} from '../../data/timeline-events';
 import {
@@ -14,8 +15,13 @@ import {
 	readingListLoadingHandler
 } from '../infrastructure';
 import Index from '../../pages/index';
+import {createRouter} from "../mocks/nextRouterMock";
 
 describe('Index', () => {
+	const {useRouter} = nextRouter as jest.Mocked<typeof nextRouter>;
+
+	let expectedRouter: nextRouter.NextRouter;
+
 	const render = () => {
 		const Wrapper = ({children}: {children: React.ReactNode}) => (
 			<SWRConfig value={{provider: () => new Map()}}>{children}</SWRConfig>
@@ -33,6 +39,9 @@ describe('Index', () => {
 	});
 
 	beforeEach(() => {
+		expectedRouter = createRouter();
+		useRouter.mockReturnValue(expectedRouter);
+
 		server.resetHandlers();
 	});
 
@@ -61,7 +70,12 @@ describe('Index', () => {
 		expect(await screen.findByText("Hi, I'm Brody.")).toBeVisible();
 		expect(
 			await screen.findByText(
-				"I'm a full-stack software engineer. I currently work as a Software Engineer at Hy-Vee on the Browse/Shop team. Nice to meet you!"
+				"I'm a full-stack software engineer at Hy-Vee."
+			)
+		).toBeVisible();
+		expect(
+			await screen.findByText(
+				"Nice to meet you!"
 			)
 		).toBeVisible();
 	});
@@ -149,12 +163,12 @@ describe('Index', () => {
 
 		expect(screen.queryByText(nextYear)).toBeNull();
 
-		user.click(await screen.findByRole('button', {name: 'See All'}));
+		user.click(await screen.findByRole('button', {name: 'Show more'}));
 
 		expect(await screen.findByText(nextYear)).toBeVisible();
 		expect(await screen.findByText(nextYearEvents[0].heading)).toBeVisible();
 
-		expect(screen.queryByRole('button', {name: 'See All'})).toBeNull();
+		expect(screen.queryByRole('button', {name: 'Show more'})).toBeNull();
 	});
 
 	test('should allow user to fill out contact form and alert on success', async () => {

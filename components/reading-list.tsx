@@ -38,15 +38,15 @@ const ReadingCard: FC<IReadingCard> = ({
 								<span>
 									<i>{domain}</i>
 								</span>
-								<a
-									aria-label={url}
-									className='external'
-									href='https://example.org'
-									rel='noreferrer'
-									target='_blank'
-								>
+								{/* <a */}
+								{/* 	aria-label={url} */}
+								{/* 	className='external' */}
+								{/* 	href='https://example.org' */}
+								{/* 	rel='noreferrer' */}
+								{/* 	target='_blank' */}
+								{/* > */}
 									<FontAwesomeIcon icon={faExternalLink} className='pl-1' />
-								</a>
+								{/* </a> */}
 							</div>
 						</div>
 					</div>
