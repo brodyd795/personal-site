@@ -12,10 +12,6 @@ export const redirectTo = (redirectToUrl: string): string => {
 export const getBaseUrl = (): string => {
 	const environment = process.env.VERCEL_ENV;
 
-	if (!environment) {
-		throw new Error('Failed to get environment. Must set VERCEL_ENV.');
-	}
-
 	if (environment === environments.PRODUCTION) {
 		return `https://${domains.PRODUCTION}`;
 	}
