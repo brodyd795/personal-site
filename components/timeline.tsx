@@ -1,17 +1,17 @@
 import React, {FC, useState} from 'react';
-import ReactMarkdown from 'react-markdown';
+
 import {IYearEvents, timelineEvents} from '../data/timeline-events';
 import {Heading} from './heading';
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
-	<div key={year}>
+	<div key={year} className={'mt-4'}>
 		<span>{year}</span>
-		<ul className='md:ml-10 md:border-l-2 border-zinc-500 list-none'>
+		<ul className='mt-2 md:ml-10 md:border-l-2 border-zinc-500 list-none'>
 			{events.map(({heading, subtext}) => (
-				<li className='md:m-2' key={subtext}>
+				<li className='mt-1 md:m-2' key={heading}>
 					<div>
 						<span className='font-semibold'>{heading}</span>
-						<ReactMarkdown>{subtext}</ReactMarkdown>
+						{subtext}
 					</div>
 				</li>
 			))}
