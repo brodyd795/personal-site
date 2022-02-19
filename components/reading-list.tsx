@@ -4,6 +4,7 @@ import {reading_list} from '@prisma/client';
 import {faExternalLink} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
+import ReactMarkdown from "react-markdown";
 import {GetReadingListResponse} from '../pages/api/controllers/get-reading-list';
 import {getBaseUrl} from '../utils/url-helpers';
 import {Heading} from './heading';
@@ -12,12 +13,10 @@ const fetcher = (url: RequestInfo) => fetch(url).then((res) => res.json());
 
 interface IReadingCard {
 	data: reading_list;
-	index: number;
 }
 
 const ReadingCard: FC<IReadingCard> = ({
-	data: {url, title, domain, description},
-	index
+	data: {url, title, domain, description}
 }) => (
 	<a
 		href={url}
@@ -25,33 +24,22 @@ const ReadingCard: FC<IReadingCard> = ({
 		rel='noreferrer'
 		data-testid={`project-card-${title}`}
 	>
-		<div className='flex flex-col border-zinc-500 border-2 my-2 px-2 transition ease-in-out delay-50 hover:scale-[1.01] hover:scale-102 hover:bg-indigo-100 duration-300'>
+		<div className='flex flex-col border-zinc-500 border-2 drop-shadow-md rounded my-2 px-2 transition ease-in-out delay-50 hover:scale-[1.01] hover:scale-102 hover:bg-indigo-100 duration-300'>
 			<div className='flex'>
-				<div className='flex items-center'>
-					{String(index + 1).padStart(2, '0')}
-				</div>
 				<div className='flex flex-col ml-4 mr-2 pb-2 flex-1'>
 					<div className='w-100'>
-						<div className='mt-4 mb-auto flex justify-between'>
+						<div className='mt-4 mb-auto flex flex-col sm:flex-row justify-between'>
 							<div className='font-bold'>{title}</div>
 							<div>
 								<span>
 									<i>{domain}</i>
 								</span>
-								{/* <a */}
-								{/* 	aria-label={url} */}
-								{/* 	className='external' */}
-								{/* 	href='https://example.org' */}
-								{/* 	rel='noreferrer' */}
-								{/* 	target='_blank' */}
-								{/* > */}
 								<FontAwesomeIcon icon={faExternalLink} className='pl-1' />
-								{/* </a> */}
 							</div>
 						</div>
 					</div>
 					<div className='mt-2'>
-						<span>{description}</span>
+						{description && <ReactMarkdown>{description}</ReactMarkdown>}
 					</div>
 				</div>
 			</div>
@@ -70,17 +58,17 @@ export const ReadingList: FC = () => {
 			<Heading text='Reading List' />
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}
-			<div className='max-w-screen-lg mx-2 mb-10'>
-				<h2 className='text-xl'>{"Here's what I've been reading recently:"}</h2>
+			<div className='max-w-screen-lg mx-1 mb-10'>
+				<h2 className='text-xl'>{"Check out what I've been reading recently 📖"}</h2>
 				<div className='mt-4'>
-					{data?.list.map((readingItem, index) => (
+					{data?.list.map((readingItem) => (
 						<ReadingCard
 							data={readingItem}
 							key={readingItem.id}
-							index={index}
 						/>
 					))}
 				</div>
+				<div className={'mt-16 text-xl'}><p>Have a recommendation? Shoot me a link below!</p></div>
 			</div>
 		</div>
 	);
