@@ -5,7 +5,6 @@ import {Projects} from '../components/projects';
 import {Timeline} from '../components/timeline';
 import {Contact} from '../components/contact';
 import {ReadingList} from '../components/reading-list';
-import {ProgressBar} from '../components/progress-bar';
 
 const headerText = "Hi, I'm Brody.";
 const subHeaderText = [
@@ -15,7 +14,6 @@ const subHeaderText = [
 
 const Home = (): JSX.Element => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>
-		<ProgressBar />
 		<main className='flex flex-col flex-1'>
 			<Projects />
 			<Timeline />
