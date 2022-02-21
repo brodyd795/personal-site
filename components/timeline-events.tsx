@@ -20,7 +20,19 @@ export const timelineEvents: IYearEvents[] = [
 			},
 			{
 				heading: 'Iowa STATEment Makers award 🏆',
-				subtext: <div>Honored by the ISU Alumni Center for early professional accomplishments. <a className={'underline'} href={'https://www.isualum.org/s/565/17/interior.aspx?sid=565&gid=1&pgid=2551'}>Check it out!</a></div>
+				subtext: (
+					<div>
+						Honored by the ISU Alumni Center for early professional accomplishments.{' '}
+						<a
+							className={'underline'}
+							href={
+								'https://www.isualum.org/s/565/17/interior.aspx?sid=565&gid=1&pgid=2551'
+							}
+						>
+							Check it out!
+						</a>
+					</div>
+				)
 			}
 		]
 	},

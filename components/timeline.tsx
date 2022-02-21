@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 
-import {IYearEvents, timelineEvents} from '../data/timeline-events';
+import {IYearEvents, timelineEvents} from './timeline-events';
 import {Heading} from './heading';
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
