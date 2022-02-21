@@ -48,7 +48,12 @@ export const Header: FC<IHeaderProps> = ({
 					</span>
 				))}
 			</div>
-			<button type={'button'} className={'bg-green-500 mb-80 p-4 animate-bounce'}>Get to know me <FontAwesomeIcon icon={faAngleDown} className='pl-1' /></button>
+			<button
+				type={'button'}
+				className={'bg-green-500 mb-80 p-4 animate-bounce'}
+			>
+				Get to know me <FontAwesomeIcon icon={faAngleDown} className='pl-1' />
+			</button>
 		</div>
 	</header>
 );

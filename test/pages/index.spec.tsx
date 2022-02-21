@@ -7,7 +7,7 @@ import {SWRConfig} from 'swr';
 
 import * as nextRouter from 'next/router';
 import {projects} from '../../data/projects';
-import {timelineEvents} from '../../data/timeline-events';
+import {timelineEvents} from '../../components/timeline-events';
 import {
 	server,
 	contactHandlerOnFailure,

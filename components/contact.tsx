@@ -3,7 +3,7 @@ import {Formik, Field, Form} from 'formik';
 
 import {FieldValues} from '../types/shared-types';
 import {getBaseUrl} from '../utils/url-helpers';
-import {Heading} from "./heading";
+import {Heading} from './heading';
 
 type Submission = {
 	hasSubmitted: boolean;
@@ -74,60 +74,63 @@ export const Contact: FC = () => {
 	};
 
 	return (
-		<div className='w-full mt-10 flex flex-col items-center bg-zinc-500' id='contact'>
+		<div
+			className='w-full mt-10 flex flex-col items-center bg-zinc-500'
+			id='contact'
+		>
 			<Heading text='Contact' />
 			<h3 className='m-4'>Drop a message, ask a question, or just say hi!</h3>
 			<div className={'max-w-screen-lg mx-2 mb-10 flex justify-start'}>
-			<Formik
-				initialValues={{name: '', email: '', message: ''}}
-				onSubmit={handleSubmit}
-			>
-				<Form className='flex flex-col'>
-					<label htmlFor='name' hidden>
-						Name
-					</label>
-					<Field
-						className={`${fieldStyles}`}
-						id='name'
-						name='name'
-						type='text'
-						placeholder='First and last name'
-						aria-label='name'
-						required
-					/>
-					<label htmlFor='email' hidden>
-						Email
-					</label>
-					<Field
-						className={`${fieldStyles}`}
-						name='email'
-						type='email'
-						placeholder='you@some-domain.com'
-						aria-label='email'
-						required
-					/>
-					<label htmlFor='message' hidden>
-						Message
-					</label>
-					<Field
-						className={fieldStyles}
-						name='message'
-						type='message'
-						component='textarea'
-						rows={4}
-						placeholder="How's it going?"
-						aria-label='message'
-						required
-					/>
-					<button
-						className='w-20 bg-white rounded m-8'
-						type='submit'
-						aria-label='Send'
-					>
-						Send
-					</button>
-				</Form>
-			</Formik>
+				<Formik
+					initialValues={{name: '', email: '', message: ''}}
+					onSubmit={handleSubmit}
+				>
+					<Form className='flex flex-col'>
+						<label htmlFor='name' hidden>
+							Name
+						</label>
+						<Field
+							className={`${fieldStyles}`}
+							id='name'
+							name='name'
+							type='text'
+							placeholder='First and last name'
+							aria-label='name'
+							required
+						/>
+						<label htmlFor='email' hidden>
+							Email
+						</label>
+						<Field
+							className={`${fieldStyles}`}
+							name='email'
+							type='email'
+							placeholder='you@some-domain.com'
+							aria-label='email'
+							required
+						/>
+						<label htmlFor='message' hidden>
+							Message
+						</label>
+						<Field
+							className={fieldStyles}
+							name='message'
+							type='message'
+							component='textarea'
+							rows={4}
+							placeholder="How's it going?"
+							aria-label='message'
+							required
+						/>
+						<button
+							className='w-20 bg-white rounded m-8'
+							type='submit'
+							aria-label='Send'
+						>
+							Send
+						</button>
+					</Form>
+				</Formik>
 			</div>
 			<SubmissionAlert submission={submission} />
 		</div>

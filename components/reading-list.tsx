@@ -4,7 +4,7 @@ import {reading_list} from '@prisma/client';
 import {faExternalLink} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from 'react-markdown';
 import {GetReadingListResponse} from '../pages/api/controllers/get-reading-list';
 import {getBaseUrl} from '../utils/url-helpers';
 import {Heading} from './heading';
@@ -59,16 +59,17 @@ export const ReadingList: FC = () => {
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}
 			<div className='max-w-screen-lg mx-1 mb-10'>
-				<h2 className='text-xl'>{"Check out what I've been reading recently 📖"}</h2>
+				<h2 className='text-xl'>
+					{"Check out what I've been reading recently 📖"}
+				</h2>
 				<div className='mt-4'>
 					{data?.list.map((readingItem) => (
-						<ReadingCard
-							data={readingItem}
-							key={readingItem.id}
-						/>
+						<ReadingCard data={readingItem} key={readingItem.id} />
 					))}
 				</div>
-				<div className={'mt-16 text-xl'}><p>Have a recommendation? Shoot me a link below!</p></div>
+				<div className={'mt-16 text-xl'}>
+					<p>Have a recommendation? Shoot me a link below!</p>
+				</div>
 			</div>
 		</div>
 	);
