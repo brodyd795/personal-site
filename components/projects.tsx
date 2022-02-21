@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import {IProject, projects} from '../data/projects';
 import {Heading} from './heading';
+import {Hr} from "./hr";
 
 interface IProjectCard {
 	project: IProject;
@@ -17,9 +18,9 @@ const ProjectCard: FC<IProjectCard> = ({
 		rel='noreferrer'
 		data-testid={`project-card-${name}`}
 	>
-		<div className='flex flex-col border-zinc-500 border-2 m-1 p-2 ml-0 pl-0'>
+		<div className='flex flex-col border-zinc-500 bg-sky-100 border-2 my-2 p-2'>
 			<span className='text-center font-bold text-xl'>{name}</span>
-			<div className='flex items-end bg-gray-900'>
+			<div className='flex items-end'>
 				<div className='w-28 h-36 text-center hidden sm:block'>
 					<Image
 						alt={name}
@@ -28,9 +29,9 @@ const ProjectCard: FC<IProjectCard> = ({
 						width={100}
 						height={100}
 					/>
-					<span className='text-xs italic text-white'>{`Credit: ${projectImage.credit}`}</span>
+					<span className='text-xs italic'>{`Credit: ${projectImage.credit}`}</span>
 				</div>
-				<div className='flex flex-col flex-1 pl-4 bg-blue-200'>
+				<div className='flex flex-col flex-1 pl-4'>
 					<span className='mt-4 mb-auto'>
 						<span className='font-bold'>{'TL;DR: '}</span>
 						{tldr}
@@ -53,14 +54,15 @@ const ProjectCard: FC<IProjectCard> = ({
 
 export const Projects: FC = () => (
 	<div
-		className='w-full py-10 bg-emerald-100 flex flex-col items-center'
+		className='w-full py-10 flex flex-col items-center'
 		id='projects'
 	>
 		<Heading text='Projects' />
-		<div className='flex flex-col justify-center flex-wrap max-w-screen-lg'>
+		<div className='flex flex-col justify-center flex-wrap max-w-screen-lg  mx-2'>
 			{projects.map((project) => (
 				<ProjectCard key={project.name} project={project} />
 			))}
+			<Hr />
 		</div>
 	</div>
 );

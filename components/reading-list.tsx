@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown';
 import {GetReadingListResponse} from '../pages/api/controllers/get-reading-list';
 import {getBaseUrl} from '../utils/url-helpers';
 import {Heading} from './heading';
+import {Hr} from "./hr";
 
 const fetcher = (url: RequestInfo) => fetch(url).then((res) => res.json());
 
@@ -24,7 +25,7 @@ const ReadingCard: FC<IReadingCard> = ({
 		rel='noreferrer'
 		data-testid={`project-card-${title}`}
 	>
-		<div className='flex flex-col border-zinc-500 border-2 drop-shadow-md rounded my-2 px-2 transition ease-in-out delay-50 hover:scale-[1.01] hover:scale-102 hover:bg-indigo-100 duration-300'>
+		<div className='flex flex-col bg-sky-100 border-zinc-500 border-2 drop-shadow-md rounded my-3 px-2 transition ease-in-out delay-50 hover:scale-[1.01] hover:scale-102 hover:bg-indigo-100 duration-300'>
 			<div className='flex'>
 				<div className='flex flex-col ml-4 mr-2 pb-2 flex-1'>
 					<div className='w-100'>
@@ -60,16 +61,17 @@ export const ReadingList: FC = () => {
 			{error && <div>An error occurred.</div>}
 			<div className='max-w-screen-lg mx-1 mb-10'>
 				<h2 className='text-xl'>
-					{"Check out what I've been reading recently 📖"}
+					{"Check out what I've been reading recently 🤓"}
 				</h2>
+				<div className={'mt-4 text-lg'}>
+					<p>Have a recommendation? Shoot me a link below!</p>
+				</div>
 				<div className='mt-4'>
 					{data?.list.map((readingItem) => (
 						<ReadingCard data={readingItem} key={readingItem.id} />
 					))}
 				</div>
-				<div className={'mt-16 text-xl'}>
-					<p>Have a recommendation? Shoot me a link below!</p>
-				</div>
+				<Hr />
 			</div>
 		</div>
 	);

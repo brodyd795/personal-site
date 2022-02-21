@@ -2,6 +2,7 @@ import React, {FC, useState} from 'react';
 
 import {IYearEvents, timelineEvents} from './timeline-events';
 import {Heading} from './heading';
+import {Hr} from "./hr";
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
 	<div key={year} className={'mt-8'}>
@@ -10,8 +11,8 @@ const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
 			{events.map(({heading, subtext}) => (
 				<li className='mt-4' key={heading}>
 					<div>
-						<span className='font-semibold'>{heading}</span>
-						{subtext}
+						<span className='block font-semibold'>{heading}</span>
+						<span className={'block mt-1'}>{subtext}</span>
 					</div>
 				</li>
 			))}
@@ -27,7 +28,7 @@ export const Timeline: FC = () => {
 	return (
 		<div className='w-full mt-10 flex flex-col items-center' id='timeline'>
 			<Heading text='Timeline' />
-			<div className='max-w-screen-lg mx-2 mb-10'>
+			<div className='max-w-screen-lg mx-2'>
 				{initialEvents.map(({year, events}) => (
 					<Year year={year} events={events} key={year} />
 				))}
@@ -37,13 +38,14 @@ export const Timeline: FC = () => {
 					))}
 				<div className='flex justify-center'>
 					<button
-						className='bg-zinc-500 border-2 border-black rounded w-28'
+						className='bg-sky-100 border-2 border-black rounded w-28 mt-8 transition ease-in-out delay-50 hover:scale-105 hover:bg-indigo-100 duration-300'
 						type='button'
 						onClick={() => setShowMore(!showMore)}
 					>
 						{showMore ? 'Show less' : 'Show more'}
 					</button>
 				</div>
+			<Hr />
 			</div>
 		</div>
 	);
