@@ -4,11 +4,11 @@ import {IYearEvents, timelineEvents} from './timeline-events';
 import {Heading} from './heading';
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
-	<div key={year} className={'mt-4'}>
-		<span>{year}</span>
-		<ul className='mt-2 md:ml-10 md:border-l-2 border-zinc-500 list-none'>
+	<div key={year} className={'mt-8'}>
+		<span>{`🗓 ${year}`}</span>
+		<ul className='mt-2 border-zinc-500 list-none'>
 			{events.map(({heading, subtext}) => (
-				<li className='mt-1 md:m-2' key={heading}>
+				<li className='mt-4' key={heading}>
 					<div>
 						<span className='font-semibold'>{heading}</span>
 						{subtext}
