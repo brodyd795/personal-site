@@ -80,7 +80,7 @@ export const Contact: FC = () => {
 		>
 			<Heading text='Contact' />
 			<h3 className='m-4'>Drop a message, ask a question, or just say hi!</h3>
-			<div className={'max-w-screen-lg mx-2 mb-10 flex justify-start'}>
+			<div className={'mx-2 mb-10 flex justify-start'}>
 				<Formik
 					initialValues={{name: '', email: '', message: ''}}
 					onSubmit={handleSubmit}

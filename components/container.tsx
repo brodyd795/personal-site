@@ -14,12 +14,14 @@ export const Container = ({
 	headerText,
 	subHeaderText
 }: IProps): JSX.Element => (
-	<div className='flex flex-col flex-1 items-center'>
-		<Head>
-			<title>Brody Dingel</title>
-		</Head>
-		<Header headerText={headerText} subHeaderText={subHeaderText} />
-		<div className='flex-1 w-full'>{children}</div>
-		<Footer />
+	<div className='flex flex-col items-center'>
+		<div className={'max-w-screen-md'}>
+			<Head>
+				<title>Brody Dingel</title>
+			</Head>
+			<Header headerText={headerText} subHeaderText={subHeaderText} />
+			<div className='w-full'>{children}</div>
+			<Footer />
+		</div>
 	</div>
 );

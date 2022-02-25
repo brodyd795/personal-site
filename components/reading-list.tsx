@@ -59,7 +59,7 @@ export const ReadingList: FC = () => {
 			<Heading text='Reading List' />
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}
-			<div className='max-w-screen-lg mx-1 mb-10'>
+			<div className='mx-1 mb-10'>
 				<h2 className='text-xl'>
 					{"Check out what I've been reading recently 🤓"}
 				</h2>

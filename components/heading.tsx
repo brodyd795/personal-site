@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const Heading = ({text}: {text: string}): JSX.Element => (
-	<h2 className='text-4xl text-center m-4 mb-10'>{text}</h2>
+	<h3 className='text-3xl m-4 mb-10'>{text}</h3>
 );

@@ -28,7 +28,7 @@ export const Timeline: FC = () => {
 	return (
 		<div className='w-full mt-10 flex flex-col items-center' id='timeline'>
 			<Heading text='Timeline' />
-			<div className='max-w-screen-lg mx-2'>
+			<div className='mx-2'>
 				{initialEvents.map(({year, events}) => (
 					<Year year={year} events={events} key={year} />
 				))}

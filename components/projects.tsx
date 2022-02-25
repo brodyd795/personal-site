@@ -58,7 +58,7 @@ export const Projects: FC = () => (
 		id='projects'
 	>
 		<Heading text='Projects' />
-		<div className='flex flex-col justify-center flex-wrap max-w-screen-lg  mx-2'>
+		<div className='flex flex-col justify-center flex-wrap mx-2'>
 			{projects.map((project) => (
 				<ProjectCard key={project.name} project={project} />
 			))}
