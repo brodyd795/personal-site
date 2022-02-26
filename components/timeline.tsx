@@ -45,7 +45,6 @@ export const Timeline: FC = () => {
 						{showMore ? 'Show less' : 'Show more'}
 					</button>
 				</div>
-			<Hr />
 			</div>
 		</div>
 	);

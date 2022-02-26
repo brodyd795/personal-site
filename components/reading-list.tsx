@@ -71,7 +71,6 @@ export const ReadingList: FC = () => {
 						<ReadingCard data={readingItem} key={readingItem.id} />
 					))}
 				</div>
-				<Hr />
 			</div>
 		</div>
 	);
