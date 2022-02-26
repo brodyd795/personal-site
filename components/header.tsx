@@ -31,25 +31,25 @@ export const Header: FC<IHeaderProps> = ({
 				</Link>
 			</nav>
 			<div className='flex flex-col-reverse sm:flex-row mt-8 w-full ml-4 sm:justify-between'>
-				<div>
+				<div className={'flex flex-col justify-center'}>
 					<h1 className='text-3xl sm:text-5xl font-bold'>{headerText}</h1>
 					{subHeaderText.map((text) => (
 						<span
 							key={text}
-							className='block first-of-type:mt-4 text-xl'
+							className='block first-of-type:mt-2 text-xl'
 						>
 							{text}
 						</span>
 					))}
 				</div>
-				<div className="h-20 w-20 relative mb-8 sm:mb-0 mr-4">
+				<div className="h-20 w-20 sm:h-28 sm:w-28 mb-4 sm:mb-0 mr-4">
 					<Image
 						alt="Brody Dingel"
-						// height={176}
-						// width={176}
-						layout={'fill'}
+						layout='responsive'
+						width={100}
+						height={100}
 						src="/avatar.jpg"
-						className="rounded-full filter"
+						className="rounded-full"
 					/>
 				</div>
 			</div>
