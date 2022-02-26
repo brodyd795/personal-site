@@ -8,7 +8,7 @@ import {ReadingList} from '../components/reading-list';
 
 const headerText = "Brody Dingel";
 const subHeaderText = [
-	"Full-stack software engineer at Hy-Vee."
+	"Full-stack software engineer at Hy-Vee"
 ];
 
 const Home = (): JSX.Element => (

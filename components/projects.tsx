@@ -4,7 +4,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import {IProject, projects} from '../data/projects';
 import {Heading} from './heading';
-import {Hr} from "./hr";
 
 interface IProjectCard {
 	project: IProject;

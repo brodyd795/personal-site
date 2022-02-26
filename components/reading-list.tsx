@@ -8,7 +8,6 @@ import ReactMarkdown from 'react-markdown';
 import {GetReadingListResponse} from '../pages/api/controllers/get-reading-list';
 import {getBaseUrl} from '../utils/url-helpers';
 import {Heading} from './heading';
-import {Hr} from "./hr";
 
 const fetcher = (url: RequestInfo) => fetch(url).then((res) => res.json());
 
