@@ -6,7 +6,7 @@ export const getReadingList = async (): Promise<reading_list[]> => {
 	const prisma = prismaClient();
 
 	const items = await prisma.reading_list.findMany({
-		take: 10,
+		take: 4,
 		orderBy: {
 			date_added: 'desc'
 		}
