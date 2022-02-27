@@ -4,7 +4,7 @@ export const Footer: FC = () => {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className='bg-zinc-500 text-center w-full'>
+		<footer className='bg-zinc-500 text-center w-screen absolute left-0'>
 			<p className='m-0 p-8'>{`© 2020 – ${currentYear} Brody Dingel`}</p>
 		</footer>
 	);
