@@ -8,7 +8,7 @@ interface IHeaderProps {
 }
 
 const linkStyles =
-	'p-2 transition duration-500 ease-in-out hover:border-zinc-700 border-transparent border-b-2 hover:border-current';
+	'p-2 transition duration-300 ease-in-out hover:border-zinc-700 border-transparent border-b-2 hover:border-current';
 
 export const Header: FC<IHeaderProps> = ({
 	headerText,
