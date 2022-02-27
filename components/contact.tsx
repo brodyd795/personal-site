@@ -1,5 +1,9 @@
 import React, {FC, useState} from 'react';
 import {Formik, Field, Form} from 'formik';
+import {faPaperPlane} from "@fortawesome/free-solid-svg-icons";
+import type {IconDefinition} from "@fortawesome/free-solid-svg-icons";
+import {faGithub, faTwitter, faLinkedin} from "@fortawesome/free-brands-svg-icons"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import {FieldValues} from '../types/shared-types';
 import {getBaseUrl} from '../utils/url-helpers';
@@ -14,7 +18,7 @@ interface ISubmissionAlertProps {
 	submission: Submission;
 }
 
-const fieldStyles = 'm-8 p-4 border-2 border-grey-500';
+const fieldStyles = 'm-2 p-2 w-80 border-2 rounded border-grey-500';
 const statusWordStyles = 'my-0 mx-6';
 const getAlertStyles = (wasSuccessful: boolean) =>
 	`${wasSuccessful ? 'bg-emerald-200' : 'bg-red-200'}`;
@@ -42,6 +46,12 @@ const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 
 	return null;
 };
+
+const SocialLink = ({href, icon}: {href: string, icon: IconDefinition}) => (
+	<a href={href} target={'_blank'} rel={'noreferrer'}>
+		<FontAwesomeIcon icon={icon} className='ml-2 w-6 h-6' />
+	</a>
+)
 
 export const Contact: FC = () => {
 	const [submission, setSubmission] = useState({
@@ -75,7 +85,7 @@ export const Contact: FC = () => {
 
 	return (
 		<div
-			className='w-full mt-10 flex flex-col items-center bg-zinc-500'
+			className='w-full mt-10 flex flex-col items-center mb-8'
 			id='contact'
 		>
 			<Heading text='Contact' />
@@ -94,7 +104,7 @@ export const Contact: FC = () => {
 							id='name'
 							name='name'
 							type='text'
-							placeholder='First and last name'
+							placeholder='Your name'
 							aria-label='name'
 							required
 						/>
@@ -123,14 +133,20 @@ export const Contact: FC = () => {
 							required
 						/>
 						<button
-							className='w-20 bg-white rounded m-8'
+							className='w-20 h-12 bg-slate-500 rounded m-auto'
 							type='submit'
 							aria-label='Send'
 						>
-							Send
+							<span>Send</span>
+							<FontAwesomeIcon icon={faPaperPlane} className='ml-2 w-6 h-6' />
 						</button>
 					</Form>
 				</Formik>
+			</div>
+			<div>
+				<SocialLink href={'https://github.com/brodyd795'} icon={faGithub} />
+				<SocialLink href={'https://twitter.com/btdingel'} icon={faTwitter} />
+				<SocialLink href={'https://www.linkedin.com/in/brodydingel'} icon={faLinkedin} />
 			</div>
 			<SubmissionAlert submission={submission} />
 		</div>
