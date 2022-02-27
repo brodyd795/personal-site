@@ -24,11 +24,11 @@ const ReadingCard: FC<IReadingCard> = ({
 		rel='noreferrer'
 		data-testid={`project-card-${title}`}
 	>
-		<div className='flex flex-col bg-sky-100 border-zinc-500 border-2 drop-shadow-md rounded my-3 px-2 transition ease-in-out delay-50 hover:scale-[1.01] hover:scale-102 hover:bg-indigo-100 duration-300'>
+		<div className='flex flex-col border-zinc-500 border-2 drop-shadow-md rounded my-3 px-2 py-3 transition ease-in-out delay-50 hover:scale-[1.01] duration-200'>
 			<div className='flex'>
-				<div className='flex flex-col ml-4 mr-2 pb-2 flex-1'>
+				<div className='flex flex-col ml-4 mr-2 flex-1'>
 					<div className='w-100'>
-						<div className='mt-4 mb-auto flex flex-col sm:flex-row justify-between'>
+						<div className='mb-auto flex flex-col sm:flex-row justify-between'>
 							<div className='font-bold'>{title}</div>
 							<div>
 								<span>
@@ -38,7 +38,7 @@ const ReadingCard: FC<IReadingCard> = ({
 							</div>
 						</div>
 					</div>
-					<div className='mt-2'>
+					<div className='mt-4'>
 						{description && <ReactMarkdown>{description}</ReactMarkdown>}
 					</div>
 				</div>
@@ -58,11 +58,11 @@ export const ReadingList: FC = () => {
 			<Heading text='Reading List' />
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}
-			<div className='mx-1 mb-10'>
+			<div className='mt-10 mx-1 mb-10'>
 				<h2 className='text-xl'>
 					{"Check out what I've been reading recently 🤓"}
 				</h2>
-				<div className={'mt-4 text-lg'}>
+				<div className={'mt-4 text-gray-400 text-md'}>
 					<p>Have a recommendation? Shoot me a link below!</p>
 				</div>
 				<div className='mt-4'>
