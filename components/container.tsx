@@ -14,7 +14,7 @@ export const Container = ({
 	headerText,
 	subHeaderText
 }: IProps): JSX.Element => (
-	<div className='flex flex-col items-center'>
+	<div className='flex flex-col items-center bg-gray-900 text-white '>
 		<div className={'max-w-screen-md'}>
 			<Head>
 				<title>Brody Dingel</title>

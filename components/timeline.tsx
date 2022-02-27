@@ -2,6 +2,9 @@ import React, {FC, useState} from 'react';
 
 import {IYearEvents, timelineEvents} from './timeline-events';
 import {Heading} from './heading';
+import {faPlus, faMinus, faArrowUp, faArrowDown} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {ShowMoreLessButton} from "./buttons";
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
 	<div key={year} className={'mt-8'}>
@@ -35,15 +38,9 @@ export const Timeline: FC = () => {
 					otherEvents.map(({year, events}) => (
 						<Year year={year} events={events} key={year} />
 					))}
-				<div className='flex justify-center'>
-					<button
-						className='bg-sky-100 border-2 border-black rounded w-28 mt-8 transition ease-in-out delay-50 hover:scale-105 hover:bg-indigo-100 duration-300'
-						type='button'
-						onClick={() => setShowMore(!showMore)}
-					>
-						{showMore ? 'Show less' : 'Show more'}
-					</button>
-				</div>
+
+
+						<ShowMoreLessButton showMore={showMore} setShowMore={setShowMore} />
 			</div>
 		</div>
 	);

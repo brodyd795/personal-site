@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import {IProject, projects} from '../data/projects';
 import {Heading} from './heading';
+import {ShowMoreLessButton} from "./buttons";
 
 interface IProjectCard {
 	project: IProject;
@@ -37,7 +38,7 @@ const ProjectCard: FC<IProjectCard> = ({
 							<span className={`${lineClampStyles} sm:line-clamp-none`}>
 								{description}
 							</span>
-							{!showMore && <button className={'text-slate-500 sm:hidden'} type={'button'} onClick={(e) => {
+							{!showMore && <button className={'text-gray-400 sm:hidden'} type={'button'} onClick={(e) => {
 								e.preventDefault();
 								setShowMore(true);
 							}}>See all</button>}
@@ -69,9 +70,7 @@ export const Projects: FC = () => {
 				{projectsToShow.map((project) => (
 					<ProjectCard key={project.name} project={project} />
 				))}
-				<button className={'text-slate-500'} type={'button'} onClick={() => setShowMore(!showMore)}>
-					{showMore ? 'Show less' : 'Show more'}
-				</button>
+					<ShowMoreLessButton showMore={showMore} setShowMore={setShowMore} />
 			</div>
 		</div>
 	)

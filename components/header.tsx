@@ -14,7 +14,7 @@ export const Header: FC<IHeaderProps> = ({
 	headerText,
 	subHeaderText
 }: IHeaderProps) => (
-	<header className='w-full flex justify-center text-black'>
+	<header className='w-full flex justify-center'>
 		<div className='w-full flex flex-col items-center'>
 			<nav className='p-2 flex w-full justify-end'>
 				<Link href='/'>
