@@ -55,16 +55,24 @@ const ProjectCard: FC<IProjectCard> = ({
 	)
 };
 
-export const Projects: FC = () => (
-	<div
-		className='w-full py-10 flex flex-col'
-		id='projects'
-	>
-		<Heading text='Projects' />
-		<div className='flex flex-col justify-center flex-wrap mx-2'>
-			{projects.map((project) => (
-				<ProjectCard key={project.name} project={project} />
-			))}
+export const Projects: FC = () => {
+	const [showMore, setShowMore] = useState(false);
+	const projectsToShow = showMore ? projects : projects.slice(0, 3);
+
+	return (
+		<div
+			className='w-full py-10 flex flex-col'
+			id='projects'
+		>
+			<Heading text='Projects' />
+			<div className='flex flex-col justify-center flex-wrap mx-2'>
+				{projectsToShow.map((project) => (
+					<ProjectCard key={project.name} project={project} />
+				))}
+				<button className={'text-slate-500'} type={'button'} onClick={() => setShowMore(!showMore)}>
+					{showMore ? 'Show less' : 'Show more'}
+				</button>
+			</div>
 		</div>
-	</div>
-);
+	)
+};
