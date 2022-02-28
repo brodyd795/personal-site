@@ -8,7 +8,7 @@ export const ShowMoreLessButton = ({
 }: {
 	showMore: boolean;
 	setShowMore: React.Dispatch<React.SetStateAction<boolean>>;
-}) => (
+}): JSX.Element => (
 	<div className='flex justify-center'>
 		<button
 			className='text-gray-400 mt-8 transition ease-in-out delay-50 hover:text-gray-200 duration-300 flex items-center'

@@ -16,7 +16,7 @@ export const timelineEvents: IYearEvents[] = [
 		events: [
 			{
 				heading: 'Software Engineer at Hy-Vee 🎉',
-				subtext: <div>Making customers' lives better every day</div>
+				subtext: <div>{"Making customers' lives better every day"}</div>
 			},
 			{
 				heading: 'Iowa STATEment Makers award 🏆',
@@ -42,7 +42,7 @@ export const timelineEvents: IYearEvents[] = [
 		events: [
 			{
 				heading: 'Daughter born 👶🏻',
-				subtext: <div>She's the best!</div>
+				subtext: <div>{"She's the best!"}</div>
 			},
 			{
 				heading: 'Software Engineer I at Hy-Vee 👨🏻‍💻',
@@ -129,8 +129,9 @@ export const timelineEvents: IYearEvents[] = [
 				heading: 'Began teaching Spanish 101 🇪🇸',
 				subtext: (
 					<div>
-						Taught the basics of Spanish to ~200 ISU students throughout my
-						Master' degree. So fun!
+						{
+							"Taught the basics of Spanish to ~200 ISU students throughout my Master' degree. So fun!"
+						}
 					</div>
 				)
 			},
@@ -138,8 +139,9 @@ export const timelineEvents: IYearEvents[] = [
 				heading: 'Got married! 💒',
 				subtext: (
 					<div>
-						Rachel and I stepped onto the altar on a beautiful spring day.
-						Couldn't ask for a better bride!
+						{
+							"Rachel and I stepped onto the altar on a beautiful spring day. Couldn't ask for a better bride!"
+						}
 					</div>
 				)
 			},
@@ -147,8 +149,9 @@ export const timelineEvents: IYearEvents[] = [
 				heading: 'Graduated from ISU 🎓',
 				subtext: (
 					<div>
-						Got a BA in World Languages and Cultures (emphasis in Spanish) and a
-						BA in Linguistics, with <i>suma cum laude</i> honors
+						{
+							'Got a BA in World Languages and Cultures (emphasis in Spanish) and a BA in Linguistics, with <i>suma cum laude</i> honors'
+						}
 					</div>
 				)
 			},
@@ -174,8 +177,9 @@ export const timelineEvents: IYearEvents[] = [
 				heading: 'Got engaged 💍',
 				subtext: (
 					<div>
-						I asked Rachel to marry me, and she said yes! We'd been together for
-						2.5 years, and together ever since.
+						{
+							"I asked Rachel to marry me, and she said yes! We'd been together for 2.5 years, and together ever since."
+						}
 					</div>
 				)
 			}
