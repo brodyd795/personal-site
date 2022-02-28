@@ -58,14 +58,14 @@ export const ReadingList: FC = () => {
 			<Heading text='Reading List' />
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}
-			<div className='mt-10 mx-1 mb-10'>
+			<div className='mt-4 mx-1 mb-10'>
 				<h2 className='text-xl'>
 					{"Check out what I've been reading recently 🤓"}
 				</h2>
-				<div className={'mt-4 text-gray-400 text-md'}>
+				<div className={'mt-2 text-gray-400 text-md'}>
 					<p>Have a recommendation? Shoot me a link below!</p>
 				</div>
-				<div className='mt-4'>
+				<div className='mt-8'>
 					{data?.list.map((readingItem) => (
 						<ReadingCard data={readingItem} key={readingItem.id} />
 					))}

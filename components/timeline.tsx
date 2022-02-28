@@ -2,19 +2,17 @@ import React, {FC, useState} from 'react';
 
 import {IYearEvents, timelineEvents} from './timeline-events';
 import {Heading} from './heading';
-import {faPlus, faMinus, faArrowUp, faArrowDown} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {ShowMoreLessButton} from "./buttons";
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
 	<div key={year} className={'mt-8'}>
-		<span>{`🗓 ${year}`}</span>
-		<ul className='mt-2 border-zinc-500 list-none'>
+		<span>{year}</span>
+		<ul className='mt-2 pl-4 border-zinc-500 list-none'>
 			{events.map(({heading, subtext}) => (
 				<li className='mt-4' key={heading}>
 					<div>
 						<span className='block font-semibold'>{heading}</span>
-						<span className={'block mt-1'}>{subtext}</span>
+						<span className={'block mt-1 text-gray-400'}>{subtext}</span>
 					</div>
 				</li>
 			))}
@@ -38,9 +36,7 @@ export const Timeline: FC = () => {
 					otherEvents.map(({year, events}) => (
 						<Year year={year} events={events} key={year} />
 					))}
-
-
-						<ShowMoreLessButton showMore={showMore} setShowMore={setShowMore} />
+				<ShowMoreLessButton showMore={showMore} setShowMore={setShowMore} />
 			</div>
 		</div>
 	);

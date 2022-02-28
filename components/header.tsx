@@ -36,7 +36,7 @@ export const Header: FC<IHeaderProps> = ({
 					{subHeaderText.map((text) => (
 						<span
 							key={text}
-							className='block first-of-type:mt-2 text-xl'
+							className='block first-of-type:mt-4 text-xl'
 						>
 							{text}
 						</span>
