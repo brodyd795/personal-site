@@ -67,11 +67,10 @@ describe('Index', () => {
 		expect(contactLink).toBeVisible();
 		expect(contactLink).toHaveAttribute('href', '/#contact');
 
-		expect(await screen.findByText("Hi, I'm Brody.")).toBeVisible();
+		expect(await screen.findByText('Brody Dingel')).toBeVisible();
 		expect(
-			await screen.findByText("I'm a full-stack software engineer at Hy-Vee.")
+			await screen.findByText('Full-stack software engineer at Hy-Vee')
 		).toBeVisible();
-		expect(await screen.findByText('Nice to meet you!')).toBeVisible();
 	});
 
 	test('should show projects', async () => {
