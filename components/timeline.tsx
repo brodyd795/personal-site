@@ -2,7 +2,7 @@ import React, {FC, useState} from 'react';
 
 import {IYearEvents, timelineEvents} from './timeline-events';
 import {Heading} from './heading';
-import {ShowMoreLessButton} from "./buttons";
+import {ShowMoreLessButton} from './buttons';
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
 	<div key={year} className={'mt-8'}>

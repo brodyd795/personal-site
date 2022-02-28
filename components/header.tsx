@@ -34,22 +34,19 @@ export const Header: FC<IHeaderProps> = ({
 				<div className={'flex flex-col justify-center'}>
 					<h1 className='text-3xl sm:text-5xl font-bold'>{headerText}</h1>
 					{subHeaderText.map((text) => (
-						<span
-							key={text}
-							className='block first-of-type:mt-4 text-xl'
-						>
+						<span key={text} className='block first-of-type:mt-4 text-xl'>
 							{text}
 						</span>
 					))}
 				</div>
-				<div className="h-20 w-20 sm:h-28 sm:w-28 mb-4 sm:mb-0 mr-4">
+				<div className='h-20 w-20 sm:h-28 sm:w-28 mb-4 sm:mb-0 mr-4'>
 					<Image
-						alt="Brody Dingel"
+						alt='Brody Dingel'
 						layout='responsive'
 						width={100}
 						height={100}
-						src="/avatar.jpg"
-						className="rounded-full"
+						src='/avatar.jpg'
+						className='rounded-full'
 					/>
 				</div>
 			</div>

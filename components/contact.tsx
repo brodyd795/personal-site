@@ -1,9 +1,17 @@
 import React, {FC, useState} from 'react';
 import {Formik, Field, Form} from 'formik';
-import {faPaperPlane, faCircleCheck, faCircleExclamation} from "@fortawesome/free-solid-svg-icons";
-import type {IconDefinition} from "@fortawesome/free-solid-svg-icons";
-import {faGithub, faTwitter, faLinkedin} from "@fortawesome/free-brands-svg-icons"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {
+	faPaperPlane,
+	faCircleCheck,
+	faCircleExclamation
+} from '@fortawesome/free-solid-svg-icons';
+import type {IconDefinition} from '@fortawesome/free-solid-svg-icons';
+import {
+	faGithub,
+	faTwitter,
+	faLinkedin
+} from '@fortawesome/free-brands-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import {FieldValues} from '../types/shared-types';
 import {getBaseUrl} from '../utils/url-helpers';
@@ -29,18 +37,29 @@ const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 
 	return (
 		<div className={'text-white mt-2'}>
-			<FontAwesomeIcon icon={submission.wasSuccessful ? faCircleCheck : faCircleExclamation} className='ml-2' />
-			<span className={'ml-2'}>{submission.wasSuccessful ? 'Thanks for reaching out!!' : 'Oops, something went wrong.'}</span>
-			<span className={'ml-2'}>{submission.wasSuccessful ? 'I\'ll be in touch.' : 'I\'ll look into that.'}</span>
+			<FontAwesomeIcon
+				icon={submission.wasSuccessful ? faCircleCheck : faCircleExclamation}
+				className='ml-2'
+			/>
+			<span className={'ml-2'}>
+				{submission.wasSuccessful
+					? 'Thanks for reaching out!!'
+					: 'Oops, something went wrong.'}
+			</span>
+			<span className={'ml-2'}>
+				{submission.wasSuccessful
+					? "I'll be in touch."
+					: "I'll look into that."}
+			</span>
 		</div>
 	);
 };
 
-const SocialLink = ({href, icon}: {href: string, icon: IconDefinition}) => (
+const SocialLink = ({href, icon}: {href: string; icon: IconDefinition}) => (
 	<a href={href} target={'_blank'} rel={'noreferrer'}>
 		<FontAwesomeIcon icon={icon} className='ml-2 w-6 h-6' />
 	</a>
-)
+);
 
 export const Contact: FC = () => {
 	const [submission, setSubmission] = useState({
@@ -136,7 +155,10 @@ export const Contact: FC = () => {
 			<div>
 				<SocialLink href={'https://github.com/brodyd795'} icon={faGithub} />
 				<SocialLink href={'https://twitter.com/btdingel'} icon={faTwitter} />
-				<SocialLink href={'https://www.linkedin.com/in/brodydingel'} icon={faLinkedin} />
+				<SocialLink
+					href={'https://www.linkedin.com/in/brodydingel'}
+					icon={faLinkedin}
+				/>
 			</div>
 		</div>
 	);
