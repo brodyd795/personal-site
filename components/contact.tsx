@@ -85,7 +85,7 @@ export const Contact: FC = () => {
 
 	return (
 		<div
-			className='w-full mt-10 flex flex-col items-center mb-8'
+			className='w-full mt-10 flex flex-col items-center mb-8 bg-slate-700 p-4'
 			id='contact'
 		>
 			<Heading text='Contact' />
