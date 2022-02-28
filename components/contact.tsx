@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 import {Formik, Field, Form} from 'formik';
-import {faPaperPlane} from "@fortawesome/free-solid-svg-icons";
+import {faPaperPlane, faCircleCheck, faCircleExclamation} from "@fortawesome/free-solid-svg-icons";
 import type {IconDefinition} from "@fortawesome/free-solid-svg-icons";
 import {faGithub, faTwitter, faLinkedin} from "@fortawesome/free-brands-svg-icons"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -19,32 +19,21 @@ interface ISubmissionAlertProps {
 }
 
 const fieldStyles = 'm-2 p-2 w-80 border-2 rounded border-grey-500';
-const statusWordStyles = 'my-0 mx-6';
-const getAlertStyles = (wasSuccessful: boolean) =>
-	`${wasSuccessful ? 'bg-emerald-200' : 'bg-red-200'}`;
 
 const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 	submission
 }: ISubmissionAlertProps): JSX.Element | null => {
-	if (submission.hasSubmitted && submission.wasSuccessful) {
-		return (
-			<div className={getAlertStyles(submission.wasSuccessful)}>
-				<span className={statusWordStyles}>Success!</span>
-				<span>I’ll get back to you as soon as I can.</span>
-			</div>
-		);
+	if (!submission.hasSubmitted) {
+		return null;
 	}
 
-	if (submission.hasSubmitted && !submission.wasSuccessful) {
-		return (
-			<div className={getAlertStyles(submission.wasSuccessful)}>
-				<span className={statusWordStyles}>Oops!</span>
-				<span>Something went wrong.</span>
-			</div>
-		);
-	}
-
-	return null;
+	return (
+		<div className={'text-white mt-2'}>
+			<FontAwesomeIcon icon={submission.wasSuccessful ? faCircleCheck : faCircleExclamation} className='ml-2' />
+			<span className={'ml-2'}>{submission.wasSuccessful ? 'Thanks for reaching out!!' : 'Oops, something went wrong.'}</span>
+			<span className={'ml-2'}>{submission.wasSuccessful ? 'I\'ll be in touch.' : 'I\'ll look into that.'}</span>
+		</div>
+	);
 };
 
 const SocialLink = ({href, icon}: {href: string, icon: IconDefinition}) => (
@@ -85,17 +74,17 @@ export const Contact: FC = () => {
 
 	return (
 		<div
-			className='w-full mt-10 flex flex-col items-center mb-8 bg-slate-700 p-4'
+			className='mt-10 flex flex-col items-center bg-slate-700 p-4 m-8 rounded-lg'
 			id='contact'
 		>
 			<Heading text='Contact' />
-			<h3 className='m-4'>Drop a message, ask a question, or just say hi!</h3>
-			<div className={'mx-2 mb-10 flex justify-start'}>
+			<h3 className='my-4'>Drop a message, ask a question, or just say hi!</h3>
+			<div className={'mb-10 flex text-gray-900'}>
 				<Formik
 					initialValues={{name: '', email: '', message: ''}}
 					onSubmit={handleSubmit}
 				>
-					<Form className='flex flex-col'>
+					<Form className='flex flex-col items-center'>
 						<label htmlFor='name' hidden>
 							Name
 						</label>
@@ -132,13 +121,14 @@ export const Contact: FC = () => {
 							aria-label='message'
 							required
 						/>
+						<SubmissionAlert submission={submission} />
 						<button
-							className='w-20 h-12 bg-slate-500 rounded m-auto'
+							className='w-24 h-12 bg-slate-500 rounded m-auto mt-8 transition ease-in-out delay-50 hover:scale-[1.05] duration-300 text-white'
 							type='submit'
 							aria-label='Send'
 						>
 							<span>Send</span>
-							<FontAwesomeIcon icon={faPaperPlane} className='ml-2 w-6 h-6' />
+							<FontAwesomeIcon icon={faPaperPlane} className='ml-2' />
 						</button>
 					</Form>
 				</Formik>
@@ -148,7 +138,6 @@ export const Contact: FC = () => {
 				<SocialLink href={'https://twitter.com/btdingel'} icon={faTwitter} />
 				<SocialLink href={'https://www.linkedin.com/in/brodydingel'} icon={faLinkedin} />
 			</div>
-			<SubmissionAlert submission={submission} />
 		</div>
 	);
 };
