@@ -19,7 +19,7 @@ export const Header: FC<IHeaderProps> = ({
 			<nav className='p-2 flex w-full justify-end'>
 				<Link href='/'>
 					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-					<a className={`${linkStyles} mr-auto`}>Home</a>
+												<a className={`${linkStyles} mr-auto`}>Home</a>
 				</Link>
 				<Link href='/about'>
 					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -30,7 +30,7 @@ export const Header: FC<IHeaderProps> = ({
 					<a className={linkStyles}>Contact</a>
 				</Link>
 			</nav>
-			<div className='flex flex-col-reverse sm:flex-row mt-8 w-full ml-4 sm:justify-between'>
+			<div className='bg-sky-500 flex flex-col-reverse sm:flex-row mt-8 w-full ml-4 sm:justify-between'>
 				<div className={'flex flex-col justify-center'}>
 					<h1 className='text-3xl sm:text-5xl font-bold'>{headerText}</h1>
 					{subHeaderText.map((text) => (

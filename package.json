@@ -14,6 +14,7 @@
 		"schema:migrate:dev": "npx prisma migrate dev",
 		"start": "next start",
 		"lint": "eslint . --ext .tsx --ext .ts",
+		"prepare": "husky install",
 		"prettier": "prettier --write \"**/*.{ts,tsx,json}\"",
 		"jest": "jest",
 		"test": "yarn lint && yarn prettier && yarn tsc && yarn jest"
