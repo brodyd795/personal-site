@@ -15,7 +15,7 @@
 		"start": "next start",
 		"lint": "eslint . --ext .tsx --ext .ts",
 		"prepare": "husky install",
-		"prettier": "prettier --write \"**/*.{ts,tsx,json}\"",
+		"prettier": "prettier --write --ignore-unknown .",
 		"jest": "jest",
 		"test": "yarn lint && yarn prettier && yarn tsc && yarn jest"
 	},

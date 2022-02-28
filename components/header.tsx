@@ -19,7 +19,7 @@ export const Header: FC<IHeaderProps> = ({
 			<nav className='p-2 flex w-full justify-end'>
 				<Link href='/'>
 					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-												<a className={`${linkStyles} mr-auto`}>Home</a>
+					<a className={`${linkStyles} mr-auto`}>Home</a>
 				</Link>
 				<Link href='/about'>
 					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
