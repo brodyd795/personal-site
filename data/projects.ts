@@ -4,10 +4,6 @@ export interface IProject {
 	technologies: string[];
 	tldr: string;
 	description: string;
-	image: {
-		src: string;
-		credit: string;
-	};
 }
 
 export const projects: IProject[] = [
@@ -17,11 +13,7 @@ export const projects: IProject[] = [
 		technologies: ['Next.js', 'MySQL', 'Styled Components'],
 		tldr: "Custom-tailored for managing my family's finances. You know, accounting stuff.",
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization.",
-		image: {
-			src: '/project-images/accounting.jpg',
-			credit: '@tezos'
-		}
+			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
 	},
 	{
 		name: 'Course Website',
@@ -29,11 +21,7 @@ export const projects: IProject[] = [
 		technologies: ['React', 'Express', 'Bootstrap'],
 		tldr: 'Custom-made platform for my past students. Included an appointment scheduler, anonymous messaging, automated homework grading, and grade reports.',
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization.",
-		image: {
-			src: '/project-images/accounting.jpg',
-			credit: '@tezos'
-		}
+			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
 	},
 	{
 		name: '#100DaysOfCode',
@@ -41,11 +29,7 @@ export const projects: IProject[] = [
 		technologies: ['Vanilla HTML, CSS, & JS'],
 		tldr: 'Learned the basics of web dev. Would 1000% recommend to anyone looking to get their feet web in programming!',
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization.",
-		image: {
-			src: '/project-images/accounting.jpg',
-			credit: '@tezos'
-		}
+			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
 	},
 	{
 		name: 'Secret message app',
@@ -53,11 +37,7 @@ export const projects: IProject[] = [
 		technologies: ['Next.js', 'Tailwind CSS', 'MySQL'],
 		tldr: 'In case you ever need to share your Netflix password.',
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization.",
-		image: {
-			src: '/project-images/accounting.jpg',
-			credit: '@tezos'
-		}
+			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
 	},
 	{
 		name: 'Covid-19 vaccine appt finder',
@@ -65,11 +45,7 @@ export const projects: IProject[] = [
 		technologies: ['Node.js', 'Twilio', 'Cheerio'],
 		tldr: 'Back when appointments were hard to find. Alerted users of open slots in their area every few minutes.',
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization.",
-		image: {
-			src: '/project-images/accounting.jpg',
-			credit: '@tezos'
-		}
+			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
 	},
 	{
 		name: 'Hy-Vee Aisles Online',
@@ -77,10 +53,6 @@ export const projects: IProject[] = [
 		technologies: ['Next.js!'],
 		tldr: "Hy-Vee's e-commerce platform. Making customers' lives better every day. A team effort, for sure!",
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization.",
-		image: {
-			src: '/project-images/accounting.jpg',
-			credit: '@tezos'
-		}
+			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
 	}
 ];
