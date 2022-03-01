@@ -80,7 +80,11 @@ export const Projects: FC = () => {
 				{projectsToShow.map((project) => (
 					<ProjectCard key={project.name} project={project} />
 				))}
-				<ShowMoreLessButton showMore={showMore} setShowMore={setShowMore} />
+				<ShowMoreLessButton
+					showMore={showMore}
+					setShowMore={setShowMore}
+					type={'Projects'}
+				/>
 			</div>
 		</div>
 	);

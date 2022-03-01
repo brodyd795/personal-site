@@ -53,50 +53,96 @@ describe('Index', () => {
 		server.close();
 	});
 
-	test('should show header', async () => {
-		render();
+	describe('header', () => {
+		test('should show header', async () => {
+			render();
 
-		const homeLink = await screen.findByRole('link', {name: 'Home'});
-		const aboutLink = await screen.findByRole('link', {name: 'About'});
-		const contactLink = await screen.findByRole('link', {name: 'Contact'});
+			const homeLink = await screen.findByRole('link', {name: 'Home'});
+			const aboutLink = await screen.findByRole('link', {name: 'About'});
+			const contactLink = await screen.findByRole('link', {name: 'Contact'});
 
-		expect(homeLink).toBeVisible();
-		expect(homeLink).toHaveAttribute('href', '/');
-		expect(aboutLink).toBeVisible();
-		expect(aboutLink).toHaveAttribute('href', '/about');
-		expect(contactLink).toBeVisible();
-		expect(contactLink).toHaveAttribute('href', '/#contact');
+			expect(homeLink).toBeVisible();
+			expect(homeLink).toHaveAttribute('href', '/');
+			expect(aboutLink).toBeVisible();
+			expect(aboutLink).toHaveAttribute('href', '/about');
+			expect(contactLink).toBeVisible();
+			expect(contactLink).toHaveAttribute('href', '/#contact');
 
-		expect(await screen.findByText('Brody Dingel')).toBeVisible();
-		expect(
-			await screen.findByText('Full-stack software engineer at Hy-Vee')
-		).toBeVisible();
+			expect(await screen.findByText('Brody Dingel')).toBeVisible();
+			expect(
+				await screen.findByText('Full-stack software engineer at Hy-Vee')
+			).toBeVisible();
+		});
 	});
 
-	test('should show projects', async () => {
-		render();
+	describe('projects', () => {
+		test('should show first three projects', async () => {
+			render();
 
-		expect(
-			await screen.findByRole('heading', {name: 'Projects'})
-		).toBeVisible();
+			expect(
+				await screen.findByRole('heading', {name: 'Projects'})
+			).toBeVisible();
 
-		for (let index = 0; index < projects.length; index += 1) {
-			const {
-				name: projectName,
-				link,
-				technologies: projectTechnologies
-			} = projects[index];
+			for (let index = 0; index < 3; index += 1) {
+				const {
+					name: projectName,
+					link,
+					technologies: projectTechnologies
+				} = projects[index];
 
-			const name = await screen.findByText(projectName);
-			const card = await screen.findByTestId(`project-card-${projectName}`);
-			const technologies = await screen.findByText(
-				projectTechnologies.join(', ')
+				const name = await screen.findByText(projectName);
+				const card = await screen.findByTestId(`project-card-${projectName}`);
+				const technologies = await screen.findByText(
+					projectTechnologies.join(', ')
+				);
+
+				expect(name).toBeVisible();
+				expect(technologies).toBeVisible();
+				expect(card).toHaveAttribute('href', link);
+			}
+
+			for (let index = 3; index < projects.length; index += 1) {
+				const name = screen.queryByText(projects[index].name);
+
+				expect(name).toBeNull();
+			}
+		});
+
+		test('Show More button should work for projects', async () => {
+			render();
+
+			expect(
+				await screen.findByRole('heading', {name: 'Projects'})
+			).toBeVisible();
+
+			user.click(
+				await screen.findByRole('button', {name: 'Show More Projects'})
 			);
 
-			expect(name).toBeVisible();
-			expect(technologies).toBeVisible();
-			expect(card).toHaveAttribute('href', link);
-		}
+			for (let index = 0; index < projects.length; index += 1) {
+				const {
+					name: projectName,
+					link,
+					technologies: projectTechnologies
+				} = projects[index];
+
+				const name = await screen.findByText(projectName);
+				const card = await screen.findByTestId(`project-card-${projectName}`);
+				const technologies = await screen.findByText(
+					projectTechnologies.join(', ')
+				);
+
+				expect(name).toBeVisible();
+				expect(technologies).toBeVisible();
+				expect(card).toHaveAttribute('href', link);
+			}
+
+			user.click(
+				await screen.findByRole('button', {name: 'Show Less Projects'})
+			);
+
+			expect(screen.queryByText(projects[3].name)).toBeNull();
+		});
 	});
 
 	test('should show reading list', async () => {
