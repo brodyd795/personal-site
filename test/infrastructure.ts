@@ -12,11 +12,11 @@ const readingListMockData: GetReadingListResponse = {
 		{
 			id: 1,
 			date_added: new Date('2021-01-01'),
-			title: 'foo',
-			description: 'foo',
+			title: 'Some title',
+			description: 'some description',
 			image: 'https://picsum.photos/200/300',
-			domain: 'https://example.com',
-			url: 'https://example.com'
+			domain: 'example.com',
+			url: 'https://example.com/something'
 		}
 	]
 };
@@ -49,5 +49,6 @@ export {
 	server,
 	contactHandlerOnFailure,
 	readingListErrorHandler,
-	readingListLoadingHandler
+	readingListLoadingHandler,
+	readingListMockData
 };

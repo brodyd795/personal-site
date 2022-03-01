@@ -12,7 +12,8 @@ import {
 	server,
 	contactHandlerOnFailure,
 	readingListErrorHandler,
-	readingListLoadingHandler
+	readingListLoadingHandler,
+	readingListMockData
 } from '../infrastructure';
 import Index from '../../pages/index';
 import {createRouter} from '../mocks/nextRouterMock';
@@ -145,26 +146,31 @@ describe('Index', () => {
 		});
 	});
 
-	test('should show reading list', async () => {
-		render();
+	describe('reading list', () => {
+		test('should show reading list', async () => {
+			const {domain, description, title} = readingListMockData.list[0];
+			render();
 
-		expect(await screen.findByText('https://example.com')).toBeVisible();
-	});
+			expect(await screen.findByText(domain)).toBeVisible();
+			expect(await screen.findByText(description)).toBeVisible();
+			expect(await screen.findByText(title)).toBeVisible();
+		});
 
-	test('should show reading list error', async () => {
-		server.use(readingListErrorHandler);
+		test('should show reading list error', async () => {
+			server.use(readingListErrorHandler);
 
-		render();
+			render();
 
-		expect(await screen.findByText('An error occurred.')).toBeVisible();
-	});
+			expect(await screen.findByText('An error occurred.')).toBeVisible();
+		});
 
-	test('should show reading list loading state', async () => {
-		server.use(readingListLoadingHandler);
+		test('should show reading list loading state', async () => {
+			server.use(readingListLoadingHandler);
 
-		render();
+			render();
 
-		expect(await screen.findByText('Loading...')).toBeVisible();
+			expect(await screen.findByText('Loading...')).toBeVisible();
+		});
 	});
 
 	test('should show initial timeline events', async () => {
