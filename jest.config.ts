@@ -9,6 +9,6 @@ const config: Config.InitialOptions = {
 		'^.+\\.(jpg)$': '<rootDir>/test/mocks/fileMock.ts',
 		'react-markdown': '<rootDir>/test/mocks/react-markdown.tsx'
 	},
-	testMatch: ['<rootDir>/test/**/*.tsx']
+	testMatch: ['<rootDir>/test/**/*.spec.tsx']
 };
 export default config;
