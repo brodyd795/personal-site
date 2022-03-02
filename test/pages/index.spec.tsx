@@ -173,47 +173,66 @@ describe('Index', () => {
 		});
 	});
 
-	test('should show initial timeline events', async () => {
-		render();
+	describe('timeline', () => {
+		test('should show initial timeline events', async () => {
+			render();
 
-		expect(
-			await screen.findByRole('heading', {name: 'Timeline'})
-		).toBeVisible();
+			expect(
+				await screen.findByRole('heading', {name: 'Timeline'})
+			).toBeVisible();
 
-		const initialEvents = timelineEvents.slice(0, 3);
+			const initialEvents = timelineEvents.slice(0, 3);
 
-		for (
-			let initialEventsIndex = 0;
-			initialEventsIndex < initialEvents.length;
-			initialEventsIndex += 1
-		) {
-			const {year, events} = initialEvents[initialEventsIndex];
+			for (
+				let initialEventsIndex = 0;
+				initialEventsIndex < initialEvents.length;
+				initialEventsIndex += 1
+			) {
+				const {year, events} = initialEvents[initialEventsIndex];
 
-			expect(await screen.findByText(year)).toBeVisible();
+				expect(await screen.findByText(year)).toBeVisible();
 
-			for (let eventsIndex = 0; eventsIndex < events.length; eventsIndex += 1) {
-				const {heading} = events[eventsIndex];
+				for (
+					let eventsIndex = 0;
+					eventsIndex < events.length;
+					eventsIndex += 1
+				) {
+					const {heading} = events[eventsIndex];
 
-				expect(await screen.findByText(heading)).toBeVisible();
-				// TODO: subtext uses markdown, so can't find the text easily...
-				// expect(await screen.findByText(subtext)).toBeVisible();
+					expect(await screen.findByText(heading)).toBeVisible();
+				}
 			}
-		}
-	});
 
-	test('should show more timeline events', async () => {
-		render();
+			// `event.subtext` is JSX, so I can't use `findByText` on it
+			// this is good enough for now!
+			expect(
+				await screen.findByText(
+					'Honored by the ISU Alumni Center for early professional accomplishments.'
+				)
+			).toBeVisible();
+		});
 
-		const {year: nextYear, events: nextYearEvents} = timelineEvents[4];
+		test('should show more timeline events', async () => {
+			render();
 
-		expect(screen.queryByText(nextYear)).toBeNull();
+			const {year: nextYear, events: nextYearEvents} = timelineEvents[4];
 
-		user.click(await screen.findByRole('button', {name: 'Show more'}));
+			expect(screen.queryByText(nextYear)).toBeNull();
 
-		expect(await screen.findByText(nextYear)).toBeVisible();
-		expect(await screen.findByText(nextYearEvents[0].heading)).toBeVisible();
+			user.click(
+				await screen.findByRole('button', {name: 'Show More Timeline'})
+			);
 
-		expect(screen.queryByRole('button', {name: 'Show more'})).toBeNull();
+			expect(await screen.findByText(nextYear)).toBeVisible();
+			expect(await screen.findByText(nextYearEvents[0].heading)).toBeVisible();
+
+			expect(
+				screen.queryByRole('button', {name: 'Show More Timeline'})
+			).toBeNull();
+			expect(
+				await screen.findByRole('button', {name: 'Show Less Timeline'})
+			).toBeVisible();
+		});
 	});
 
 	test('should allow user to fill out contact form and alert on success', async () => {
