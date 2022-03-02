@@ -40,6 +40,7 @@ const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 			<FontAwesomeIcon
 				icon={submission.wasSuccessful ? faCircleCheck : faCircleExclamation}
 				className='ml-2'
+				data-testid={`contact-success-icon-${String(submission.wasSuccessful)}`}
 			/>
 			<span className={'ml-2'}>
 				{submission.wasSuccessful

@@ -266,6 +266,9 @@ describe('Index', () => {
 			user.click(sendButton);
 
 			expect(
+				await screen.findByTestId('contact-success-icon-true')
+			).toBeDefined();
+			expect(
 				await screen.findByText('Thanks for reaching out!!')
 			).toBeVisible();
 			expect(await screen.findByText("I'll be in touch.")).toBeVisible();
@@ -286,6 +289,9 @@ describe('Index', () => {
 			user.type(messageField, 'This is only a test!');
 			user.click(sendButton);
 
+			expect(
+				await screen.findByTestId('contact-success-icon-false')
+			).toBeDefined();
 			expect(
 				await screen.findByText('Oops, something went wrong.')
 			).toBeVisible();
