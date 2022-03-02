@@ -33,9 +33,6 @@ yarn-error.log*
 # ts
 tsconfig.tsbuildinfo
 
-# prisma
-/generated
-
 # cypress
 cypress/videos
 cypress/screenshots
