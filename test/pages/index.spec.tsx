@@ -235,65 +235,73 @@ describe('Index', () => {
 		});
 	});
 
-	test('should allow user to fill out contact form and alert on success', async () => {
-		render();
+	describe('contact', () => {
+		test('should allow user to fill out contact form and alert on success', async () => {
+			render();
 
-		expect(await screen.findByRole('heading', {name: 'Contact'})).toBeVisible();
-		expect(
-			await screen.findByRole('heading', {
-				name: 'Drop a message, ask a question, or just say hi!'
-			})
-		).toBeVisible();
+			expect(
+				await screen.findByRole('heading', {name: 'Contact'})
+			).toBeVisible();
+			expect(
+				await screen.findByRole('heading', {
+					name: 'Drop a message, ask a question, or just say hi!'
+				})
+			).toBeVisible();
 
-		const nameField = await screen.findByLabelText('name');
-		const emailField = await screen.findByLabelText('email');
-		const messageField = await screen.findByLabelText('message');
-		const sendButton = await screen.findByRole('button', {name: 'Send'});
+			const nameField = await screen.findByLabelText('name');
+			const emailField = await screen.findByLabelText('email');
+			const messageField = await screen.findByLabelText('message');
+			const sendButton = await screen.findByRole('button', {name: 'Send'});
 
-		expect(nameField).toHaveTextContent('');
-		expect(nameField).toHaveAttribute('placeholder', 'First and last name');
-		expect(emailField).toHaveTextContent('');
-		expect(emailField).toHaveAttribute('placeholder', 'you@some-domain.com');
-		expect(messageField).toHaveTextContent('');
-		expect(messageField).toHaveAttribute('placeholder', "How's it going?");
+			expect(nameField).toHaveTextContent('');
+			expect(nameField).toHaveAttribute('placeholder', 'Your name');
+			expect(emailField).toHaveTextContent('');
+			expect(emailField).toHaveAttribute('placeholder', 'you@some-domain.com');
+			expect(messageField).toHaveTextContent('');
+			expect(messageField).toHaveAttribute('placeholder', "How's it going?");
 
-		user.type(nameField, 'Brody');
-		user.type(emailField, 'brodydingel@gmail.com');
-		user.type(messageField, 'This is only a test!');
-		user.click(sendButton);
+			user.type(nameField, 'Brody');
+			user.type(emailField, 'brodydingel@gmail.com');
+			user.type(messageField, 'This is only a test!');
+			user.click(sendButton);
 
-		expect(await screen.findByText('Success!')).toBeVisible();
-		expect(
-			await screen.findByText('I’ll get back to you as soon as I can.')
-		).toBeVisible();
+			expect(
+				await screen.findByText('Thanks for reaching out!!')
+			).toBeVisible();
+			expect(await screen.findByText("I'll be in touch.")).toBeVisible();
+		});
+
+		test('should alert user on failure of filling out contact form', async () => {
+			server.use(contactHandlerOnFailure);
+
+			render();
+
+			const nameField = await screen.findByLabelText('name');
+			const emailField = await screen.findByLabelText('email');
+			const messageField = await screen.findByLabelText('message');
+			const sendButton = await screen.findByRole('button', {name: 'Send'});
+
+			user.type(nameField, 'Brody');
+			user.type(emailField, 'brodydingel@gmail.com');
+			user.type(messageField, 'This is only a test!');
+			user.click(sendButton);
+
+			expect(
+				await screen.findByText('Oops, something went wrong.')
+			).toBeVisible();
+			expect(await screen.findByText("I'll look into that.")).toBeVisible();
+		});
 	});
 
-	test('should alert user on failure of filling out contact form', async () => {
-		server.use(contactHandlerOnFailure);
+	describe('footer', () => {
+		test('should show footer', async () => {
+			render();
 
-		render();
+			const currentYear = new Date().getFullYear();
 
-		const nameField = await screen.findByLabelText('name');
-		const emailField = await screen.findByLabelText('email');
-		const messageField = await screen.findByLabelText('message');
-		const sendButton = await screen.findByRole('button', {name: 'Send'});
-
-		user.type(nameField, 'Brody');
-		user.type(emailField, 'brodydingel@gmail.com');
-		user.type(messageField, 'This is only a test!');
-		user.click(sendButton);
-
-		expect(await screen.findByText('Oops!')).toBeVisible();
-		expect(await screen.findByText('Something went wrong.')).toBeVisible();
-	});
-
-	test('should show footer', async () => {
-		render();
-
-		const currentYear = new Date().getFullYear();
-
-		expect(
-			await screen.findByText(`© 2020 – ${currentYear} Brody Dingel`)
-		).toBeVisible();
+			expect(
+				await screen.findByText(`© 2020 – ${currentYear} Brody Dingel`)
+			).toBeVisible();
+		});
 	});
 });
