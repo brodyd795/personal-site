@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import useSWR from 'swr';
-import {reading_list} from '@prisma/client';
+
 import {faExternalLink} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown';
 import {GetReadingListResponse} from '../pages/api/controllers/get-reading-list';
 import {getBaseUrl} from '../utils/url-helpers';
 import {Heading} from './heading';
+import {reading_list} from '../generated/client';
 
 const fetcher = (url: RequestInfo) => fetch(url).then((res) => res.json());
 

@@ -36,7 +36,11 @@ export const Timeline: FC = () => {
 					otherEvents.map(({year, events}) => (
 						<Year year={year} events={events} key={year} />
 					))}
-				<ShowMoreLessButton showMore={showMore} setShowMore={setShowMore} />
+				<ShowMoreLessButton
+					showMore={showMore}
+					setShowMore={setShowMore}
+					type={'Timeline'}
+				/>
 			</div>
 		</div>
 	);

@@ -1,6 +1,5 @@
 import linkPreviewGenerator from 'link-preview-generator';
-
-import {prismaClient} from './prisma-client';
+import {prisma} from './prisma-client';
 
 export const addToReadingList = async (url: string): Promise<void> => {
 	const {
@@ -9,8 +8,6 @@ export const addToReadingList = async (url: string): Promise<void> => {
 		domain,
 		img: image
 	} = await linkPreviewGenerator(url);
-
-	const prisma = prismaClient();
 
 	const newItem = {
 		url,
@@ -21,9 +18,9 @@ export const addToReadingList = async (url: string): Promise<void> => {
 		image
 	};
 
-	await prisma.reading_list.create({
+	await prisma().reading_list.create({
 		data: newItem
 	});
 
-	await prisma.$disconnect();
+	await prisma().$disconnect();
 };

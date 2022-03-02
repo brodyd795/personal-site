@@ -151,8 +151,8 @@ describe('Index', () => {
 			const {domain, description, title} = readingListMockData.list[0];
 			render();
 
-			expect(await screen.findByText(domain)).toBeVisible();
-			expect(await screen.findByText(description)).toBeVisible();
+			expect(await screen.findByText(domain!)).toBeVisible();
+			expect(await screen.findByText(description!)).toBeVisible();
 			expect(await screen.findByText(title)).toBeVisible();
 		});
 

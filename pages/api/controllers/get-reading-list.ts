@@ -1,6 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next';
 import {withSentry, captureException, flush} from '@sentry/nextjs';
-import {reading_list} from '@prisma/client';
+import {reading_list} from '../../../generated/client';
 
 import {getReadingList} from '../services/get-reading-list';
 

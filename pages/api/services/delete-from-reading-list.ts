@@ -1,13 +1,11 @@
-import {prismaClient} from './prisma-client';
+import {prisma} from './prisma-client';
 
 export const deleteFromReadingList = async (url: string): Promise<void> => {
-	const prisma = prismaClient();
-
-	await prisma.reading_list.deleteMany({
+	await prisma().reading_list.deleteMany({
 		where: {
 			url
 		}
 	});
 
-	await prisma.$disconnect();
+	await prisma().$disconnect();
 };
