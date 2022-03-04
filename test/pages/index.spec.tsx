@@ -251,7 +251,9 @@ describe('Index', () => {
 			const nameField = await screen.findByLabelText('name');
 			const emailField = await screen.findByLabelText('email');
 			const messageField = await screen.findByLabelText('message');
-			const sendButton = await screen.findByRole('button', {name: 'Send'});
+			const sendButton = await screen.findByRole('button', {
+				name: 'Send message'
+			});
 
 			expect(nameField).toHaveTextContent('');
 			expect(nameField).toHaveAttribute('placeholder', 'Your name');
@@ -282,7 +284,9 @@ describe('Index', () => {
 			const nameField = await screen.findByLabelText('name');
 			const emailField = await screen.findByLabelText('email');
 			const messageField = await screen.findByLabelText('message');
-			const sendButton = await screen.findByRole('button', {name: 'Send'});
+			const sendButton = await screen.findByRole('button', {
+				name: 'Send message'
+			});
 
 			user.type(nameField, 'Brody');
 			user.type(emailField, 'brodydingel@gmail.com');
