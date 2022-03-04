@@ -34,9 +34,9 @@ export const Header: FC<IHeaderProps> = ({
 				<div className={'flex flex-col justify-center'}>
 					<h1 className='text-3xl sm:text-5xl font-bold'>{headerText}</h1>
 					{subHeaderText.map((text) => (
-						<span key={text} className='block first-of-type:mt-4 text-xl'>
+						<h2 key={text} className='block first-of-type:mt-4 text-xl'>
 							{text}
-						</span>
+						</h2>
 					))}
 				</div>
 				<div className='h-20 w-20 sm:h-28 sm:w-28 mb-4 sm:mb-0 mr-4'>
