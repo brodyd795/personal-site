@@ -10,6 +10,7 @@ export default class MyDocument extends Document {
 				<Head>
 					<link href='/favicon.ico' rel='icon' />
 					<meta name='description' content="Brody Dingel's personal website" />
+					<meta name='robots' content='follow, index' />
 					<script
 						async
 						src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
