@@ -59,19 +59,41 @@ describe('Index', () => {
 			render();
 
 			const homeLink = await screen.findByRole('link', {name: 'Home'});
-			const aboutLink = await screen.findByRole('link', {name: 'About'});
+			const resumeLink = await screen.findByRole('link', {name: 'Resume'});
 			const contactLink = await screen.findByRole('link', {name: 'Contact'});
 
 			expect(homeLink).toBeVisible();
 			expect(homeLink).toHaveAttribute('href', '/');
-			expect(aboutLink).toBeVisible();
-			expect(aboutLink).toHaveAttribute('href', '/about');
+			expect(resumeLink).toBeVisible();
+			expect(resumeLink).toHaveAttribute('href', '/resume.pdf');
 			expect(contactLink).toBeVisible();
 			expect(contactLink).toHaveAttribute('href', '/#contact');
 
 			expect(await screen.findByText('Brody Dingel')).toBeVisible();
 			expect(
 				await screen.findByText('Full-stack software engineer at Hy-Vee')
+			).toBeVisible();
+		});
+	});
+
+	describe('about', () => {
+		test('should show about section', async () => {
+			render();
+
+			expect(
+				await screen.findByText(
+					'Full-stack software engineer in ecommerce at Hy-Vee'
+				)
+			).toBeVisible();
+			expect(screen.queryByText('You want to know more? Alright!')).toBeNull();
+		});
+
+		test('should show more', async () => {
+			render();
+
+			user.click(await screen.findByRole('button', {name: 'Show More About'}));
+			expect(
+				await screen.findByText('You want to know more? Alright!')
 			).toBeVisible();
 		});
 	});
