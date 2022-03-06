@@ -14,7 +14,7 @@ export const About = (): JSX.Element => {
 	const [showMore, setShowMore] = useState(false);
 
 	return (
-		<div className='w-full py-10 flex flex-col' id='projects'>
+		<div className='w-full py-10 flex flex-col' id='about'>
 			<Heading text={'About'} />
 			<div className={'mx-4'}>
 				<p className={'mt-4 text-xl'}>TL;DR:</p>
