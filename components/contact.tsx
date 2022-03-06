@@ -56,8 +56,16 @@ const SubmissionAlert: FC<ISubmissionAlertProps> = ({
 	);
 };
 
-const SocialLink = ({href, icon}: {href: string; icon: IconDefinition}) => (
-	<a href={href} target={'_blank'} rel={'noreferrer'}>
+const SocialLink = ({
+	href,
+	icon,
+	label
+}: {
+	href: string;
+	icon: IconDefinition;
+	label: string;
+}) => (
+	<a href={href} aria-label={label} target={'_blank'} rel={'noreferrer'}>
 		<FontAwesomeIcon icon={icon} className='ml-2 w-6 h-6' />
 	</a>
 );
@@ -154,11 +162,20 @@ export const Contact: FC = () => {
 				</Formik>
 			</div>
 			<div>
-				<SocialLink href={'https://github.com/brodyd795'} icon={faGithub} />
-				<SocialLink href={'https://twitter.com/btdingel'} icon={faTwitter} />
+				<SocialLink
+					href={'https://github.com/brodyd795'}
+					icon={faGithub}
+					label={'github'}
+				/>
+				<SocialLink
+					href={'https://twitter.com/btdingel'}
+					icon={faTwitter}
+					label={'twitter'}
+				/>
 				<SocialLink
 					href={'https://www.linkedin.com/in/brodydingel'}
 					icon={faLinkedin}
+					label={'linkedIn'}
 				/>
 			</div>
 		</div>
