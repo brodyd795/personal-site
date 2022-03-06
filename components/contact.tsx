@@ -94,7 +94,7 @@ export const Contact: FC = () => {
 
 	return (
 		<div
-			className='mt-10 flex flex-col items-center bg-slate-700 p-4 m-8 rounded-lg'
+			className='mt-10 flex flex-col items-center bg-slate-700 sm:p-4 sm:m-8 rounded-lg'
 			id='contact'
 		>
 			<Heading text='Contact' />
