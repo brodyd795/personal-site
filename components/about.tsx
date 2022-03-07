@@ -34,11 +34,11 @@ export const About = (): JSX.Element => {
 						Degrees from Iowa State University
 						<ul className={'list-disc ml-8'}>
 							<li>
-								M.A. – Applied Linguistics (emphasis in computational
-								linguistics)
+								{`Master's – Applied Linguistics (emphasis in computational
+									linguistics)`}
 							</li>
-							<li>B.A. – Linguistics (with TESL minor)</li>
-							<li>B.A. – World Languages and Cultures (emphasis in Spanish)</li>
+							<li>{`Bachelor's – Linguistics (with TESL minor)`}</li>
+							<li>{`Bachelor's – World Languages and Cultures (emphasis in Spanish)`}</li>
 						</ul>
 					</li>
 					<li>{`Enjoy writing software that makes a difference in others' lives`}</li>
