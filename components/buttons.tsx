@@ -10,25 +10,29 @@ export const ShowMoreLessButton = ({
 	showMore: boolean;
 	setShowMore: React.Dispatch<React.SetStateAction<boolean>>;
 	type: string;
-}): JSX.Element => (
-	<div className='flex justify-center'>
-		<button
-			className='text-sm text-gray-300 mt-8 transition ease-in-out delay-50 hover:text-gray-200 duration-300 flex items-center py-3 px-4 rounded bg-slate-800 hover:scale-[1.03]'
-			type='button'
-			aria-label={`Show ${showMore ? 'Less' : 'More'} ${type}`}
-			onClick={() => setShowMore(!showMore)}
-		>
-			{showMore ? (
-				<FontAwesomeIcon icon={faArrowUp} className='mr-3' />
-			) : (
-				<FontAwesomeIcon icon={faArrowDown} className='mr-3' />
-			)}
-			{showMore ? 'Show Less' : 'Show More'}
-			{showMore ? (
-				<FontAwesomeIcon icon={faArrowUp} className='ml-3' />
-			) : (
-				<FontAwesomeIcon icon={faArrowDown} className='ml-3' />
-			)}
-		</button>
-	</div>
-);
+}): JSX.Element => {
+	const buttonText = `${showMore ? 'Less' : 'More'} ${type}`;
+
+	return (
+		<div className='flex justify-center'>
+			<button
+				className='text-sm text-gray-300 mt-8 transition ease-in-out delay-50 hover:text-gray-200 duration-300 flex items-center py-3 px-4 rounded bg-slate-800 hover:scale-[1.03]'
+				type='button'
+				aria-label={buttonText}
+				onClick={() => setShowMore(!showMore)}
+			>
+				{showMore ? (
+					<FontAwesomeIcon icon={faArrowUp} className='mr-3' />
+				) : (
+					<FontAwesomeIcon icon={faArrowDown} className='mr-3' />
+				)}
+				{buttonText}
+				{showMore ? (
+					<FontAwesomeIcon icon={faArrowUp} className='ml-3' />
+				) : (
+					<FontAwesomeIcon icon={faArrowDown} className='ml-3' />
+				)}
+			</button>
+		</div>
+	);
+};

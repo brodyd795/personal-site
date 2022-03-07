@@ -75,7 +75,7 @@ export const About = (): JSX.Element => {
 			<ShowMoreLessButton
 				showMore={showMore}
 				setShowMore={setShowMore}
-				type={'About'}
+				type={'about me'}
 			/>
 		</div>
 	);

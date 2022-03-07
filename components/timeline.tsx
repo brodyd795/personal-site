@@ -39,7 +39,7 @@ export const Timeline: FC = () => {
 				<ShowMoreLessButton
 					showMore={showMore}
 					setShowMore={setShowMore}
-					type={'Timeline'}
+					type={'events'}
 				/>
 			</div>
 		</div>

@@ -83,7 +83,7 @@ export const Projects: FC = () => {
 				<ShowMoreLessButton
 					showMore={showMore}
 					setShowMore={setShowMore}
-					type={'Projects'}
+					type={'projects'}
 				/>
 			</div>
 		</div>
