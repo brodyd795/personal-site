@@ -149,9 +149,9 @@ export const timelineEvents: IYearEvents[] = [
 				heading: 'Graduated from ISU 🎓',
 				subtext: (
 					<div>
-						{
-							'Got a BA in World Languages and Cultures (emphasis in Spanish) and a BA in Linguistics, with <i>suma cum laude</i> honors'
-						}
+						Got a BA in World Languages and Cultures (emphasis in Spanish) and a
+						BA in Linguistics, with{' '}
+						<span className={'italic'}>suma cum laude</span> honors
 					</div>
 				)
 			},
