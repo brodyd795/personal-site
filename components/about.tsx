@@ -21,7 +21,7 @@ export const About = (): JSX.Element => {
 				<ul className={'list-disc ml-4 mt-4 leading-loose text-gray-400'}>
 					<li>Full-stack software engineer in ecommerce at Hy-Vee</li>
 					<li>
-						Proficient in <span style={{color: '#026e00'}}>Node.js</span>,{' '}
+						Proficient in <span style={{color: '#05ac02'}}>Node.js</span>,{' '}
 						<span style={{color: '#61dafb'}}>React</span>,{' '}
 						<span style={{color: '#3178c6'}}>Typescript</span>,{' '}
 						<span style={{color: '#fff'}}>Next.js</span>, and more. Check out{' '}
