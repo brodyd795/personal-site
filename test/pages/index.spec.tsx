@@ -17,6 +17,7 @@ import {
 } from '../infrastructure';
 import Index from '../../pages/index';
 import {createRouter} from '../mocks/nextRouterMock';
+import {readingListDefaultData} from '../../data/reading';
 
 describe('Index', () => {
 	const {useRouter} = nextRouter as jest.Mocked<typeof nextRouter>;
@@ -183,7 +184,13 @@ describe('Index', () => {
 
 			render();
 
-			expect(await screen.findByText('An error occurred.')).toBeVisible();
+			for (let i = 0; i < readingListDefaultData.list.length; i += 1) {
+				const {domain, description, title} = readingListDefaultData.list[i];
+
+				expect(await screen.findByText(domain!)).toBeVisible();
+				expect(await screen.findByText(description!)).toBeVisible();
+				expect(await screen.findByText(title)).toBeVisible();
+			}
 		});
 
 		test('should show reading list loading state', async () => {
