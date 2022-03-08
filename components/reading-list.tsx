@@ -25,7 +25,7 @@ const ReadingCard: FC<IReadingCard> = ({
 		rel='noreferrer'
 		data-testid={`project-card-${title}`}
 	>
-		<div className='flex flex-col border-zinc-500 border-2 drop-shadow-md rounded my-3 px-2 py-3 transition ease-in-out delay-50 hover:scale-[1.01] duration-200'>
+		<div className='flex flex-col rounded-lg my-3 px-2 py-3 transition ease-in-out delay-50 hover:scale-[1.01] duration-200 bg-blue-transparent-900 ring-2 ring-zinc-500'>
 			<div className='flex'>
 				<div className='flex flex-col ml-4 mr-2 flex-1'>
 					<div className='w-100'>

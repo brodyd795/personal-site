@@ -23,7 +23,7 @@ const ProjectCard: FC<IProjectCard> = ({
 			rel='noreferrer'
 			data-testid={`project-card-${name}`}
 		>
-			<div className='flex flex-col border-zinc-500 rounded-lg border-2 my-2 px-2 py-3 transition ease-in-out delay-50 hover:scale-[1.01] duration-200'>
+			<div className='flex flex-col rounded-lg my-2 px-2 py-3 transition ease-in-out delay-50 hover:scale-[1.01] duration-200 bg-blue-transparent-900 ring-2 ring-zinc-500'>
 				<div className={'flex justify-center relative'}>
 					<h4 className='text-center font-bold text-xl mt-2'>{name}</h4>
 					<FontAwesomeIcon
