@@ -154,6 +154,7 @@ export const Contact: FC = () => {
 							className='w-24 h-12 bg-slate-500 rounded m-auto mt-8 transition ease-in-out delay-50 hover:scale-[1.05] duration-300 text-white'
 							type='submit'
 							aria-label='Send message'
+							disabled={submission.hasSubmitted && submission.wasSuccessful}
 						>
 							<span>Send</span>
 							<FontAwesomeIcon icon={faPaperPlane} className='ml-2' />

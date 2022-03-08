@@ -303,6 +303,7 @@ describe('Index', () => {
 				await screen.findByText('Thanks for reaching out!!')
 			).toBeVisible();
 			expect(await screen.findByText("I'll be in touch.")).toBeVisible();
+			expect(sendButton).toBeDisabled();
 		});
 
 		test('should alert user on failure of filling out contact form', async () => {
@@ -329,6 +330,7 @@ describe('Index', () => {
 				await screen.findByText('Oops, something went wrong.')
 			).toBeVisible();
 			expect(await screen.findByText("I'll look into that.")).toBeVisible();
+			expect(sendButton).not.toBeDisabled();
 		});
 	});
 
