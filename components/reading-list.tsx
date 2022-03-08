@@ -9,6 +9,7 @@ import ReactMarkdown from 'react-markdown';
 import {GetReadingListResponse} from '../pages/api/controllers/get-reading-list';
 import {getBaseUrl} from '../utils/url-helpers';
 import {Heading} from './heading';
+import {readingListDefaultData} from '../data/reading';
 
 const fetcher = (url: RequestInfo) => fetch(url).then((res) => res.json());
 
@@ -59,7 +60,7 @@ export const ReadingList: FC = () => {
 			<Heading text='Reading List' />
 			{!data && !error && <div>Loading...</div>}
 			{error && <div>An error occurred.</div>}
-			<div className='mt-10 mx-1 mb-10'>
+			<div className='mt-10 mx-1 mb-10 w-full'>
 				<h2 className='text-xl'>
 					{"Check out what I've been reading recently 🤓"}
 				</h2>
