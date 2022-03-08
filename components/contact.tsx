@@ -102,7 +102,7 @@ export const Contact: FC = () => {
 
 	return (
 		<div
-			className='mt-10 flex flex-col items-center sm:p-4 sm:m-8 rounded-lg bg-blue-transparent-900 ring-2 ring-zinc-500'
+			className='mt-10 flex flex-col items-center m-2 rounded-lg bg-blue-transparent-900 ring-2 ring-zinc-500'
 			id='contact'
 		>
 			<Heading text='Contact' />
@@ -161,7 +161,7 @@ export const Contact: FC = () => {
 					</Form>
 				</Formik>
 			</div>
-			<div>
+			<div className={'pb-4'}>
 				<SocialLink
 					href={'https://github.com/brodyd795'}
 					icon={faGithub}

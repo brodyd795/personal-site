@@ -61,7 +61,10 @@ export const ReadingList: FC = () => {
 	const defaultedDataIfNeeded = error ? readingListDefaultData : data;
 
 	return (
-		<div className='mt-10 w-full flex flex-col items-center' id='reading-list'>
+		<div
+			className='mt-10 w-full flex flex-col items-center px-2'
+			id='reading-list'
+		>
 			<Heading text='Reading List' />
 			{!data && !error && <div>Loading...</div>}
 			<div className='mt-10 mx-1 mb-10 w-full'>
