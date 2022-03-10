@@ -92,7 +92,7 @@ describe('Index', () => {
 		test('should show more', async () => {
 			render();
 
-			user.click(await screen.findByRole('button', {name: 'Show More About'}));
+			user.click(await screen.findByRole('button', {name: 'More about me'}));
 			expect(
 				await screen.findByText('You want to know more? Alright!')
 			).toBeVisible();
@@ -139,9 +139,7 @@ describe('Index', () => {
 				await screen.findByRole('heading', {name: 'Projects'})
 			).toBeVisible();
 
-			user.click(
-				await screen.findByRole('button', {name: 'Show More Projects'})
-			);
+			user.click(await screen.findByRole('button', {name: 'More projects'}));
 
 			for (let index = 0; index < projects.length; index += 1) {
 				const {
@@ -161,9 +159,7 @@ describe('Index', () => {
 				expect(card).toHaveAttribute('href', link);
 			}
 
-			user.click(
-				await screen.findByRole('button', {name: 'Show Less Projects'})
-			);
+			user.click(await screen.findByRole('button', {name: 'Less projects'}));
 
 			expect(screen.queryByText(projects[3].name)).toBeNull();
 		});
@@ -248,18 +244,14 @@ describe('Index', () => {
 
 			expect(screen.queryByText(nextYear)).toBeNull();
 
-			user.click(
-				await screen.findByRole('button', {name: 'Show More Timeline'})
-			);
+			user.click(await screen.findByRole('button', {name: 'More events'}));
 
 			expect(await screen.findByText(nextYear)).toBeVisible();
 			expect(await screen.findByText(nextYearEvents[0].heading)).toBeVisible();
 
+			expect(screen.queryByRole('button', {name: 'More events'})).toBeNull();
 			expect(
-				screen.queryByRole('button', {name: 'Show More Timeline'})
-			).toBeNull();
-			expect(
-				await screen.findByRole('button', {name: 'Show Less Timeline'})
+				await screen.findByRole('button', {name: 'Less events'})
 			).toBeVisible();
 		});
 	});
