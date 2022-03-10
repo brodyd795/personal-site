@@ -20,7 +20,7 @@ export const About = (): JSX.Element => {
 		<div className='w-full py-10 flex flex-col' id='about'>
 			<Heading text={'About'} />
 			<div className={'mx-4'}>
-				<H2>TL;DR:</H2>
+				<H2>TL;DR</H2>
 				<ul className={'list-disc ml-4 mt-4 leading-loose text-gray-400'}>
 					<li>Full-stack software engineer in ecommerce at Hy-Vee</li>
 					<li>
