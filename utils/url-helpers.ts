@@ -10,7 +10,7 @@ export const redirectTo = (redirectToUrl: string): string => {
 };
 
 export const getBaseUrl = (): string => {
-	const environment = process.env.VERCEL_ENV;
+	const environment = process.env.NODE_ENV;
 
 	// eslint-disable-next-line no-console
 	console.log({
