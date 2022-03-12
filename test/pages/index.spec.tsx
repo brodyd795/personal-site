@@ -41,6 +41,15 @@ describe('Index', () => {
 	});
 
 	beforeEach(() => {
+		const location = {
+			...window.location,
+			origin: 'http://localhost:3000'
+		};
+		Object.defineProperty(window, 'location', {
+			writable: true,
+			value: location
+		});
+
 		expectedRouter = createRouter();
 		useRouter.mockReturnValue(expectedRouter);
 
