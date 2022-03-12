@@ -5,7 +5,9 @@ import {ImageProps} from 'next/image';
 import React from 'react';
 import {domains} from './enums/domains';
 
-process.env.VERCEL_ENV = domains.LOCALHOST;
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+process.env.NODE_ENV = domains.LOCALHOST;
 
 jest.mock('next/router');
 jest.mock('next/image', () => (props: ImageProps) => {
