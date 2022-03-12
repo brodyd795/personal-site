@@ -12,6 +12,15 @@ export const redirectTo = (redirectToUrl: string): string => {
 export const getBaseUrl = (): string => {
 	const environment = process.env.VERCEL_ENV;
 
+	// eslint-disable-next-line no-console
+	console.log({
+		environments,
+		environment,
+		domains,
+		commitRef: process.env.VERCEL_GIT_COMMIT_REF,
+		vercelUrl: process.env.VERCEL_URL
+	});
+
 	if (environment === environments.PRODUCTION) {
 		return `https://${domains.PRODUCTION}`;
 	}
