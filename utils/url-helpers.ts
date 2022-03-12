@@ -6,12 +6,7 @@ export const redirectTo = (redirectToUrl: string): string => {
 	return `/api/auth/login`;
 };
 
-export const getBaseUrl = (): string => {
-	if (typeof window !== 'undefined') {
-		return window.location.origin;
-	}
-
-	return '';
-};
+export const getBaseUrl = (): string =>
+	typeof window !== 'undefined' ? window.location.origin : '';
 
 export const getRedirectUrl = (): string => `${getBaseUrl()}/api/auth/callback`;
