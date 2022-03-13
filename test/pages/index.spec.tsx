@@ -95,7 +95,9 @@ describe('Index', () => {
 					'Full-stack software engineer in ecommerce at Hy-Vee'
 				)
 			).toBeVisible();
-			expect(screen.queryByText('You want to know more? Alright!')).toBeNull();
+			expect(
+				screen.queryByText('You want to know more? Alright!')
+			).not.toBeVisible();
 		});
 
 		test('should show more', async () => {
@@ -137,7 +139,7 @@ describe('Index', () => {
 			for (let index = 3; index < projects.length; index += 1) {
 				const name = screen.queryByText(projects[index].name);
 
-				expect(name).toBeNull();
+				expect(name).not.toBeVisible();
 			}
 		});
 
@@ -167,10 +169,6 @@ describe('Index', () => {
 				expect(technologies).toBeVisible();
 				expect(card).toHaveAttribute('href', link);
 			}
-
-			user.click(await screen.findByRole('button', {name: 'Less projects'}));
-
-			expect(screen.queryByText(projects[3].name)).toBeNull();
 		});
 	});
 
@@ -251,7 +249,7 @@ describe('Index', () => {
 
 			const {year: nextYear, events: nextYearEvents} = timelineEvents[4];
 
-			expect(screen.queryByText(nextYear)).toBeNull();
+			expect(screen.queryByText(nextYear)).not.toBeVisible();
 
 			user.click(await screen.findByRole('button', {name: 'More events'}));
 
