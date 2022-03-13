@@ -16,10 +16,10 @@ const P = ({children}: {children: JSX.Element | string}) => (
 
 export const About = (): JSX.Element => {
 	const [showMore, setShowMore] = useState(false);
-	const myRef = useRef<HTMLDivElement>(null);
+	const scrollToRef = useRef<HTMLDivElement>(null);
 
 	return (
-		<div className='w-full py-10 flex flex-col' id='about' ref={myRef}>
+		<div className='w-full py-10 flex flex-col' id='about' ref={scrollToRef}>
 			<Heading text={'About'} />
 			<div className={'mx-4'}>
 				<H2>TL;DR</H2>
@@ -49,7 +49,7 @@ export const About = (): JSX.Element => {
 					<li>{`Enjoy writing software that makes a difference in others' lives`}</li>
 					<li>Always ready for a new challenge!</li>
 				</ul>
-				<Collapse showMore={showMore} myRef={myRef}>
+				<Collapse showMore={showMore} scrollToRef={scrollToRef}>
 					<H2>{`You want to know more? Alright!`}</H2>
 					<H3>{`My journey into software engineering`}</H3>
 					<P>{`I grew up in small-town Iowa and headed to Iowa State University (Go, Cyclones!) after high school.

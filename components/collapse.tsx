@@ -4,17 +4,17 @@ import AnimateHeight from 'react-animate-height';
 export const Collapse = ({
 	children,
 	showMore,
-	myRef
+	scrollToRef
 }: {
 	children: JSX.Element[];
 	showMore: boolean;
-	myRef: React.RefObject<HTMLDivElement>;
+	scrollToRef: React.RefObject<HTMLDivElement>;
 }): JSX.Element => (
 	<AnimateHeight
 		duration={showMore ? 500 : 300}
 		onAnimationStart={() => {
-			if (!showMore && myRef.current) {
-				myRef.current.scrollIntoView();
+			if (!showMore && scrollToRef.current) {
+				scrollToRef.current.scrollIntoView();
 			}
 		}}
 		height={showMore ? 'auto' : 0}
