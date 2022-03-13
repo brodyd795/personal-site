@@ -1,8 +1,9 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useRef, useState} from 'react';
 
 import {IYearEvents, timelineEvents} from './timeline-events';
 import {Heading} from './heading';
 import {ShowMoreLessButton} from './buttons';
+import {Collapse} from './collapse';
 
 const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
 	<div key={year} className={'mt-8'}>
@@ -22,20 +23,27 @@ const Year: FC<IYearEvents> = ({year, events}: IYearEvents) => (
 
 export const Timeline: FC = () => {
 	const [showMore, setShowMore] = useState(false);
+	const scrollToRef = useRef<HTMLDivElement>(null);
+
 	const initialEvents = timelineEvents.slice(0, 3);
 	const otherEvents = timelineEvents.slice(3);
 
 	return (
-		<div className='w-full mt-10 flex flex-col items-center' id='timeline'>
+		<div
+			className='w-full mt-10 flex flex-col items-center'
+			id='timeline'
+			ref={scrollToRef}
+		>
 			<Heading text='Timeline' />
 			<div className='mx-2'>
 				{initialEvents.map(({year, events}) => (
 					<Year year={year} events={events} key={year} />
 				))}
-				{showMore &&
-					otherEvents.map(({year, events}) => (
+				<Collapse showMore={showMore} scrollToRef={scrollToRef}>
+					{otherEvents.map(({year, events}) => (
 						<Year year={year} events={events} key={year} />
 					))}
+				</Collapse>
 				<ShowMoreLessButton
 					showMore={showMore}
 					setShowMore={setShowMore}

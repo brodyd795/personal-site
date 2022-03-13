@@ -1,10 +1,11 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useState, useRef} from 'react';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import {IProject, projects} from '../data/projects';
 import {Heading} from './heading';
 import {ShowMoreLessButton} from './buttons';
+import {Collapse} from './collapse';
 
 interface IProjectCard {
 	project: IProject;
@@ -71,15 +72,23 @@ const ProjectCard: FC<IProjectCard> = ({
 
 export const Projects: FC = () => {
 	const [showMore, setShowMore] = useState(false);
-	const projectsToShow = showMore ? projects : projects.slice(0, 3);
+	const scrollToRef = useRef<HTMLDivElement>(null);
+
+	const firstProjects = projects.slice(0, 3);
+	const lastProjects = projects.slice(3);
 
 	return (
-		<div className='w-full py-10 flex flex-col' id='projects'>
+		<div className='w-full py-10 flex flex-col' id='projects' ref={scrollToRef}>
 			<Heading text='Projects' />
 			<div className='flex flex-col justify-center flex-wrap mx-2'>
-				{projectsToShow.map((project) => (
+				{firstProjects.map((project) => (
 					<ProjectCard key={project.name} project={project} />
 				))}
+				<Collapse showMore={showMore} scrollToRef={scrollToRef}>
+					{lastProjects.map((project) => (
+						<ProjectCard key={project.name} project={project} />
+					))}
+				</Collapse>
 				<ShowMoreLessButton
 					showMore={showMore}
 					setShowMore={setShowMore}
