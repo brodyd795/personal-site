@@ -1,8 +1,8 @@
 import React, {useState, useRef} from 'react';
-import AnimateHeight from 'react-animate-height';
 
 import {ShowMoreLessButton} from './buttons';
 import {Heading} from './heading';
+import {Collapse} from './collapse';
 
 const H3 = ({children}: {children: JSX.Element | string}) => (
 	<h3 className={'text-white mt-4 text-lg'}>{children}</h3>
@@ -49,16 +49,7 @@ export const About = (): JSX.Element => {
 					<li>{`Enjoy writing software that makes a difference in others' lives`}</li>
 					<li>Always ready for a new challenge!</li>
 				</ul>
-				<AnimateHeight
-					duration={showMore ? 500 : 300}
-					onAnimationStart={() => {
-						if (!showMore && myRef.current) {
-							myRef.current.scrollIntoView();
-						}
-					}}
-					height={showMore ? 'auto' : 0}
-					className={'text-gray-400 leading-relaxed'}
-				>
+				<Collapse showMore={showMore} myRef={myRef}>
 					<H2>{`You want to know more? Alright!`}</H2>
 					<H3>{`My journey into software engineering`}</H3>
 					<P>{`I grew up in small-town Iowa and headed to Iowa State University (Go, Cyclones!) after high school.
@@ -82,7 +73,7 @@ export const About = (): JSX.Element => {
 					<P>{`When I'm not working, I'm usually hanging out with my amazing wife and daughter. ♥️ My wife is wonderful and has supported me throughout this whole journey, and my daughter has brought a whole new level of joy into our lives that we
                             never would've thought possible. We like playing games, walks on Iowa trails, and reading lots.`}</P>
 					<P>{`If I'm not with them, I'm probably playing around with some new technology, trying my hand at woodworking, pretending I know how to golf, or reading.`}</P>
-				</AnimateHeight>
+				</Collapse>
 			</div>
 			<ShowMoreLessButton
 				showMore={showMore}
