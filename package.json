@@ -16,9 +16,8 @@
 		"lint": "eslint . --ext .tsx --ext .ts",
 		"prepare": "husky install",
 		"prettier": "prettier --write --ignore-unknown .",
-		"prettier:check": "prettier --check --ignore-unknown .",
 		"jest": "NODE_ENV=localhost jest",
-		"test": "yarn lint && yarn prettier:check && yarn tsc && yarn jest"
+		"test": "yarn lint && yarn tsc && yarn jest"
 	},
 	"dependencies": {
 		"@auth0/nextjs-auth0": "1.6.1",
