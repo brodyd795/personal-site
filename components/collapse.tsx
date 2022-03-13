@@ -11,7 +11,8 @@ export const Collapse = ({
 	scrollToRef: React.RefObject<HTMLDivElement>;
 }): JSX.Element => (
 	<AnimateHeight
-		duration={showMore ? 500 : 300}
+		duration={500}
+		delay={!showMore ? 300 : 0}
 		onAnimationStart={() => {
 			if (!showMore && scrollToRef.current) {
 				scrollToRef.current.scrollIntoView();
