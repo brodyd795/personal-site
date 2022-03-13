@@ -16,9 +16,7 @@ const P = ({children}: {children: JSX.Element | string}) => (
 
 export const About = (): JSX.Element => {
 	const [showMore, setShowMore] = useState(false);
-	const myRef = useRef(null);
-
-	const executeScroll = () => myRef.current.scrollIntoView();
+	const myRef = useRef<HTMLDivElement>(null);
 
 	return (
 		<div className='w-full py-10 flex flex-col' id='about' ref={myRef}>
@@ -54,8 +52,8 @@ export const About = (): JSX.Element => {
 				<AnimateHeight
 					duration={showMore ? 500 : 300}
 					onAnimationStart={() => {
-						if (!showMore) {
-							executeScroll();
+						if (!showMore && myRef.current) {
+							myRef.current.scrollIntoView();
 						}
 					}}
 					height={showMore ? 'auto' : 0}
