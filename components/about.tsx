@@ -14,6 +14,27 @@ const P = ({children}: {children: JSX.Element | string}) => (
 	<p className={'mt-3'}>{children}</p>
 );
 
+const Technology = ({
+	text,
+	href,
+	background,
+	color
+}: {
+	text: string;
+	href: string;
+	background: string;
+	color: string;
+}) => (
+	<a href={href}>
+		<div
+			style={{backgroundColor: background, color}}
+			className='flex items-center text-sm italic rounded border border-black h-12 p-3 m-2 transition ease-in-out delay-50 hover:text-gray-200 duration-300 hover:scale-[1.05] drop-shadow-lg'
+		>
+			{text}
+		</div>
+	</a>
+);
+
 export const About = (): JSX.Element => {
 	const [showMore, setShowMore] = useState(false);
 	const scrollToRef = useRef<HTMLDivElement>(null);
@@ -26,16 +47,6 @@ export const About = (): JSX.Element => {
 				<ul className={'list-disc ml-4 mt-4 leading-loose text-gray-400'}>
 					<li>Full-stack software engineer in ecommerce at Hy-Vee</li>
 					<li>
-						Proficient in <span style={{color: '#05ac02'}}>Node.js</span>,{' '}
-						<span style={{color: '#61dafb'}}>React</span>,{' '}
-						<span style={{color: '#3178c6'}}>Typescript</span>,{' '}
-						<span style={{color: '#fff'}}>Next.js</span>, and more. Check out{' '}
-						<a href={'/resume.pdf'} className={'hover:text-white underline'}>
-							my resume TODO
-						</a>{' '}
-						for more!
-					</li>
-					<li>
 						Degrees from Iowa State University
 						<ul className={'list-disc ml-8'}>
 							<li>
@@ -46,9 +57,54 @@ export const About = (): JSX.Element => {
 							<li>{`Bachelor's – World Languages and Cultures (emphasis in Spanish)`}</li>
 						</ul>
 					</li>
-					<li>{`Enjoy writing software that makes a difference in others' lives`}</li>
+					<li>{`Enjoy developing software that makes a difference in others' lives`}</li>
 					<li>Always ready for a new challenge!</li>
 				</ul>
+				<H2>Skills / Technologies</H2>
+				<div className='flex mt-4 flex-wrap justify-center'>
+					<Technology
+						text={'Next.js'}
+						href='https://nextjs.org/'
+						background={'#000'}
+						color={'#fff'}
+					/>
+					<Technology
+						text={'React'}
+						href='https://reactjs.org/'
+						background={'#20232a'}
+						color={'#61dafb'}
+					/>
+					<Technology
+						text={'PostgreSQL'}
+						href='https://www.postgresql.org/'
+						background={'#336791'}
+						color={'#fff'}
+					/>
+					<Technology
+						text={'Google Cloud Platform'}
+						href='https://cloud.google.com/gcp'
+						background={'#1a73e8'}
+						color={'#fff'}
+					/>
+					<Technology
+						text={'Kubernetes'}
+						href='https://kubernetes.io/'
+						background={'#3371e3'}
+						color={'#fff'}
+					/>
+					<Technology
+						text={'Node.js'}
+						href='https://nodejs.org/en/'
+						background={'#026e00'}
+						color={'#fff'}
+					/>
+					<Technology
+						text={'Docker'}
+						href='https://www.docker.com/'
+						background={'#0b214a'}
+						color={'#fff'}
+					/>
+				</div>
 				<Collapse showMore={showMore} scrollToRef={scrollToRef}>
 					<H2>{`You want to know more? Alright!`}</H2>
 					<H3>{`My journey into software engineering`}</H3>
