@@ -12,11 +12,27 @@ export interface IYearEvents {
 
 export const timelineEvents: IYearEvents[] = [
 	{
+		year: 2022,
+		events: [
+			{
+				heading: 'Promoted to Software Engineer II 🎉',
+				subtext: <div>Thankful for everyone who helped me get here!</div>
+			}
+		]
+	},
+	{
 		year: 2021,
 		events: [
 			{
-				heading: 'Software Engineer at Hy-Vee 🎉',
-				subtext: <div>{"Making customers' lives better every day"}</div>
+				heading: 'Presented new testing strategy to 80+ fellow engineers 😆',
+				subtext: (
+					<div>
+						Pioneered the evaluation and adoption of a new testing strategy for
+						React code to speed up development, increase confidence, and
+						encourage refactoring. Then I got to deliver a presentation on it to
+						my colleagues at work!
+					</div>
+				)
 			},
 			{
 				heading: 'Iowa STATEment Makers award 🏆',
