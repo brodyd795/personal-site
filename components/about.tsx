@@ -103,6 +103,72 @@ export const About = (): JSX.Element => {
 						background={'bg-[#0b214a]'}
 						color={'text-[#fff]'}
 					/>
+					<Technology
+						text={'TypeScript'}
+						href='https://www.typescriptlang.org/'
+						background={'bg-[#3178c6]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
+						text={'JavaScript'}
+						href='https://www.javascript.com/'
+						background={'bg-[#fcdc00]'}
+						color={'text-[#000]'}
+					/>
+					<Technology
+						text={'Git'}
+						href='https://git-scm.com/'
+						background={'bg-[#000]'}
+						color={'text-[#f14e32]'}
+					/>
+					<Technology
+						text={'Jest'}
+						href='https://jestjs.io/'
+						background={'bg-[#15c213]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
+						text={'React Testing Library'}
+						href='https://testing-library.com/docs/react-testing-library/intro/'
+						background={'bg-[#242526]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
+						text={'MySQL'}
+						href='https://www.docker.com/'
+						background={'bg-[#0074a3]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
+						text={'Elasticsearch'}
+						href='https://www.elastic.co/'
+						background={'bg-[#0077CC]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
+						text={'React Native'}
+						href='https://reactnative.dev/'
+						background={'bg-[#61dafb]'}
+						color={'text-[#000]'}
+					/>
+					<Technology
+						text={'Pub/Sub'}
+						href='https://cloud.google.com/pubsub/docs/overview'
+						background={'bg-[#1a73e8]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
+						text={'Tailwind CSS'}
+						href='https://tailwindcss.com/'
+						background={'bg-[#38BDF8]'}
+						color={'text-[#000]'}
+					/>
+					<Technology
+						text={'Golang'}
+						href='https://go.dev/'
+						background={'bg-[#007d9c]'}
+						color={'text-[#fff]'}
+					/>
 				</div>
 				<Collapse showMore={showMore} scrollToRef={scrollToRef}>
 					<H2>{`You want to know more? Alright!`}</H2>
