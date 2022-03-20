@@ -27,8 +27,7 @@ const Technology = ({
 }) => (
 	<a href={href}>
 		<div
-			style={{backgroundColor: background, color}}
-			className='flex items-center text-sm italic rounded border border-black h-12 p-3 m-2 transition ease-in-out delay-50 hover:text-gray-200 duration-300 hover:scale-[1.05] drop-shadow-lg'
+			className={`bg-slate-500 ${background} ${color} flex items-center text-sm italic rounded border border-black h-8 p-2 m-2 transition ease-in-out delay-50 hover:text-gray-200 duration-300 hover:scale-[1.05] drop-shadow-lg`}
 		>
 			{text}
 		</div>
@@ -65,44 +64,44 @@ export const About = (): JSX.Element => {
 					<Technology
 						text={'Next.js'}
 						href='https://nextjs.org/'
-						background={'#000'}
-						color={'#fff'}
+						background={'bg-[#000]'}
+						color={'text-[#fff]'}
 					/>
 					<Technology
 						text={'React'}
 						href='https://reactjs.org/'
-						background={'#20232a'}
-						color={'#61dafb'}
+						background={'bg-[#20232a]'}
+						color={'text-[#61dafb]'}
 					/>
 					<Technology
 						text={'PostgreSQL'}
 						href='https://www.postgresql.org/'
-						background={'#336791'}
-						color={'#fff'}
+						background={'bg-[#336791]'}
+						color={'text-[#fff]'}
 					/>
 					<Technology
 						text={'Google Cloud Platform'}
 						href='https://cloud.google.com/gcp'
-						background={'#1a73e8'}
-						color={'#fff'}
+						background={'bg-[#1a73e8]'}
+						color={'text-[#fff]'}
 					/>
 					<Technology
 						text={'Kubernetes'}
 						href='https://kubernetes.io/'
-						background={'#3371e3'}
-						color={'#fff'}
+						background={'bg-[#3371e3]'}
+						color={'text-[#fff]'}
 					/>
 					<Technology
 						text={'Node.js'}
 						href='https://nodejs.org/en/'
-						background={'#026e00'}
-						color={'#fff'}
+						background={'bg-[#026e00]'}
+						color={'text-[#fff]'}
 					/>
 					<Technology
 						text={'Docker'}
 						href='https://www.docker.com/'
-						background={'#0b214a'}
-						color={'#fff'}
+						background={'bg-[#0b214a]'}
+						color={'text-[#fff]'}
 					/>
 				</div>
 				<Collapse showMore={showMore} scrollToRef={scrollToRef}>
