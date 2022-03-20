@@ -96,7 +96,7 @@ describe('Index', () => {
 				)
 			).toBeVisible();
 			expect(
-				screen.queryByText('You want to know more? Alright!')
+				screen.queryByText('My journey into software engineering')
 			).not.toBeVisible();
 		});
 
@@ -105,7 +105,7 @@ describe('Index', () => {
 
 			user.click(await screen.findByRole('button', {name: 'More about me'}));
 			expect(
-				await screen.findByText('You want to know more? Alright!')
+				await screen.findByText('My journey into software engineering')
 			).toBeVisible();
 		});
 	});
