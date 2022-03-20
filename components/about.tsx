@@ -27,7 +27,7 @@ const Technology = ({
 }) => (
 	<a href={href}>
 		<div
-			className={`bg-slate-500 ${background} ${color} flex items-center text-sm italic rounded border border-black h-8 p-2 m-2 transition ease-in-out delay-50 hover:text-gray-200 duration-300 hover:scale-[1.05] drop-shadow-lg`}
+			className={`bg-slate-500 ${background} ${color} flex items-center text-sm italic rounded border border-black h-8 p-2 m-2 transition ease-in-out delay-50 duration-300 hover:scale-[1.05] drop-shadow-lg`}
 		>
 			{text}
 		</div>
@@ -62,33 +62,9 @@ export const About = (): JSX.Element => {
 				<H2>Skills / Technologies</H2>
 				<div className='flex mt-4 flex-wrap justify-center'>
 					<Technology
-						text={'Next.js'}
-						href='https://nextjs.org/'
-						background={'bg-[#000]'}
-						color={'text-[#fff]'}
-					/>
-					<Technology
-						text={'React'}
-						href='https://reactjs.org/'
-						background={'bg-[#20232a]'}
-						color={'text-[#61dafb]'}
-					/>
-					<Technology
-						text={'PostgreSQL'}
-						href='https://www.postgresql.org/'
-						background={'bg-[#336791]'}
-						color={'text-[#fff]'}
-					/>
-					<Technology
-						text={'Google Cloud Platform'}
-						href='https://cloud.google.com/gcp'
-						background={'bg-[#1a73e8]'}
-						color={'text-[#fff]'}
-					/>
-					<Technology
-						text={'Kubernetes'}
-						href='https://kubernetes.io/'
-						background={'bg-[#3371e3]'}
+						text={'TypeScript'}
+						href='https://www.typescriptlang.org/'
+						background={'bg-[#3178c6]'}
 						color={'text-[#fff]'}
 					/>
 					<Technology
@@ -98,15 +74,15 @@ export const About = (): JSX.Element => {
 						color={'text-[#fff]'}
 					/>
 					<Technology
-						text={'Docker'}
-						href='https://www.docker.com/'
-						background={'bg-[#0b214a]'}
-						color={'text-[#fff]'}
+						text={'React'}
+						href='https://reactjs.org/'
+						background={'bg-[#20232a]'}
+						color={'text-[#61dafb]'}
 					/>
 					<Technology
-						text={'TypeScript'}
-						href='https://www.typescriptlang.org/'
-						background={'bg-[#3178c6]'}
+						text={'Next.js'}
+						href='https://nextjs.org/'
+						background={'bg-[#000]'}
 						color={'text-[#fff]'}
 					/>
 					<Technology
@@ -116,10 +92,22 @@ export const About = (): JSX.Element => {
 						color={'text-[#000]'}
 					/>
 					<Technology
+						text={'Docker'}
+						href='https://www.docker.com/'
+						background={'bg-[#0b214a]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
+						text={'Google Cloud Platform'}
+						href='https://cloud.google.com/gcp'
+						background={'bg-[#1a73e8]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
 						text={'Git'}
 						href='https://git-scm.com/'
 						background={'bg-[#000]'}
-						color={'text-[#f14e32]'}
+						color={'text-[#fff]'}
 					/>
 					<Technology
 						text={'Jest'}
@@ -131,6 +119,24 @@ export const About = (): JSX.Element => {
 						text={'React Testing Library'}
 						href='https://testing-library.com/docs/react-testing-library/intro/'
 						background={'bg-[#242526]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
+						text={'PostgreSQL'}
+						href='https://www.postgresql.org/'
+						background={'bg-[#336791]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
+						text={'Pub/Sub'}
+						href='https://cloud.google.com/pubsub/docs/overview'
+						background={'bg-[#1a73e8]'}
+						color={'text-[#fff]'}
+					/>
+					<Technology
+						text={'Kubernetes'}
+						href='https://kubernetes.io/'
+						background={'bg-[#3371e3]'}
 						color={'text-[#fff]'}
 					/>
 					<Technology
@@ -150,12 +156,6 @@ export const About = (): JSX.Element => {
 						href='https://reactnative.dev/'
 						background={'bg-[#61dafb]'}
 						color={'text-[#000]'}
-					/>
-					<Technology
-						text={'Pub/Sub'}
-						href='https://cloud.google.com/pubsub/docs/overview'
-						background={'bg-[#1a73e8]'}
-						color={'text-[#fff]'}
 					/>
 					<Technology
 						text={'Tailwind CSS'}
