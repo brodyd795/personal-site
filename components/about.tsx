@@ -15,16 +15,20 @@ const Technology = ({
 	text,
 	href,
 	background,
-	color
+	color,
+	borderColor
 }: {
 	text: string;
 	href: string;
 	background: string;
 	color: string;
+	borderColor?: string;
 }) => (
 	<a href={href}>
 		<div
-			className={`bg-slate-500 ${background} ${color} flex items-center text-sm italic rounded border border-black h-8 p-2 m-2 transition ease-in-out delay-50 duration-300 hover:scale-[1.05] drop-shadow-lg`}
+			className={`${background} ${color} flex items-center text-sm italic rounded border ${
+				borderColor ?? 'border-black'
+			} h-8 p-2 m-2 transition ease-in-out delay-50 duration-300 hover:scale-[1.05] drop-shadow-lg`}
 		>
 			{text}
 		</div>
@@ -81,6 +85,7 @@ export const About = (): JSX.Element => {
 						href='https://nextjs.org/'
 						background={'bg-[#000]'}
 						color={'text-[#fff]'}
+						borderColor={'border-[#fff]'}
 					/>
 					<Technology
 						text={'JavaScript'}
@@ -105,6 +110,7 @@ export const About = (): JSX.Element => {
 						href='https://git-scm.com/'
 						background={'bg-[#000]'}
 						color={'text-[#fff]'}
+						borderColor={'border-[#fff]'}
 					/>
 					<Technology
 						text={'Jest'}
@@ -117,6 +123,7 @@ export const About = (): JSX.Element => {
 						href='https://testing-library.com/docs/react-testing-library/intro/'
 						background={'bg-[#242526]'}
 						color={'text-[#fff]'}
+						borderColor={'border-[#fff]'}
 					/>
 					<Technology
 						text={'PostgreSQL'}
