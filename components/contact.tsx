@@ -151,7 +151,7 @@ export const Contact: FC = () => {
 						/>
 						<SubmissionAlert submission={submission} />
 						<button
-							className='w-24 h-12 bg-slate-500 rounded m-auto mt-8 transition ease-in-out delay-50 hover:scale-[1.05] duration-300 text-white'
+							className='w-24 h-12 bg-slate-800 rounded m-auto mt-8 transition ease-in-out delay-50 hover:scale-[1.05] duration-300 text-gray-300 hover:text-gray-200 border-[1px] border-gray-600 drop-shadow-lg'
 							type='submit'
 							aria-label='Send message'
 							disabled={submission.hasSubmitted && submission.wasSuccessful}

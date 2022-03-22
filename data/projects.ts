@@ -21,7 +21,7 @@ export const projects: IProject[] = [
 		technologies: ['React', 'Express', 'Bootstrap'],
 		tldr: 'Custom-made platform for my past students. Included an appointment scheduler, anonymous messaging, automated homework grading, and grade reports.',
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
+			'This was my first-ever playground for learning real web development. I had a deadline and real users to build new features for. It started out using the Pug templating language, which I eventually re-vamped into React as I was preparing for my first job at Hy-Vee.'
 	},
 	{
 		name: '#100DaysOfCode',
@@ -29,7 +29,7 @@ export const projects: IProject[] = [
 		technologies: ['Vanilla HTML, CSS, & JS'],
 		tldr: 'Learned the basics of web dev. Would 1000% recommend to anyone looking to get their feet web in programming!',
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
+			"Can't speak highly enough of this, given the fundamentals I learned during this challenge. Got the chance to build some simple static sites using the basic HTML, CSS, and JS that I was learning. Everything built on top of this!"
 	},
 	{
 		name: 'Secret message app',
@@ -37,7 +37,7 @@ export const projects: IProject[] = [
 		technologies: ['Next.js', 'Tailwind CSS', 'MySQL'],
 		tldr: 'In case you ever need to share your Netflix password.',
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
+			"This fun challenge helped me learn some basics of encryption, along with some Tailwind CSS and practice using MySQL. I'm no UI/UX expert, but I'm fairly happy with how the design turned out. Spent some considerable effort getting it looking nice on responsive widths, which was a good learning experience."
 	},
 	{
 		name: 'Covid-19 vaccine appt finder',
@@ -45,14 +45,14 @@ export const projects: IProject[] = [
 		technologies: ['Node.js', 'Twilio', 'Cheerio'],
 		tldr: 'Back when appointments were hard to find. Alerted users of open slots in their area every few minutes.',
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
+			"Had the chance to learn some of the basic functionality of SMS with Twilio, along with some practice with web scraping using Cheerio. This turned into a decent example of an 'MPV' type of project built on a deadline."
 	},
 	{
 		name: 'Hy-Vee Aisles Online',
 		link: 'https://hy-vee.com/aisles-online',
-		technologies: ['Next.js!'],
+		technologies: ['Too many to count!'],
 		tldr: "Hy-Vee's e-commerce platform. Making customers' lives better every day. A team effort, for sure!",
 		description:
-			"I've gone through multiple iterations of this project, learning more and more as I go. It started in Python with Google Sheets as the backend and has now evolved into a single-page Next app powered by automated email scraping and categorization."
+			"Much of the foundation of my learning has occurred while helping build this platform. From gaining experience with enterprise-level Next.js and React, to building out microservices backed by their own databases, to getting it all deployed via a CI/CD pipeline... I've learned a lot!"
 	}
 ];
