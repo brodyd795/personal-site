@@ -10,12 +10,14 @@ interface IRequestBody {
 	key: string;
 }
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+type Req = Omit<NextApiRequest, 'body'> & {body: string};
+
+const handler = async (req: Req, res: NextApiResponse) => {
 	try {
 		const session = getSession(req, res);
 		const isAuthenticated = ADMIN_EMAILS.includes(session?.user.email);
 
-		const {url, key: keySent}: IRequestBody = JSON.parse(req.body);
+		const {url, key: keySent} = JSON.parse(req.body) as IRequestBody;
 		const key = process.env.READING_LIST_EXTENSION_SECRET;
 		const hasValidKey = key === keySent;
 
@@ -30,6 +32,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 		captureException(error);
 		await flush(2000);
 
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
 		res.status(error.status || 500).end(error.message);
 	}
 };

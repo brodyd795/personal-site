@@ -10,6 +10,7 @@
 	"rules": {
 		"import/prefer-default-export": 0,
 		"react/jsx-props-no-spreading": 0,
+		"react/jsx-curly-brace-presence": 0,
 		"jsx-a11y/label-has-associated-control": [
 			"error",
 			{
@@ -27,5 +28,21 @@
 			}
 		]
 	},
-	"extends": ["airbnb-typescript", "eslint-config-prettier"]
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx"],
+			"extends": [
+				"plugin:@typescript-eslint/recommended",
+				"plugin:@typescript-eslint/recommended-requiring-type-checking"
+			],
+			"parserOptions": {
+				"project": ["./tsconfig.json"]
+			}
+		}
+	],
+	"extends": [
+		"airbnb-typescript",
+		"eslint-config-prettier",
+		"plugin:@next/next/recommended"
+	]
 }

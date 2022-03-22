@@ -1,90 +1,100 @@
-import React, {FC} from 'react';
-import styled from 'styled-components';
-import Image from 'next/image';
+import React, {FC, useState, useRef} from 'react';
+import {faGithub} from '@fortawesome/free-brands-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 import {IProject, projects} from '../data/projects';
-import {StyledH2} from './styles';
-
-const StyledProjectCard = styled.a`
-	display: flex;
-	flex-direction: column;
-	width: 200px;
-	border: 2px solid black;
-	text-align: center;
-	margin: 8px;
-	text-decoration: none;
-	color: grey;
-`;
-
-const StyledCardName = styled.span`
-	font-size: 20px;
-	margin-top: 4px;
-`;
-
-const StyledCardDescription = styled.span`
-	font-size: 16px;
-	margin: 4px;
-`;
-
-const StyledProjectCardsContainer = styled.div`
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-`;
-
-const StyledTechnologies = styled.span`
-	font-size: 12px;
-`;
-
-const StyledPhotoCredit = styled.span`
-	font-size: 10px;
-`;
-
-const StyledCardTextContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-	justify-content: space-between;
-	padding: 0 8px 8px;
-`;
-
-const StyledProjectsContainer = styled.div`
-	margin: 0 24px;
-`;
+import {Heading} from './heading';
+import {ShowMoreLessButton} from './buttons';
+import {Collapse} from './collapse';
 
 interface IProjectCard {
 	project: IProject;
 }
 
 const ProjectCard: FC<IProjectCard> = ({
-	project: {name, description, link, technologies, image}
-}: IProjectCard) => (
-	<StyledProjectCard href={link} target='_blank'>
-		{/* TODO: 
-		- further image optimization needed?
-		- layout shift of cards?
-		*/}
-		<Image alt='project card' src={image.src} height={500} width={500} />
-		<StyledCardTextContainer>
-			<StyledPhotoCredit>
-				Photo cred:{' '}
-				<a href={`https://unsplash.com/${image.credit}`}>{image.credit}</a>
-			</StyledPhotoCredit>
-			<StyledCardName>{name}</StyledCardName>
-			<StyledCardDescription>{description}</StyledCardDescription>
-			{technologies ? (
-				<StyledTechnologies>{technologies.join(', ')}</StyledTechnologies>
-			) : null}
-		</StyledCardTextContainer>
-	</StyledProjectCard>
-);
+	project: {name, link, technologies, description, tldr}
+}: IProjectCard) => {
+	const [showMore, setShowMore] = useState(false);
+	const lineClampStyles = !showMore ? 'line-clamp-2' : '';
 
-export const Projects: FC = () => (
-	<StyledProjectsContainer>
-		<StyledH2>Projects</StyledH2>
-		<StyledProjectCardsContainer>
-			{projects.map((project) => (
-				<ProjectCard key={project.name} project={project} />
-			))}
-		</StyledProjectCardsContainer>
-	</StyledProjectsContainer>
-);
+	return (
+		<a
+			href={link}
+			target='_blank'
+			rel='noreferrer'
+			data-testid={`project-card-${name}`}
+		>
+			<div className='flex flex-col rounded-lg my-2 px-2 py-3 transition ease-in-out delay-50 hover:scale-[1.01] duration-200 bg-blue-transparent-900 ring-2 ring-zinc-500'>
+				<div className={'flex justify-center relative'}>
+					<h4 className='text-center font-bold text-xl mt-2'>{name}</h4>
+					<FontAwesomeIcon
+						icon={faGithub}
+						className='absolute w-6 h-6 top-3 right-0'
+					/>
+				</div>
+				<div className='flex items-end'>
+					<div className='flex flex-col flex-1 pl-4'>
+						<span className='mt-8 mb-auto text-gray-400'>{tldr}</span>
+						<div className='mt-4 mb-auto'>
+							<span className='font-bold block'>{'What I learned: '}</span>
+							<span
+								className={`${lineClampStyles} sm:line-clamp-none text-gray-400`}
+							>
+								{description}
+							</span>
+							{!showMore && (
+								<button
+									className={'sm:hidden'}
+									type={'button'}
+									onClick={(e) => {
+										e.preventDefault();
+										setShowMore(true);
+									}}
+								>
+									See all
+								</button>
+							)}
+						</div>
+						{technologies ? (
+							<div className={'mt-4'}>
+								<span className='font-bold block'>{'Technologies:'}</span>
+								<span className={'text-gray-400'}>
+									{technologies.join(', ')}
+								</span>
+							</div>
+						) : null}
+					</div>
+				</div>
+			</div>
+		</a>
+	);
+};
+
+export const Projects: FC = () => {
+	const [showMore, setShowMore] = useState(false);
+	const scrollToRef = useRef<HTMLDivElement>(null);
+
+	const firstProjects = projects.slice(0, 3);
+	const lastProjects = projects.slice(3);
+
+	return (
+		<div className='w-full py-10 flex flex-col' id='projects' ref={scrollToRef}>
+			<Heading text='Projects' />
+			<div className='flex flex-col justify-center flex-wrap mx-2'>
+				{firstProjects.map((project) => (
+					<ProjectCard key={project.name} project={project} />
+				))}
+				<Collapse showMore={showMore} scrollToRef={scrollToRef}>
+					{lastProjects.map((project) => (
+						<ProjectCard key={project.name} project={project} />
+					))}
+				</Collapse>
+				<ShowMoreLessButton
+					showMore={showMore}
+					setShowMore={setShowMore}
+					type={'projects'}
+				/>
+			</div>
+		</div>
+	);
+};

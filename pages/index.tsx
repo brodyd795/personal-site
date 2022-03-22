@@ -1,27 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import {Container} from '../components/container';
 import {Projects} from '../components/projects';
 import {Timeline} from '../components/timeline';
 import {Contact} from '../components/contact';
+import {ReadingList} from '../components/reading-list';
+import {About} from '../components/about';
 
-const StyledMain = styled.main`
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-`;
+const headerText = 'Brody Dingel';
+const subHeaderText = ['Full-stack software engineer at Hy-Vee'];
 
-const headerText = "Hi, I'm Brody.";
-const subHeaderText =
-	"I'm a full-stack software engineer. I currently work as a Software Engineer at Hy-Vee on the Browse/Shop team. Nice to meet you!";
-
-const Home = () => (
+const Home = (): JSX.Element => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>
-		<StyledMain>
+		<main>
+			<About />
 			<Projects />
 			<Timeline />
+			<ReadingList />
 			<Contact />
-		</StyledMain>
+		</main>
 	</Container>
 );
 

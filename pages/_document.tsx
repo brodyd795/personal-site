@@ -1,48 +1,34 @@
 import React from 'react';
-import Document, {
-	Html,
-	Head,
-	Main,
-	NextScript,
-	DocumentContext
-} from 'next/document';
-import {ServerStyleSheet} from 'styled-components';
+import Document, {Html, Head, Main, NextScript} from 'next/document';
 
 import {GA_TRACKING_ID} from '../lib/gtag';
 
 export default class MyDocument extends Document {
-	static async getInitialProps(ctx: DocumentContext) {
-		const sheet = new ServerStyleSheet();
-		const originalRenderPage = ctx.renderPage;
-
-		try {
-			ctx.renderPage = () =>
-				originalRenderPage({
-					enhanceApp: (App) => (props) =>
-						sheet.collectStyles(<App {...props} />)
-				});
-
-			const initialProps = await Document.getInitialProps(ctx);
-
-			return {
-				...initialProps,
-				styles: (
-					<>
-						{initialProps.styles}
-						{sheet.getStyleElement()}
-					</>
-				)
-			};
-		} finally {
-			sheet.seal();
-		}
-	}
-
-	render() {
+	render(): JSX.Element {
 		return (
 			<Html lang='en'>
 				<Head>
-					<link href='/favicon.ico' rel='icon' />
+					<meta name='description' content="Brody Dingel's personal website" />
+					<meta name='robots' content='follow, index' />
+					<link href='favicons/favicon.ico' rel='shortcut icon' />
+					<link href='favicons/site.webmanifest' rel='manifest' />
+					<link
+						href='favicons/apple-touch-icon.png'
+						rel='apple-touch-icon'
+						sizes='180x180'
+					/>
+					<link
+						href='favicons/favicon-32x32.png'
+						rel='icon'
+						sizes='32x32'
+						type='image/png'
+					/>
+					<link
+						href='favicons/favicon-16x16.png'
+						rel='icon'
+						sizes='16x16'
+						type='image/png'
+					/>
 					<script
 						async
 						src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}

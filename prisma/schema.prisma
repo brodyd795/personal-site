@@ -5,10 +5,15 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model reading_list {
   id         Int      @id @default(autoincrement())
-  url        String   @db.VarChar(100)
+  url        String  @unique(map: "url") @db.VarChar(100)
   date_added DateTime @db.Date
+  title      String   @db.VarChar(100)
+  image     String? @db.VarChar(500)
+  description String? @db.VarChar(1000)
+  domain String? @db.VarChar(100)
 }

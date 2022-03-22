@@ -5,7 +5,7 @@ export const submitContactForm = async ({
 	name,
 	email,
 	message
-}: FieldValues) => {
+}: FieldValues): Promise<void> => {
 	sgMail.setApiKey(process.env.SENDGRID_API_KEY ?? '');
 
 	const messageToMe: MailData = {

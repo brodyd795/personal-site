@@ -1,14 +1,26 @@
-import {PrismaClient} from '@prisma/client';
+import linkPreviewGenerator from 'link-preview-generator';
+import {prisma} from './prisma-client';
 
-const prisma = new PrismaClient();
+export const addToReadingList = async (url: string): Promise<void> => {
+	const {
+		title,
+		description,
+		domain,
+		img: image
+	} = await linkPreviewGenerator(url);
 
-export const addToReadingList = async (url: string) => {
-	await prisma.reading_list.create({
-		data: {
-			url,
-			date_added: new Date()
-		}
+	const newItem = {
+		url,
+		date_added: new Date(),
+		title,
+		description,
+		domain,
+		image
+	};
+
+	await prisma().reading_list.create({
+		data: newItem
 	});
 
-	await prisma.$disconnect();
+	await prisma().$disconnect();
 };
