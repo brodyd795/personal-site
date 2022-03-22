@@ -15,16 +15,20 @@ const Technology = ({
 	text,
 	href,
 	background,
-	color
+	color,
+	borderColor
 }: {
 	text: string;
 	href: string;
 	background: string;
 	color: string;
+	borderColor?: string;
 }) => (
 	<a href={href}>
 		<div
-			className={`bg-slate-500 ${background} ${color} flex items-center text-sm italic rounded border border-black h-8 p-2 m-2 transition ease-in-out delay-50 duration-300 hover:scale-[1.05] drop-shadow-lg`}
+			className={`${background} ${color} flex items-center text-sm italic rounded border ${
+				borderColor ?? 'border-black'
+			} h-8 p-2 m-2 transition ease-in-out delay-50 duration-300 hover:scale-[1.05] drop-shadow-lg`}
 		>
 			{text}
 		</div>
@@ -81,6 +85,7 @@ export const About = (): JSX.Element => {
 						href='https://nextjs.org/'
 						background={'bg-[#000]'}
 						color={'text-[#fff]'}
+						borderColor={'border-[#fff]'}
 					/>
 					<Technology
 						text={'JavaScript'}
@@ -105,6 +110,7 @@ export const About = (): JSX.Element => {
 						href='https://git-scm.com/'
 						background={'bg-[#000]'}
 						color={'text-[#fff]'}
+						borderColor={'border-[#fff]'}
 					/>
 					<Technology
 						text={'Jest'}
@@ -117,6 +123,7 @@ export const About = (): JSX.Element => {
 						href='https://testing-library.com/docs/react-testing-library/intro/'
 						background={'bg-[#242526]'}
 						color={'text-[#fff]'}
+						borderColor={'border-[#fff]'}
 					/>
 					<Technology
 						text={'PostgreSQL'}
@@ -179,7 +186,7 @@ export const About = (): JSX.Element => {
 					<P>{`In December 2018, I decided to make a career switch to software engineeering! 🎉 Fortunately, my major professor had a background in software and agreed to help me in my journey.`}</P>
 					<P>{`My breakthrough 💥 opportunity came a few months later when I was asked to teach an introductory course titled "Computers and Language" in the Linguistics program. I knew I wanted to teach my upcoming students how to use regular expressions,
                             so I decided to build a website for that purpose. It took me the full summer of 2019, but I did it!`}</P>
-					<P>{`My first website was pretty awful in retrospect, but it fulfilled its purpose. It had ~150 total users over the course of the year, and I was able to make improvements to it to fit my students' needs.`}</P>
+					<P>{`My first website was quite the learning experience, and it fulfilled its purpose. It had ~150 total users over the course of the year, and I was able to make improvements to it to fit my students' needs.`}</P>
 					<P>{`As I neared graduation, I got an interview with Hy-Vee and showed off my course website. 🤓 It went pretty well! And after learning that Hy-Vee uses React, I spent the following winter break React-ifying my site to learn the skills for the job.`}</P>
 					<P>{`Diving into the world of software engineering as a hobbyist was definitely a big change, but I haven't looked back. Fun stuff! 😎`}</P>
 					<H2>{`Outside of work`}</H2>
