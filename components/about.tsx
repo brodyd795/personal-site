@@ -47,7 +47,7 @@ export const About = (): JSX.Element => {
 				<ul className={'list-disc ml-4 mt-4 leading-7 text-gray-400'}>
 					<li>Full-stack software engineer in ecommerce at Hy-Vee</li>
 					<li>Backend focus (Node.js), with experience in React and Next.js</li>
-					<li>{`Enjoy developing scalable, maintainable, well-tested software that makes a difference in others' lives`}</li>
+					<li>{`Passionate about developing scalable, maintainable, well-tested software that makes a difference in others' lives`}</li>
 					<li>
 						Degrees from Iowa State University
 						<ul className={'list-disc ml-8'}>
@@ -58,7 +58,7 @@ export const About = (): JSX.Element => {
 							<li>{`Bachelor's – World Languages and Cultures (Spanish emphasis)`}</li>
 						</ul>
 					</li>
-					<li>Always ready for a new challenge!</li>
+					<li>Always ready and excited for a new challenge!</li>
 				</ul>
 				<H2>Skills / Technologies</H2>
 				<div className='flex mt-4 flex-wrap justify-center'>
