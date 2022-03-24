@@ -27,7 +27,7 @@ export const projects: IProject[] = [
 		name: '#100DaysOfCode',
 		link: 'https://github.com/brodyd795/100-days-of-code',
 		technologies: ['Vanilla HTML, CSS, & JS'],
-		tldr: 'Learned the basics of web dev. Would 1000% recommend to anyone looking to get their feet web in programming!',
+		tldr: 'Learned the basics of web dev. Would 1000% recommend to anyone looking to get their feet wet in programming!',
 		description:
 			"Can't speak highly enough of this, given the fundamentals I learned during this challenge. Got the chance to build some simple static sites using the basic HTML, CSS, and JS that I was learning. Everything built on top of this!"
 	},
