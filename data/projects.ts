@@ -35,7 +35,7 @@ export const projects: IProject[] = [
 		name: 'Secret message app',
 		link: 'https://github.com/brodyd795/secret-message',
 		technologies: ['Next.js', 'Tailwind CSS', 'MySQL'],
-		tldr: 'In case you ever need to share your Netflix password.',
+		tldr: 'In case you ever need to share a secret.',
 		description:
 			"This fun challenge helped me learn some basics of encryption, along with some Tailwind CSS and practice using MySQL. I'm no UI/UX expert, but I'm fairly happy with how the design turned out. Spent some considerable effort getting it looking nice on responsive widths, which was a good learning experience."
 	},
