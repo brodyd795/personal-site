@@ -54,7 +54,7 @@ export const About = (): JSX.Element => {
 							<li>
 								{`Master's – Applied Linguistics (computational emphasis)`}
 							</li>
-							<li>{`Bachelor's – Linguistics`}</li>
+							<li>{`Bachelor's – Linguistics (with TESL minor)`}</li>
 							<li>{`Bachelor's – World Languages and Cultures (Spanish emphasis)`}</li>
 						</ul>
 					</li>
