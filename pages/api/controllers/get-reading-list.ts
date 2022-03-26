@@ -13,6 +13,7 @@ const handler = async (
 	res: NextApiResponse<GetReadingListResponse>
 ) => {
 	try {
+		throw new Error('testing sentry on server');
 		const list = await getReadingList();
 
 		res.status(200).send({list});

@@ -19,7 +19,10 @@ export const ShowMoreLessButton = ({
 				className='text-sm text-gray-300 mt-8 transition ease-in-out delay-50 hover:text-gray-200 duration-300 flex items-center py-3 px-4 rounded bg-slate-800 hover:scale-[1.03] drop-shadow-lg'
 				type='button'
 				aria-label={buttonText}
-				onClick={() => setShowMore(!showMore)}
+				onClick={() => {
+					throw new Error('testing sentry on client');
+					setShowMore(!showMore);
+				}}
 			>
 				{showMore ? (
 					<FontAwesomeIcon icon={faArrowUp} className='mr-3' />
