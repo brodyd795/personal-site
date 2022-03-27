@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://brody.dingel.dev/sitemap.xml
