@@ -3,10 +3,9 @@ import {useUser, withPageAuthRequired, UserProvider} from '@auth0/nextjs-auth0';
 import {captureException} from '@sentry/nextjs';
 
 import {ADMIN_EMAILS} from '../enums/admin-emails';
-import {domains} from '../enums/domains';
+import {getBaseUrl} from '../utils/url-helpers';
 
-// TODO: make this dynamic per env
-const apiUrl = `http://${domains.LOCALHOST}/api/controllers/add-to-reading-list`;
+const apiUrl = `${getBaseUrl()}/api/controllers/add-to-reading-list`;
 
 const Reading = () => {
 	const [url, setUrl] = useState('');
