@@ -33,7 +33,7 @@
 		"cheerio": "^1.0.0-rc.10",
 		"dotenv": "^16.0.0",
 		"formik": "^2.2.9",
-		"link-preview-generator": "^1.0.7",
+		"link-preview-generator": "1.1.0",
 		"next": "12.1.0",
 		"prisma": "^3.9.2",
 		"react": "17.0.2",
