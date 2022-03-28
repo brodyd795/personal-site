@@ -1,5 +1,5 @@
 export const domains = {
-	DEV: 'dev-brody-v2.dingel.dev',
+	DEV: 'dev-brody.dingel.dev',
 	LOCALHOST: 'localhost:3000',
-	PRODUCTION: 'brody-v2.dingel.dev'
+	PRODUCTION: 'brody.dingel.dev'
 };
