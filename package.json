@@ -8,6 +8,7 @@
 	"license": "ISC",
 	"scripts": {
 		"dev": "next dev",
+		"clean:prisma": "rm -r node_modules && yarn install && yarn prisma generate",
 		"cypress": "cypress run",
 		"cypress:ui": "cypress open",
 		"build": "yarn test && next build",
