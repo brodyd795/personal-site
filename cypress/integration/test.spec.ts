@@ -1,8 +1,10 @@
 import {projects} from '../../data/projects';
 
+const baseUrl = 'https://dev-brody.dingel.dev';
+
 describe('Navigation', () => {
 	it('should show the header', () => {
-		cy.visit('http://localhost:3000/');
+		cy.visit(baseUrl);
 
 		cy.get('h1').contains('Brody Dingel');
 		cy.get('h2').contains('Full-stack software engineer at Hy-Vee');
@@ -11,7 +13,7 @@ describe('Navigation', () => {
 	it('should show projects', () => {
 		const {name, link, tldr} = projects[0];
 
-		cy.visit('http://localhost:3000/');
+		cy.visit(baseUrl);
 
 		cy.findByText(name);
 		cy.findByText(tldr);
@@ -23,12 +25,12 @@ describe('Navigation', () => {
 		cy.deleteFromReadingList(testUrl);
 		cy.addToReadingList(testUrl);
 
-		cy.visit('http://localhost:3000/');
+		cy.visit(baseUrl);
 		cy.get(`a[href*="${testUrl}"]`);
 	});
 
 	it('should have a functional contact form', () => {
-		cy.visit('http://localhost:3000/');
+		cy.visit(baseUrl);
 
 		cy.get('input[name=name]').type('Cypress User');
 		cy.get('input[name=email]').type('brodydingel@gmail.com');

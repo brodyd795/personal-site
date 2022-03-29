@@ -1,15 +1,9 @@
-declare module 'link-preview-generator' {
+declare module 'link-preview-js' {
 	type LinkPreviewResult = {
 		title: string;
 		description: string;
-		domain: string;
-		img: string;
+		images: string[];
 	};
 
-	export default function (
-		uri: string,
-		puppeteerArgs?: string[],
-		puppeteerAgent?: string,
-		executablePath?: string
-	): Promise<LinkPreviewResult>;
+	export function getLinkPreview(uri: string): Promise<LinkPreviewResult>;
 }
