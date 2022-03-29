@@ -33,7 +33,7 @@
 		"cheerio": "^1.0.0-rc.10",
 		"dotenv": "^16.0.0",
 		"formik": "^2.2.9",
-		"link-preview-generator": "1.1.0",
+		"link-preview-js": "^2.1.13",
 		"next": "12.1.0",
 		"prisma": "^3.9.2",
 		"puppeteer-extra-plugin-stealth": "^2.9.0",
