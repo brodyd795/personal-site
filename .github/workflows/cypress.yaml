@@ -15,11 +15,9 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Run e2e tests
-        # env:
-        #   READING_LIST_EXTENSION_SECRET: ${{ secrets.READING_LIST_EXTENSION_SECRET }}
+        env:
+          READING_LIST_EXTENSION_SECRET: ${{ secrets.READING_LIST_EXTENSION_SECRET }}
         run: yarn cypress
-      - name: Test failure
-        run: cat "I shouldn't log"
       - name: perform merge
         run: |
           git config --global user.email "${GITHUB_ACTOR}"
