@@ -25,6 +25,7 @@ jobs:
         with:
           script: |
             const { repo, owner } = context.repo;
+            console.log('sha', process.env.SHA);
             const commit = await github.rest.repos.getCommit({
               owner: context.repo.owner,
               repo: context.repo.repo,
