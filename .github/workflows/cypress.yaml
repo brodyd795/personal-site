@@ -8,25 +8,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '16.6.0'
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-      - name: Run e2e tests
-        env:
-          READING_LIST_EXTENSION_SECRET: ${{ secrets.READING_LIST_EXTENSION_SECRET }}
-        run: yarn cypress
+      # - name: Use Node.js
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: '16.6.0'
+      # - name: Install dependencies
+      #   run: yarn --frozen-lockfile
+      # - name: Run e2e tests
+      #   env:
+      #     READING_LIST_EXTENSION_SECRET: ${{ secrets.READING_LIST_EXTENSION_SECRET }}
+      #   run: yarn cypress
       - name: perform merge
         run: |
           git config --global user.email "${GITHUB_ACTOR}"
           git config --global user.name "${GITHUB_ACTOR}@users.noreply.github.com"
           git status
-          git pull
-          git checkout staging
-          git status
+          git pull origin staging
           git checkout main
+          git pull origin main
           git merge staging --no-edit
-          git push
-          git status
+          # git push
+          # git status
