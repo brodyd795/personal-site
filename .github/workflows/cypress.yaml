@@ -20,6 +20,8 @@ jobs:
       #   run: yarn cypress
       - name: Create Pull Request
         uses: actions/github-script@v6
+        env:
+          SHA: '${{env.parentSHA}}'
         with:
           script: |
             const { repo, owner } = context.repo;
