@@ -27,6 +27,7 @@ jobs:
           git pull
           git checkout main
           git pull origin main
-          git merge staging --no-edit
+          git log
+          git pull origin staging
           # git push
           # git status
