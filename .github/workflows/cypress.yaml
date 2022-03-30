@@ -28,5 +28,5 @@ jobs:
             const commit = await github.rest.repos.getCommit({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: `${SHA}`
+              ref: `${process.env.SHA}`
             });
