@@ -18,16 +18,18 @@ jobs:
       #   env:
       #     READING_LIST_EXTENSION_SECRET: ${{ secrets.READING_LIST_EXTENSION_SECRET }}
       #   run: yarn cypress
-      - name: perform merge
-        run: |
-          git config --global user.email "${GITHUB_ACTOR}"
-          git config --global user.name "${GITHUB_ACTOR}@users.noreply.github.com"
-          git status
-          git pull origin staging
-          git pull
-          git checkout main
-          git pull origin main
-          git log
-          git pull origin staging
-          # git push
-          # git status
+      - name: Run the Action
+        uses: devops-infra/action-pull-request@v0.4.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_branch: staging
+          target_branch: main
+          title: My pull request
+          body: '**Automated pull request**'
+          reviewer: octocat
+          assignee: octocat
+          draft: true
+          old_string: '<!-- Add your description here -->'
+          new_string: '** Automatic pull request**'
+          get_diff: true
+          ignore_users: 'dependabot'
