@@ -23,14 +23,14 @@ jobs:
         with:
           script: |
             const { repo, owner } = context.repo;
-            const {SHA} = process.env
+            const {SHA} = process.env;
             console.log('SHA :>>', SHA);
-            const commit = await github.rest.repos.getCommit({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: `${SHA}`
-            });
-            console.log('commit :>>', commit);
+            # const commit = await github.rest.repos.getCommit({
+            #   owner: context.repo.owner,
+            #   repo: context.repo.repo,
+            #   ref: `${SHA}`
+            # });
+            # console.log('commit :>>', commit);
             # const result = await github.rest.pulls.create({
             #   title: '[Example] Simple demo',
             #   owner,
