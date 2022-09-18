@@ -26,6 +26,7 @@ export function getStaticProps(): {props: {posts: BlogPost}} {
 		.slice(0, 9)
 		.map((post) => post.meta);
 
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 	// @ts-ignore
 	return {props: {posts}};
 }
