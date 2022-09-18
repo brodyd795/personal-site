@@ -26,5 +26,6 @@ export function getStaticProps(): {props: {posts: BlogPost}} {
 		.slice(0, 9)
 		.map((post) => post.meta);
 
+	// @ts-ignore
 	return {props: {posts}};
 }
