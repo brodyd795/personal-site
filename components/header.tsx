@@ -22,6 +22,10 @@ export const Header: FC<IHeaderProps> = ({
 					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 					<a className={`${linkStyles} mr-auto`}>Home</a>
 				</Link>
+				<Link href='/blog'>
+					{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+					<a className={linkStyles}>Blog</a>
+				</Link>
 				<a
 					href={'/resume.pdf'}
 					className={linkStyles}
