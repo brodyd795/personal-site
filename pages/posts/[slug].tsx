@@ -24,6 +24,10 @@ const headerText = 'Blog';
 const subHeaderText = ['My personal blog'];
 
 const markdownProseStyles = `
+	// this enables default typography styles
+	prose
+
+	// and these override them
 	prose-headings:text-red-500
 	prose-a:text-red-500
 	prose-ul:text-red-500
@@ -39,7 +43,7 @@ export default function PostPage({post}: {post: MDXPost}) {
 				<title>{post.meta.title}</title>
 			</Head>
 			<Container headerText={headerText} subHeaderText={subHeaderText}>
-				<main className={`prose ${markdownProseStyles}`}>
+				<main className={markdownProseStyles}>
 					<h1>{post.meta.title}</h1>
 					<ViewCount slug={post.meta.slug} />
 					<MDXRemote {...post.source} />
