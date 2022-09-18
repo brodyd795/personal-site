@@ -1,3 +1,5 @@
+import {FC} from 'react';
+
 import type {GetStaticProps, GetStaticPaths} from 'next';
 import Head from 'next/head';
 import {MDXRemote, MDXRemoteSerializeResult} from 'next-mdx-remote';
@@ -5,20 +7,17 @@ import {serialize} from 'next-mdx-remote/serialize';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'highlight.js/styles/atom-one-dark.css';
+
 import {getPostFromSlug, getSlugs, PostMeta} from '../../utils/api';
 import {Container} from '../../components/container';
-import 'highlight.js/styles/atom-one-dark.css';
 import {ViewCount} from '../../components/view-count';
 
 interface MDXPost {
 	source: MDXRemoteSerializeResult<Record<string, unknown>>;
 	meta: PostMeta;
 }
-
-const views = {
-	intro: 10,
-	second: 11
-};
 
 const headerText = 'Blog';
 const subHeaderText = ['My personal blog'];
@@ -36,7 +35,7 @@ const markdownProseStyles = `
 	prose-a:no-underline
 `;
 
-export default function PostPage({post}: {post: MDXPost}) {
+const PostPage: FC<{post: MDXPost}> = ({post}) => {
 	return (
 		<>
 			<Head>
@@ -51,12 +50,13 @@ export default function PostPage({post}: {post: MDXPost}) {
 			</Container>
 		</>
 	);
-}
+};
+
+export default PostPage;
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
 	const {slug} = params as {slug: string};
 	const {content, meta} = getPostFromSlug(slug);
-	console.log({content, meta});
 	const mdxSource = await serialize(content, {
 		mdxOptions: {
 			rehypePlugins: [
@@ -70,7 +70,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 	return {props: {post: {source: mdxSource, meta}}};
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
 	const paths = getSlugs().map((slug) => ({params: {slug}}));
 
 	return {

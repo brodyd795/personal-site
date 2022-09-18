@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import {FC} from 'react';
 import type {PostMeta} from '../utils/api';
 
-export default function Articles({posts}: {posts: PostMeta[]}) {
+const Articles: FC<{posts: PostMeta[]}> = ({posts}) => {
 	return (
 		<ul>
 			{posts.map((post) => (
@@ -13,4 +14,6 @@ export default function Articles({posts}: {posts: PostMeta[]}) {
 			))}
 		</ul>
 	);
-}
+};
+
+export default Articles;

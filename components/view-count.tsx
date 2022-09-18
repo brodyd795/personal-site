@@ -1,6 +1,6 @@
 import {FC} from 'react';
 
-const viewCounts = {
+const viewCounts: Record<string, number> = {
 	intro: 11,
 	second: 2
 };
