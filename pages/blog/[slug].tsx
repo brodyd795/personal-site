@@ -7,12 +7,12 @@ import {serialize} from 'next-mdx-remote/serialize';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
+import dynamic from 'next/dynamic';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'highlight.js/styles/atom-one-dark.css';
 
 import {getPostFromSlug, getSlugs, PostMeta} from '../../utils/api';
 import {Container} from '../../components/container';
-import {ViewCount} from '../../components/view-count';
 
 interface MDXPost {
 	source: MDXRemoteSerializeResult<Record<string, unknown>>;
@@ -35,6 +35,17 @@ const markdownProseStyles = `
 	prose-a:no-underline
 `;
 
+// Custom components/renderers to pass to MDX.
+// Since the MDX files aren't loaded by webpack, they have no knowledge of how
+// to handle import statements. Instead, you must include components in scope
+// here.
+const components = {
+	// It also works with dynamically-imported components, which is especially
+	// useful for conditionally loading components for certain routes.
+	// See the notes in README.md for more details.
+	ViewCount: dynamic(() => import('../../components/view-count'))
+};
+
 const PostPage: FC<{post: MDXPost}> = ({post}) => {
 	return (
 		<>
@@ -43,9 +54,7 @@ const PostPage: FC<{post: MDXPost}> = ({post}) => {
 			</Head>
 			<Container headerText={headerText} subHeaderText={subHeaderText}>
 				<main className={markdownProseStyles}>
-					<h1>{post.meta.title}</h1>
-					<ViewCount slug={post.meta.slug} />
-					<MDXRemote {...post.source} />
+					<MDXRemote {...post.source} components={components} />
 				</main>
 			</Container>
 		</>

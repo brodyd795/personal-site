@@ -39,6 +39,7 @@ export const Header: FC<IHeaderProps> = ({
 					<a className={linkStyles}>Contact</a>
 				</Link>
 			</nav>
+			{/** TODO: fix this */}
 			<div className='flex flex-col-reverse w-full sm:flex-row mt-8 pl-4 sm:justify-between'>
 				<div className={'flex flex-col justify-center'}>
 					<h1 className='text-3xl sm:text-5xl font-bold'>{headerText}</h1>
