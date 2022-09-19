@@ -12,8 +12,9 @@ const handler = async (
 	res: NextApiResponse<GetViewCountResponse>
 ) => {
 	try {
-		console.log('here');
-		const views = await getViews();
+		const slug = req.query.slug as string;
+
+		const views = await getViews({slug});
 		console.log('views :>> ', views);
 
 		res.status(200).send({views});

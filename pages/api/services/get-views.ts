@@ -2,18 +2,23 @@ import {blog} from '@prisma/client';
 
 import {prisma} from './prisma-client';
 
-export const getViews = async (): Promise<blog[]> => {
-	await prisma().blog.update({
+export const getViews = async ({slug}: {slug: string}): Promise<blog[]> => {
+	const result = await prisma().blog.findUnique({
 		where: {
-			id: 'first'
-		},
-		data: {
-			views: 2
+			id: slug
 		}
 	});
-	const result = await prisma().blog.findMany({
-		take: 1
-	});
+
+	if (result === null) {
+		const created = await prisma().blog.create({
+			data: {
+				id: slug,
+				views: 1
+			}
+		});
+
+		return created;
+	}
 
 	await prisma().$disconnect();
 
