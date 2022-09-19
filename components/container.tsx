@@ -14,8 +14,9 @@ export const Container = ({
 	headerText,
 	subHeaderText
 }: IProps): JSX.Element => (
-	<div className='flex flex-col items-center bg-neutral-900 text-white '>
+	<div className='flex flex-col items-center bg-neutral-900 text-white min-h-screen'>
 		<div className={'max-w-screen-md'}>
+			{/** TODO: don't duplicate head */}
 			<Head>
 				<title>Brody Dingel</title>
 			</Head>
