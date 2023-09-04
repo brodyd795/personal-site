@@ -84,7 +84,7 @@ describe('Index', () => {
 			render();
 
 			expect(
-				await screen.findByText('Full-stack software engineer at Bestow, Inc.')
+				await screen.findByText('Full-stack software engineer at Bestow')
 			).toBeVisible();
 			expect(
 				screen.queryByText('My journey into software engineering')
