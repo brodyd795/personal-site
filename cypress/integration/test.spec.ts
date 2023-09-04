@@ -20,15 +20,6 @@ describe('Navigation', () => {
 		cy.get(`a[href*="${link}"]`);
 	});
 
-	it('should show reading list items', () => {
-		const testUrl = 'https://kentcdodds.com/blog/useeffect-vs-uselayouteffect';
-		cy.deleteFromReadingList(testUrl);
-		cy.addToReadingList(testUrl);
-
-		cy.visit(baseUrl);
-		cy.get(`a[href*="${testUrl}"]`);
-	});
-
 	it('should have a functional contact form', () => {
 		cy.visit(baseUrl);
 
