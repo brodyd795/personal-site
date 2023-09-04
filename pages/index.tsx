@@ -7,7 +7,7 @@ import {Contact} from '../components/contact';
 import {About} from '../components/about';
 
 const headerText = 'Brody Dingel';
-const subHeaderText = ['Full-stack software engineer at Hy-Vee'];
+const subHeaderText = ['Full-stack software engineer at Bestow, Inc.'];
 
 const Home = (): JSX.Element => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>

@@ -7,7 +7,7 @@ describe('Navigation', () => {
 		cy.visit(baseUrl);
 
 		cy.get('h1').contains('Brody Dingel');
-		cy.get('h2').contains('Full-stack software engineer at Hy-Vee');
+		cy.get('h2').contains('Full-stack software engineer at Bestow, Inc.');
 	});
 
 	it('should show projects', () => {

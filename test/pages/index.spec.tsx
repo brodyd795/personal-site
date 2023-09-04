@@ -74,7 +74,7 @@ describe('Index', () => {
 
 			expect(await screen.findByText('Brody Dingel')).toBeVisible();
 			expect(
-				await screen.findByText('Full-stack software engineer at Hy-Vee')
+				await screen.findByText('Full-stack software engineer at Bestow, Inc.')
 			).toBeVisible();
 		});
 	});
@@ -84,9 +84,7 @@ describe('Index', () => {
 			render();
 
 			expect(
-				await screen.findByText(
-					'Full-stack software engineer in ecommerce at Hy-Vee'
-				)
+				await screen.findByText('Full-stack software engineer at Bestow, Inc.')
 			).toBeVisible();
 			expect(
 				screen.queryByText('My journey into software engineering')
