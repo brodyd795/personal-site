@@ -8,16 +8,9 @@ import {SWRConfig} from 'swr';
 import * as nextRouter from 'next/router';
 import {projects} from '../../data/projects';
 import {timelineEvents} from '../../components/timeline-events';
-import {
-	server,
-	contactHandlerOnFailure,
-	readingListErrorHandler,
-	readingListLoadingHandler,
-	readingListMockData
-} from '../infrastructure';
+import {server, contactHandlerOnFailure} from '../infrastructure';
 import Index from '../../pages/index';
 import {createRouter} from '../mocks/nextRouterMock';
-import {readingListDefaultData} from '../../data/reading';
 
 describe('Index', () => {
 	const {useRouter} = nextRouter as jest.Mocked<typeof nextRouter>;
@@ -81,7 +74,7 @@ describe('Index', () => {
 
 			expect(await screen.findByText('Brody Dingel')).toBeVisible();
 			expect(
-				await screen.findByText('Full-stack software engineer at Hy-Vee')
+				await screen.findByText('Full-stack software engineer at Bestow, Inc.')
 			).toBeVisible();
 		});
 	});
@@ -91,9 +84,7 @@ describe('Index', () => {
 			render();
 
 			expect(
-				await screen.findByText(
-					'Full-stack software engineer in ecommerce at Hy-Vee'
-				)
+				await screen.findByText('Full-stack software engineer at Bestow')
 			).toBeVisible();
 			expect(
 				screen.queryByText('My journey into software engineering')
@@ -169,39 +160,6 @@ describe('Index', () => {
 				expect(technologies).toBeVisible();
 				expect(card).toHaveAttribute('href', link);
 			}
-		});
-	});
-
-	describe('reading list', () => {
-		test('should show reading list', async () => {
-			const {domain, description, title} = readingListMockData.list[0];
-			render();
-
-			expect(await screen.findByText(domain!)).toBeVisible();
-			expect(await screen.findByText(description!)).toBeVisible();
-			expect(await screen.findByText(title)).toBeVisible();
-		});
-
-		test('should show reading list error', async () => {
-			server.use(readingListErrorHandler);
-
-			render();
-
-			for (let i = 0; i < readingListDefaultData.list.length; i += 1) {
-				const {domain, description, title} = readingListDefaultData.list[i];
-
-				expect(await screen.findByText(domain!)).toBeVisible();
-				expect(await screen.findByText(description!)).toBeVisible();
-				expect(await screen.findByText(title)).toBeVisible();
-			}
-		});
-
-		test('should show reading list loading state', async () => {
-			server.use(readingListLoadingHandler);
-
-			render();
-
-			expect(await screen.findByText('Loading...')).toBeVisible();
 		});
 	});
 

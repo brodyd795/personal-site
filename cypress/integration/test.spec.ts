@@ -7,7 +7,7 @@ describe('Navigation', () => {
 		cy.visit(baseUrl);
 
 		cy.get('h1').contains('Brody Dingel');
-		cy.get('h2').contains('Full-stack software engineer at Hy-Vee');
+		cy.get('h2').contains('Full-stack software engineer at Bestow, Inc.');
 	});
 
 	it('should show projects', () => {
@@ -18,15 +18,6 @@ describe('Navigation', () => {
 		cy.findByText(name);
 		cy.findByText(tldr);
 		cy.get(`a[href*="${link}"]`);
-	});
-
-	it('should show reading list items', () => {
-		const testUrl = 'https://kentcdodds.com/blog/useeffect-vs-uselayouteffect';
-		cy.deleteFromReadingList(testUrl);
-		cy.addToReadingList(testUrl);
-
-		cy.visit(baseUrl);
-		cy.get(`a[href*="${testUrl}"]`);
 	});
 
 	it('should have a functional contact form', () => {

@@ -12,8 +12,28 @@ export interface IYearEvents {
 
 export const timelineEvents: IYearEvents[] = [
 	{
+		year: 2023,
+		events: [
+			{
+				heading: '2nd daughter born! 👶🏻',
+				subtext: (
+					<div>Thrilled to welcome our second little one into the world.</div>
+				)
+			}
+		]
+	},
+	{
 		year: 2022,
 		events: [
+			{
+				heading: 'Started new job at Bestow, Inc.',
+				subtext: (
+					<div>
+						Inventing the future of life insurance, with near-instant
+						underwriting. Come work with us!
+					</div>
+				)
+			},
 			{
 				heading: 'Promoted to Software Engineer II 🎉',
 				subtext: <div>Thankful for everyone who helped me get here!</div>
@@ -57,8 +77,10 @@ export const timelineEvents: IYearEvents[] = [
 		year: 2020,
 		events: [
 			{
-				heading: 'Daughter born 👶🏻',
-				subtext: <div>{"She's the best!"}</div>
+				heading: '1st daughter born 👶🏻',
+				subtext: (
+					<div>So excited to welcome our first child into the world.</div>
+				)
 			},
 			{
 				heading: 'Software Engineer I at Hy-Vee 👨🏻‍💻',

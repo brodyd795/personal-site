@@ -4,11 +4,10 @@ import {Container} from '../components/container';
 import {Projects} from '../components/projects';
 import {Timeline} from '../components/timeline';
 import {Contact} from '../components/contact';
-import {ReadingList} from '../components/reading-list';
 import {About} from '../components/about';
 
 const headerText = 'Brody Dingel';
-const subHeaderText = ['Full-stack software engineer at Hy-Vee'];
+const subHeaderText = ['Full-stack software engineer at Bestow, Inc.'];
 
 const Home = (): JSX.Element => (
 	<Container headerText={headerText} subHeaderText={subHeaderText}>
@@ -16,7 +15,6 @@ const Home = (): JSX.Element => (
 			<About />
 			<Projects />
 			<Timeline />
-			<ReadingList />
 			<Contact />
 		</main>
 	</Container>
