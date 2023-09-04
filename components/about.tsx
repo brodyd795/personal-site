@@ -190,7 +190,7 @@ export const About = (): JSX.Element => {
 					<P>{`As I neared graduation, I got an interview with Hy-Vee and showed off my course website. 🤓 It went pretty well! And after learning that Hy-Vee uses React, I spent the following winter break React-ifying my site to learn the skills for the job.`}</P>
 					<P>{`Diving into the world of software engineering as a hobbyist was definitely a big change, but I haven't looked back. Fun stuff! 😎`}</P>
 					<H2>{`Outside of work`}</H2>
-					<P>{`When I'm not working, I'm usually hanging out with my amazing wife and daughter. ❤️ My wife is wonderful and has supported me throughout this whole journey, and my daughter has brought a whole new level of joy into our lives that we
+					<P>{`When I'm not working, I'm usually hanging out with my amazing wife and daughters. ❤️ My wife is wonderful and has supported me throughout this whole journey, and my daughter has brought a whole new level of joy into our lives that we
                             never would've thought possible. We like playing games, walks on Iowa trails, and reading lots.`}</P>
 					<P>{`If I'm not with them, I'm probably playing around with some new technology, trying my hand at woodworking, pretending I know how to golf, or reading.`}</P>
 				</Collapse>
