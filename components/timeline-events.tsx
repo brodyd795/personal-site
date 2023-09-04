@@ -33,12 +33,7 @@ export const timelineEvents: IYearEvents[] = [
 						underwriting. Come work with us!
 					</div>
 				)
-			}
-		]
-	},
-	{
-		year: 2022,
-		events: [
+			},
 			{
 				heading: 'Promoted to Software Engineer II 🎉',
 				subtext: <div>Thankful for everyone who helped me get here!</div>
