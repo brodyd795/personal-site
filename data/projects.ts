@@ -8,6 +8,14 @@ export interface IProject {
 
 export const projects: IProject[] = [
 	{
+		name: 'Bestow Life Insurance Platform',
+		link: 'https://bestow.com',
+		technologies: ['Remix', 'TypeScript'],
+		tldr: 'The future of life insurance',
+		description:
+			"Working at Bestow has raised my tech skills by so many levels. I've had the opportunity to think high-level and build software that will scale for years to come, all while diving into the intricacies of JS, TS, React, and the fundamentals of the web deeper than I had ever dreamed."
+	},
+	{
 		name: 'Accounting',
 		link: 'https://github.com/brodyd795/accounting',
 		technologies: ['Next.js', 'MySQL', 'Styled Components'],
@@ -53,6 +61,6 @@ export const projects: IProject[] = [
 		technologies: ['Too many to count!'],
 		tldr: "Hy-Vee's e-commerce platform. Making customers' lives better every day. A team effort, for sure!",
 		description:
-			"Much of the foundation of my learning has occurred while helping build this platform. From gaining experience with enterprise-level Next.js and React, to building out microservices backed by their own databases, to getting it all deployed via a CI/CD pipeline... I've learned a lot!"
+			'Much of the foundation of my learning has occurred while helping build this platform. From gaining experience with enterprise-level Next.js and React, to building out microservices backed by their own databases, to getting it all deployed via a CI/CD pipeline... I learned a lot!'
 	}
 ];
