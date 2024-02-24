@@ -46,12 +46,12 @@ export const timelineEvents: IYearEvents[] = [
 			{
 				heading: 'Presented new testing strategy to 80+ fellow engineers 😆',
 				subtext: (
-					<div>
+					<p>
 						Pioneered the evaluation and adoption of a new testing strategy for
 						React code to speed up development, increase confidence, and
 						encourage refactoring. Then I got to deliver a presentation on it to
 						my colleagues at work!
-					</div>
+					</p>
 				)
 			},
 			{
