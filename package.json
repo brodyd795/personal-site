@@ -21,7 +21,7 @@
 		"test": "yarn lint && yarn tsc && yarn jest"
 	},
 	"dependencies": {
-		"@auth0/nextjs-auth0": "1.6.1",
+		"@auth0/nextjs-auth0": "1.6.2",
 		"@fortawesome/fontawesome-svg-core": "6.1.1",
 		"@fortawesome/free-brands-svg-icons": "6.1.1",
 		"@fortawesome/free-solid-svg-icons": "6.1.1",
